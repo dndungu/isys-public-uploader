@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+.isys_visitor_posts  form {
+	display:inline-block;
+	width:100%;
+}
+
+.isys_visitor_posts label {
+	display:inline-block;
+	width:100%;
+	margin:5px 0;
+	padding:0;
+}
+
+.isys_visitor_posts label span, .isys_visitor_posts label input, .isys_visitor_posts label textarea, .isys_visitor_posts label select {
+	display:inline-block;
+	float:left;
+	margin:0 1%;
+}
+
+.isys_visitor_posts label span {
+	width:18%;
+}
+
+.isys_visitor_posts label input, .isys_visitor_posts label textarea {
+	width:76%;
+}
+
+.isys_visitor_posts label select {
+	width:36%;
+}
+
+.isys_visitor_posts input[type="reset"], .isys_visitor_posts input[type="submit"], .isys_visitor_posts input[type="button"] {
+	width:auto;
+	float:right;
+}
