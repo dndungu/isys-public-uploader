@@ -5,22 +5,31 @@ get_header();
 			<div id="content" role="main">
 				<?php
 					$categories = wp_get_post_terms($post->ID, 'public-post-category');
+					global $wp_query;
 				?>
-				<a href="<?php echo get_permalink(3030)?>/<?php echo $categories[0]->term_id?>/">Create new</a> | <a href="<?php echo get_permalink(2)?>">Back to main page</a>
+				<a href="<?php echo get_bloginfo('url')?>/create-public-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('Create new')?></a> | <a href="<?php echo get_bloginfo('url')?>/public-posts"><?php echo __('Back to main page')?></a>
 				<br/><br/>
-				<h1 class="page-title"><?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?></h1>
+				<h1 class="page-title">
+					<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
+				</h1>
 				<?php
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
 						$companies = wp_get_post_terms($post->ID, 'public-post-company');
-						$company_logo = $companies[0]->description;
+						$companies_meta = get_option("company_taxonomy_term_{$companies[0]->term_id}"); 
 				?>
-					<h2 class="entry-title"><a href="<?php echo the_permalink()?>"><?php echo the_title()?></a> <img src="<?php echo $company_logo?>" style="height:30px;float:right;"/> </h2>
+					<div style="display:inline-block;float:left;width:50%;">
+						<h2><a href="<?php echo the_permalink()?>"><?php echo the_title()?></a></h2>
+					</div>
+					<div style="display:inline-block;float:left;width:50%;">
+						<img src="<?php echo $companies_meta['thumbnail_term_meta']?>" style="height:30px;float:right;"/>
+					</div>					 
 					<div class="entry-summary">
 						<?php echo the_excerpt()?>
 						<p style="text-align:right">
-							<?php echo human_time_diff(get_the_time('U'), current_time('timestamp'))?> ago, by <?php echo get_the_author()?>
+							<?php $meta = get_post_meta($post->ID)?>
+							<?php echo human_time_diff(get_the_time('U'), current_time('timestamp'))?> ago, by <?php print $meta['author_name'][0]?>
 						</p>
 					</div>
 				<?php	
@@ -43,6 +52,5 @@ get_header();
 			</div><!-- #content -->
 		</div><!-- #container -->
 <?php 
-get_sidebar();
 get_footer();
 ?>
