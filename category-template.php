@@ -2,7 +2,6 @@
 get_header();
 ?>
 		<div id="container">
-			<div id="content" role="main">
 				<?php
 					$categories = wp_get_post_terms($post->ID, 'public-post-category');
 					global $wp_query;
@@ -49,7 +48,6 @@ get_header();
 				} 
 				?>				
 
-			</div><!-- #content -->
 		</div><!-- #container -->
 <?php 
 get_footer();

@@ -10,7 +10,6 @@
 get_header(); ?>
 
 		<div id="container" class="isys_visitor_posts">
-			<div id="content" role="main">
 				<?php if(have_posts()) {?>
 					<?php while(have_posts()){?>
 						<?php 
@@ -83,7 +82,6 @@ get_header(); ?>
 						</div>
 					<?php }?>
 				<?php }?>
-			</div>
 		</div>
 
 <?php get_footer(); ?>
