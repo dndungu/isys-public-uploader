@@ -334,14 +334,14 @@ class isys_visitor_posts {
 	public function create_virtual_page($posts) {
 		global $wp_query;
 		$url = $_SERVER['REQUEST_URI'];
-		if(substr_count($url, self::$landing_page_slug) > 0){
+		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug){
 			$virtual_page = self::virtual_page();
 			$virtual_page->post_name = self::$landing_page_slug;
 			$virtual_page->guid = site_url() . '/' . self::$landing_page_slug;
 			$virtual_page->post_title = self::$landing_page_title;
 			$virtual_page->ID = -10;
 		}
-		if(substr_count($url, self::$form_page_slug) > 0){
+		if(substr($url, 0, strlen(self::$form_page_slug)) == self::$form_page_slug){
 			$virtual_page = self::virtual_page();
 			$virtual_page->post_name = self::$form_page_slug;
 			$virtual_page->guid = site_url() . '/' . self::$form_page_slug;
@@ -349,7 +349,7 @@ class isys_visitor_posts {
 			$virtual_page->ID = -11;
 			$virtual_page->post_parent = -10;
 		}
-		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
+		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug || substr($url, 0, strlen(self::$form_page_slug)) == self::$form_page_slug){
 			$qp_query->is_singular = true;
 			$wp_query->is_page = true;
 			$wp_query->is_home = false;
