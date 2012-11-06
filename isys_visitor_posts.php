@@ -218,7 +218,6 @@ class isys_visitor_posts {
 	public function page_template($template){
 		global $wp;
 		$url = strtolower($_SERVER['REQUEST_URI']);
-		error_log("^^^^^^^^^{$url}^^^^^^^^");
 		if(substr_count($url, self::$landing_page_slug) > 0){
 			$template = dirname( __FILE__ ).'/home-template.php';
 		}
