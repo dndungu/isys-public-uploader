@@ -394,6 +394,4 @@ add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
 
-add_filter('single_template', array('isys_visitor_posts', 'page_template'));
-
 add_filter('page_template', array('isys_visitor_posts', 'page_template'));
