@@ -114,6 +114,7 @@ var isys_public_uploader = {
 	},
 	ajaxUpload: function(){
 		var subject = this;
+		subject.progressIndicator.css({display: 'inline-block'});
 		var event = arguments[0];
 		var data = new FormData();
 		data.append('action', 'isys_visitor_plugin');
@@ -132,7 +133,6 @@ var isys_public_uploader = {
 			}
 			data.append(file.name, file);
 		}
-		subject.progressIndicator.css({display: 'inline-block'});
 		subject.ajaxObject.open("POST", isys_public_uploader_the_ajax_script.ajaxurl);
 		subject.ajaxObject.setRequestHeader("Cache-Control", "no-cache");
 		subject.ajaxObject.send(data);
