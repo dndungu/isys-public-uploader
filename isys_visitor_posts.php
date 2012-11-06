@@ -25,6 +25,7 @@ class isys_visitor_posts {
 	private static $form_page_title = 'Create Public Post';
 	
 	public function create_post_type(){
+		global $wp;
 		register_post_type('public-post',
 			array(
 					'label'			=> __('Visitor Posts'),
@@ -332,7 +333,6 @@ class isys_visitor_posts {
 	public function create_virtual_page($posts) {
 		global $wp;
 		global $wp_query;
-		error_log(json_encode($wp));
 		if(strtolower($wp->request) == strtolower(self::$landing_page_slug) || $wp->query_vars['page_id'] == self::$landing_page_slug || strtolower($wp->request) == strtolower(self::$form_page_slug) || $wp->query_vars['page_id'] == self::$form_page_slug){
 			$landing_page = self::virtual_page();
 			$landing_page->post_name = self::$landing_page_slug;
