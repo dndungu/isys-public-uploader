@@ -25,7 +25,7 @@ get_header(); ?>
 							<div class="isys-half">
 								<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
 								<br/>
-								Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[1]?>"><?php print $author_email[1]?></a>
+								Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
 								<br/>
 								<?php print date('l j.F o', get_the_time('U'))?>
 								<br/>
