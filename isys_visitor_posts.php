@@ -16,11 +16,11 @@ class isys_visitor_posts {
 	
 	private static $recaptcha_private_key = '6Lfgi9gSAAAAABPWVmDvBqftb8A3FDQg9a3qp0qC';
 	
-	private static $landing_page_slug = 'public-posts';
+	private static $landing_page_slug = 'visitor-posts';
 	
 	private static $landing_page_title = 'Public Posts';
 	
-	private static $form_page_slug = 'create-public-post';
+	private static $form_page_slug = 'create-visitor-post';
 	
 	private static $form_page_title = 'Create Public Post';
 	
