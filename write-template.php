@@ -11,7 +11,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 ?>
 
 	<div id="container" class="isys_visitor_posts">
-		<div id="content" role="main">
+			
 			<a href="/public-posts"><?php echo __('Back to main page')?></a>
 			<br/><br/>
 			<h1 class="page-title"></h1>
@@ -22,11 +22,10 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<label>
 					<span>Title</span>
 					<input type="text" name="title" placeholder="My title"/>
-				</label>
-				<label>
-					<span>Description</span>
-					<?php wp_editor('', 'description', array('media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 5, 'teeny' => true))?>
-				</label>
+				</label>				
+				<div id="postdivrich" class="postarea" style="float:left;width:95%;display:inline-block;padding:10px 0;">
+					<?php wp_editor('', 'description', array('media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10))?>
+				</div>
 				<label>
 					<span>Your name</span>
 					<input type="text" name="author_name" placeholder="My name"/>
@@ -63,7 +62,9 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><a href="javascript:Recaptcha.reload()">Switch words</a></span>
 					<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="Enter the words above" id="recaptcha_response_field" />
 				</label>
-				<input type="button" name="cancel" value="Cancel"/> <input type="submit" name="submit" value="Post"/>
+				<span style="float:left;width:95%;display:inline-block;">
+					<input type="reset" name="cancel" class="button" value="Cancel"/> <input type="submit" name="submit" class="button" value="Post"/>
+				</span>
 			</form>
   			<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
 			<script type="text/javascript">
@@ -76,7 +77,6 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 			</script>					
 			<?php $category_term = get_term_by('id', $category_id, 'public-post-category')?>
 			<input type="hidden" name="category_name" id="category_name" value="<?php echo $category_term->name?>"/>
-		</div>
 	</div>
 
 <?php

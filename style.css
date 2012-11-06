@@ -7,6 +7,7 @@
 
 .isys_visitor_posts label {
 	display:inline-block;
+	float:left;
 	width:100%;
 	margin:5px 0;
 	padding:0;
@@ -15,17 +16,21 @@
 .isys_visitor_posts label span, .isys_visitor_posts label input, .isys_visitor_posts label textarea, .isys_visitor_posts label select, .isys_visitor_posts label .field {
 	display:inline-block;
 	float:left;
-	margin:0 1%;
-	padding:5px 1%;
+	margin:0;
+	padding:5px 0;
 }
 
 .isys_visitor_posts label span {
-	width:18%;
+	width:15%;
+}
+
+.isys_visitor_posts label span:first-child {
+	font-size:13px;
 }
 
 .isys_visitor_posts label input, .isys_visitor_posts label textarea, .isys_visitor_posts label .field {
-	width:72%;
-	float:right;
+	width:80%;
+	float:left;
 }
 
 .isys_visitor_posts label select {
@@ -137,4 +142,9 @@
 .isys-half {
 	display:inline-block;
 	width:49%;
+}
+
+#isys_visitor_post_form {
+	display:inline-block;
+	width:100%;
 }
