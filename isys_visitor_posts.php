@@ -125,10 +125,10 @@ class isys_visitor_posts {
 				'post_content' => self::postString('description'),
 				'post_status' => 'draft',
 				));
-		add_post_meta($postID, 'likes', 0);
-		add_post_meta($postID, 'dislikes', 0);
 		wp_set_post_terms($postID, self::postInteger('category'), 'public-post-category');
 		wp_set_post_terms($postID, self::postInteger('company'), 'public-post-company');
+		add_post_meta($postID, 'likes', 0);
+		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
 		add_post_meta($postID, 'author_name', self::postString('author_name'));
 		if(isset($_POST['attachments'])) {

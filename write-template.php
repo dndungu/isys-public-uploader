@@ -34,7 +34,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span>Your email</span>
 					<input type="text" name="author_email" placeholder="myname@mycompany.dk"/>
 				</label>
-				<?php $companies = get_terms(array('taxonomy' => 'public-post-company'))?>
+				<?php $companies = get_terms('public-post-company', array('hide_empty' => false))?>
 				<?php if(count($companies)){?>
 				<label>
 					<span>Your workplace</span>
