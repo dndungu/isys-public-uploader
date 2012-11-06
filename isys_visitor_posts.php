@@ -123,7 +123,6 @@ class isys_visitor_posts {
 				'post_title' => self::postString('title'),
 				'post_content' => self::postString('description'),
 				'post_status' => 'draft',
-				'post_type' => 'public-post'
 				));
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);
@@ -320,7 +319,6 @@ class isys_visitor_posts {
 	
 	public function virtual_page(){
 		$post = new stdClass();
-		$post->post_type = 'public-post';
 		$post->post_author = 1;
 		$post->post_content = '';
 		$post->post_status = 'static';
