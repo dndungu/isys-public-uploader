@@ -150,10 +150,10 @@ var isys_public_uploader = {
 		});		
 	},
 	onLoadStart: function(){
-		subject.progressIndicatorParent.css({display: 'inline-block'});
+		isys_public_uploader.progressIndicatorParent.css({display: 'inline-block'});
 	},
 	onLoadEnd: function(){
-		subject.progressIndicatorParent.css({display: 'none'});
+		isys_public_uploader.progressIndicatorParent.css({display: 'none'});
 	},
 	onProgress: function(){
 		return;
