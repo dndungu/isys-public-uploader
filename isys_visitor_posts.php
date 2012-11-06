@@ -218,10 +218,10 @@ class isys_visitor_posts {
 	
 	public function page_template($template){
 		$url = strtolower($_SERVER['REQUEST_URI']);
-		if(substr_count($url, self::$landing_page_slug) > 0){
+		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug){
 			return dirname( __FILE__ ).'/home-template.php';
 		}
-		if(substr_count($url, self::$form_page_slug) > 0){
+		if(substr($url, 0, strlen(self::$form_page_slug)) == self::$form_page_slug){
 			return dirname( __FILE__ ).'/write-template.php';
 		}
 		return $template;		
@@ -393,5 +393,7 @@ add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_s
 add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
+
+add_filter('single_template', array('isys_visitor_posts', 'page_template'));
 
 add_filter('page_template', array('isys_visitor_posts', 'page_template'));
