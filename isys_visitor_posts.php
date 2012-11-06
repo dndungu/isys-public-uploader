@@ -210,6 +210,7 @@ class isys_visitor_posts {
 	}
 	
 	public function single_template($template){
+		global $post;
 		if($post->post_type == 'public-post'){
 			return dirname( __FILE__ ).'/single-template.php';
 		}
