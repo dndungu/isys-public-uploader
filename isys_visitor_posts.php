@@ -330,9 +330,9 @@ class isys_visitor_posts {
 	}
 	
 	public function create_virtual_page($posts) {
-		global $wp;
 		global $wp_query;
-		if(strtolower($wp->request) == strtolower(self::$landing_page_slug) || $wp->query_vars['page_id'] == self::$landing_page_slug || strtolower($wp->request) == strtolower(self::$form_page_slug) || $wp->query_vars['page_id'] == self::$form_page_slug){
+		$url = str_replace('/', '', $_SERVER['REQUEST_URI']);
+		if($url == self::$landing_page_slug || $url == self::$form_page_slug){
 			$landing_page = self::virtual_page();
 			$landing_page->post_name = self::$landing_page_slug;
 			$landing_page->guid = site_url() . '/' . self::$landing_page_slug;
