@@ -218,7 +218,6 @@ class isys_visitor_posts {
 	public function page_template($template){
 		global $wp;
 		$url = strtolower($_SERVER['REQUEST_URI']);
-		error_log("******************$url**********************");
 		if(substr_count($url, self::$landing_page_slug) > 0){
 			$template = dirname( __FILE__ ).'/home-template.php';
 		}
@@ -320,9 +319,10 @@ class isys_visitor_posts {
 	
 	public function virtual_page(){
 		$post = new stdClass();
+		$post->post_type = 'page';
 		$post->post_author = 1;
 		$post->post_content = '';
-		$post->post_status = 'static';
+		$post->post_status = 'publish';
 		$post->comment_status = 'closed';
 		$post->ping_status = 'closed';
 		$post->post_date = current_time('mysql');
