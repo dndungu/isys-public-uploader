@@ -19,7 +19,7 @@ get_header(); ?>
 							$companies = wp_get_post_terms($post->ID, 'public-post-company');
 							$companies_meta = get_option("company_taxonomy_term_{$companies[0]->term_id}");
 						?>
-						<a href="<?php print get_bloginfo('url')?>/public-posts"><?php print __('Back to main page')?></a>
+						<a href="<?php print get_bloginfo('url')?>/visitor-posts"><?php print __('Back to main page')?></a>
 						<br/><br/>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<div class="isys-half">

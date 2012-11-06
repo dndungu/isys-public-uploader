@@ -218,10 +218,11 @@ class isys_visitor_posts {
 	
 	public function page_template($template){
 		global $wp;
-		if(strtolower($wp->request) == strtolower(self::$landing_page_slug) || $wp->query_vars['page_id'] == self::$landing_page_slug){
+		$url = strtolower($_SERVER['REQUEST_URI']);
+		if(substr_count($url, self::$landing_page_slug) > 0){
 			$template = dirname( __FILE__ ).'/home-template.php';
 		}
-		if(strtolower($wp->request) == strtolower(self::$form_page_slug) || $wp->query_vars['page_id'] == self::$form_page_slug){
+		if(substr_count($url, self::$form_page_slug) > 0){
 			$template = dirname( __FILE__ ).'/write-template.php';
 		}
 		return $template;
@@ -319,6 +320,7 @@ class isys_visitor_posts {
 	
 	public function virtual_page(){
 		$post = new stdClass();
+		$post->post_type = 'public-post';
 		$post->post_author = 1;
 		$post->post_content = '';
 		$post->post_status = 'static';
@@ -331,22 +333,23 @@ class isys_visitor_posts {
 	
 	public function create_virtual_page($posts) {
 		global $wp_query;
-		$url = str_replace('/', '', $_SERVER['REQUEST_URI']);
-		error_log("*************{$url}***************");
-		if($url == self::$landing_page_slug || $url == self::$form_page_slug){
-			$landing_page = self::virtual_page();
-			$landing_page->post_name = self::$landing_page_slug;
-			$landing_page->guid = site_url() . '/' . self::$landing_page_slug;
-			$landing_page->post_title = self::$landing_page_title;
-			$landing_page->ID = -10;
-			$virtual[] = $landing_page;
-			$form_page = self::virtual_page();
-			$form_page->post_name = self::$form_page_slug;
-			$form_page->guid = site_url() . '/' . self::$form_page_slug;
-			$form_page->post_title = self::$form_page_slug;
-			$form_page->ID = -11;
-			$form_page->post_parent = -10;
-			$virtual[] = $form_page;
+		$url = $_SERVER['REQUEST_URI'];
+		if(substr_count($url, self::$landing_page_slug) > 0){
+			$virtual_page = self::virtual_page();
+			$virtual_page->post_name = self::$landing_page_slug;
+			$virtual_page->guid = site_url() . '/' . self::$landing_page_slug;
+			$virtual_page->post_title = self::$landing_page_title;
+			$virtual_page->ID = -10;
+		}
+		if(substr_count($url, self::$form_page_slug) > 0){
+			$virtual_page = self::virtual_page();
+			$virtual_page->post_name = self::$form_page_slug;
+			$virtual_page->guid = site_url() . '/' . self::$form_page_slug;
+			$virtual_page->post_title = self::$form_page_slug;
+			$virtual_page->ID = -11;
+			$virtual_page->post_parent = -11;
+		}
+		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
 			$wp_query->is_page = true;
 			$wp_query->is_singular = true;
 			$wp_query->is_home = false;
@@ -355,9 +358,7 @@ class isys_visitor_posts {
 			unset($wp_query->query["error"]);
 			$wp_query->query_vars["error"] = "";
 			$wp_query->is_404 = false;
-			return $virtual;
-		}
-		if(isset($virtual)){
+			return array($virtual_page);
 		}
 		return $posts;
 	}

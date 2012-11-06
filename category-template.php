@@ -7,7 +7,7 @@ get_header();
 					$categories = wp_get_post_terms($post->ID, 'public-post-category');
 					global $wp_query;
 				?>
-				<a href="<?php echo get_bloginfo('url')?>/create-public-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('Create new')?></a> | <a href="<?php echo get_bloginfo('url')?>/public-posts"><?php echo __('Back to main page')?></a>
+				<a href="<?php echo get_bloginfo('url')?>/create-visitor-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('Create new')?></a> | <a href="<?php echo get_bloginfo('url')?>/visitor-posts"><?php echo __('Back to main page')?></a>
 				<br/><br/>
 				<h1 class="page-title">
 					<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
