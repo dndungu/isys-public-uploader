@@ -218,7 +218,6 @@ class isys_visitor_posts {
 	public function page_template($template){
 		global $wp;
 		$url = strtolower($_SERVER['REQUEST_URI']);
-		error_log("^^^^^^^^^^^^^{$url}^^^^^^^^^^^^^^^^^^^");
 		if(substr_count($url, self::$landing_page_slug) > 0){
 			$template = dirname( __FILE__ ).'/home-template.php';
 		}
@@ -320,15 +319,14 @@ class isys_visitor_posts {
 	
 	public function virtual_page(){
 		$post = new stdClass();
-		$post->post_type = 'page';
 		$post->post_author = 1;
 		$post->post_content = '';
-		$post->post_status = 'publish';
+		$post->post_status = 'static';
 		$post->comment_status = 'closed';
 		$post->ping_status = 'closed';
 		$post->post_date = current_time('mysql');
 		$post->post_date_gmt = current_time('mysql', 1);
-		return($post);
+		return $post;
 	}
 	
 	public function create_virtual_page($posts) {
@@ -350,6 +348,7 @@ class isys_visitor_posts {
 			$virtual_page->post_parent = -10;
 		}
 		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
+			error_log($url);
 			$wp_query->is_page = true;
 			$wp_query->is_singular = true;
 			$wp_query->is_home = false;
