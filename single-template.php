@@ -45,7 +45,7 @@ get_header(); ?>
 						</div>
 						<div class="row">
 							<div class="isys-half">
-								(<?php echo comments_number('0')?>) KOMMENTARER
+								(<?php echo get_comments_number()?>) KOMMENTARER
 								<br/>
 								<br/>
 							</div>
