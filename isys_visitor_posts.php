@@ -26,6 +26,7 @@ class isys_visitor_posts {
 	
 	public function create_post_type(){
 		global $wp;
+		error_log(json_encode($wp));
 		register_post_type('public-post',
 			array(
 					'label'			=> __('Visitor Posts'),
