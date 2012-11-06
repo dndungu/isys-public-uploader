@@ -68,7 +68,7 @@ get_header(); ?>
 							</span>
 						</div>
 						<div id="comments">
-							<?php $comments = get_comments(array('post_id' => get_the_ID()))?>
+							<?php $comments = get_comments(array('post_id' => get_the_ID(), 'status' => 'approve'))?>
 							<?php if(count($comments)){?>
 								<?php foreach($comments as $comment){?>
 									<div class="row" style="padding:5px 0;float:left;border-top:1px dotted #888;">
