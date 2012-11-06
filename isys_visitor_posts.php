@@ -210,11 +210,13 @@ class isys_visitor_posts {
 	}
 	
 	public function single_template($template){
-		global $post;
-		$single_template = dirname( __FILE__ ).'/single-template.php';
 		if($post->post_type == 'public-post'){
-			return $single_template;
+			return dirname( __FILE__ ).'/single-template.php';
 		}
+		return $template;
+	}
+	
+	public function page_template($template){
 		$url = strtolower($_SERVER['REQUEST_URI']);
 		if(substr_count($url, self::$landing_page_slug) > 0){
 			return dirname( __FILE__ ).'/home-template.php';
@@ -222,7 +224,7 @@ class isys_visitor_posts {
 		if(substr_count($url, self::$form_page_slug) > 0){
 			return dirname( __FILE__ ).'/write-template.php';
 		}
-		return $template;
+		return $template;		
 	}
 	
 	public function enqueue_scripts(){
@@ -317,6 +319,7 @@ class isys_visitor_posts {
 	
 	public function virtual_page(){
 		$post = new stdClass();
+		$post->post_type = 'page';
 		$post->post_author = 1;
 		$post->post_content = '';
 		$post->post_status = 'publish';
@@ -346,8 +349,8 @@ class isys_visitor_posts {
 			$virtual_page->post_parent = -10;
 		}
 		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
-			$wp_query->is_page = false;
-			$wp_query->is_singular = false;
+			$qp_query->is_singular = true;
+			$wp_query->is_page = true;
 			$wp_query->is_home = false;
 			$wp_query->is_archive = false;
 			$wp_query->is_category = false;
@@ -361,7 +364,7 @@ class isys_visitor_posts {
 		
 }
 
-add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'), 0);
+add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'));
 
 add_action('init', array('isys_visitor_posts', 'create_post_type'));
 
@@ -390,3 +393,5 @@ add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_s
 add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
+
+add_filter('page_template', array('isys_visitor_posts', 'page_template'));
