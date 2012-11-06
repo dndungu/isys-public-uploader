@@ -348,7 +348,7 @@ class isys_visitor_posts {
 			$virtual_page->post_parent = -10;
 		}
 		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
-			error_log($url);
+			error_log("******************{$url}******************");
 			$wp_query->is_page = true;
 			$wp_query->is_singular = true;
 			$wp_query->is_home = false;
