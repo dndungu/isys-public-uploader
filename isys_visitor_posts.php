@@ -343,7 +343,7 @@ class isys_visitor_posts {
 			$virtual_page = self::virtual_page();
 			$virtual_page->post_name = self::$form_page_slug;
 			$virtual_page->guid = site_url() . '/' . self::$form_page_slug;
-			$virtual_page->post_title = self::$form_page_slug;
+			$virtual_page->post_title = self::$form_page_title;
 			$virtual_page->ID = -11;
 			$virtual_page->post_parent = -10;
 		}
