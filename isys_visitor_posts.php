@@ -218,7 +218,7 @@ class isys_visitor_posts {
 	}
 	
 	public function page_template($template){
-		$url = strtolower($_SERVER['REQUEST_URI']);
+		$url = str_replace('/', '', $_SERVER['REQUEST_URI']);
 		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug){
 			return dirname( __FILE__ ).'/home-template.php';
 		}
@@ -333,7 +333,7 @@ class isys_visitor_posts {
 	
 	public function create_virtual_page($posts) {
 		global $wp_query;
-		$url = $_SERVER['REQUEST_URI'];
+		$url = str_replace('/', '', $_SERVER['REQUEST_URI']);
 		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug){
 			$virtual_page = self::virtual_page();
 			$virtual_page->post_name = self::$landing_page_slug;
