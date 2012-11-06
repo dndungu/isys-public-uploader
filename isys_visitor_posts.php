@@ -332,6 +332,7 @@ class isys_visitor_posts {
 	public function create_virtual_page($posts) {
 		global $wp_query;
 		$url = str_replace('/', '', $_SERVER['REQUEST_URI']);
+		error_log("*************{$url}***************");
 		if($url == self::$landing_page_slug || $url == self::$form_page_slug){
 			$landing_page = self::virtual_page();
 			$landing_page->post_name = self::$landing_page_slug;
