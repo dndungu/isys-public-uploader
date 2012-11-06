@@ -364,15 +364,9 @@ class isys_visitor_posts {
 		
 }
 
-add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'));
+add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'), 0);
 
 add_action('init', array('isys_visitor_posts', 'create_post_type'));
-
-add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
-
-add_filter('single_template', array('isys_visitor_posts', 'single_template'));
-
-add_filter('page_template', array('isys_visitor_posts', 'page_template'));
 
 add_action('wp_enqueue_scripts', array('isys_visitor_posts', 'enqueue_scripts'));
 
@@ -395,3 +389,9 @@ add_action( 'create_public-post-category', array('isys_visitor_posts', 'category
 add_action( 'edited_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 10, 2 );
 
 add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 10, 2 );
+
+add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
+
+add_filter('single_template', array('isys_visitor_posts', 'single_template'));
+
+add_filter('page_template', array('isys_visitor_posts', 'page_template'));
