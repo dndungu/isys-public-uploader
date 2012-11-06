@@ -345,7 +345,7 @@ class isys_visitor_posts {
 			$virtual_page->guid = site_url() . '/' . self::$form_page_slug;
 			$virtual_page->post_title = self::$form_page_slug;
 			$virtual_page->ID = -11;
-			$virtual_page->post_parent = -11;
+			$virtual_page->post_parent = -10;
 		}
 		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
 			$wp_query->is_page = true;
