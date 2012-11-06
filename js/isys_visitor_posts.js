@@ -132,6 +132,7 @@ var isys_public_uploader = {
 			}
 			data.append(file.name, file);
 		}
+		subject.progressIndicator.css({display: 'inline-block'});
 		subject.ajaxObject.open("POST", isys_public_uploader_the_ajax_script.ajaxurl);
 		subject.ajaxObject.setRequestHeader("Cache-Control", "no-cache");
 		subject.ajaxObject.send(data);
@@ -150,20 +151,18 @@ var isys_public_uploader = {
 		});		
 	},
 	onLoadStart: function(){
-		isys_public_uploader.progressIndicatorParent.css({display: 'inline-block'});
 	},
 	onLoadEnd: function(){
-		isys_public_uploader.progressIndicatorParent.css({display: 'none'});
+		isys_public_uploader.progressIndicator.css({display: 'none'});
 	},
 	onProgress: function(){
-		return;
 		var subject = isys_public_uploader;
 		var event = arguments[0];
 		if(!event.lengthComputable) return;
 		var parentWidth = subject.progressIndicatorParent.width();
 		var width = Math.floor(((event.position / event.totalSize) * parentWidth)) - 2;
 		var widthPercentage = Math.ceil((width/parentWidth) * 100);
-		subject.progressIndicator.width(width).html((widthPercentage + '%'));
+		subject.progressIndicator.css({width: width}).html((widthPercentage + '%'));
 	},
 	onComplete: function(){
 		var subject = this;

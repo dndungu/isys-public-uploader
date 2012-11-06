@@ -50,11 +50,9 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php echo __('Added files')?></span>
 					<span class="field">
 						<input type="file" name="file_upload" style="float:left;width:100%;margin:5px 0;"/>
+						<span class="progress"></span>
 					</span>
 				</label>
-  				<label style="display:none;">
-  					<span class="progress"></span>
-  				</label>
 				<label id="recaptcha_widget">
 					<span id="recaptcha_image" class="field"></span>
 				</label>

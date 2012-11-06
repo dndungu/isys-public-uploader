@@ -53,8 +53,9 @@
 	-moz-border-radius:4px;
 	border-radius:4px;
 	width:0;
+	height:20px;
 	float:left;
-	display:inline-block;
+	display:none;
 	padding:5px 0;
 	background:#70b040;
 	text-align:center;
