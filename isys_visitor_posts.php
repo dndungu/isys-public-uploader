@@ -212,18 +212,15 @@ class isys_visitor_posts {
 	public function single_template($template){
 		global $post;
 		$single_template = dirname( __FILE__ ).'/single-template.php';
-		return $post->post_type == 'public-post' ? $single_template : $template;
-	}
-	
-	public function page_template($template){
-		global $wp;
+		if($post->post_type == 'public-post'){
+			return $single_template;
+		}
 		$url = strtolower($_SERVER['REQUEST_URI']);
-		error_log("***************{$url}****************");
 		if(substr_count($url, self::$landing_page_slug) > 0){
-			$template = dirname( __FILE__ ).'/home-template.php';
+			return dirname( __FILE__ ).'/home-template.php';
 		}
 		if(substr_count($url, self::$form_page_slug) > 0){
-			$template = dirname( __FILE__ ).'/write-template.php';
+			return dirname( __FILE__ ).'/write-template.php';
 		}
 		return $template;
 	}
@@ -322,7 +319,7 @@ class isys_visitor_posts {
 		$post = new stdClass();
 		$post->post_author = 1;
 		$post->post_content = '';
-		$post->post_status = 'static';
+		$post->post_status = 'publish';
 		$post->comment_status = 'closed';
 		$post->ping_status = 'closed';
 		$post->post_date = current_time('mysql');
@@ -349,8 +346,8 @@ class isys_visitor_posts {
 			$virtual_page->post_parent = -10;
 		}
 		if(substr_count($url, self::$landing_page_slug) > 0 || substr_count($url, self::$form_page_slug) > 0){
-			$wp_query->is_page = true;
-			$wp_query->is_singular = true;
+			$wp_query->is_page = false;
+			$wp_query->is_singular = false;
 			$wp_query->is_home = false;
 			$wp_query->is_archive = false;
 			$wp_query->is_category = false;
@@ -393,5 +390,3 @@ add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_s
 add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
-
-add_filter('page_template', array('isys_visitor_posts', 'page_template'));
