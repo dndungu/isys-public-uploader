@@ -135,7 +135,6 @@ var isys_public_uploader = {
 		subject.ajaxObject.open("POST", isys_public_uploader_the_ajax_script.ajaxurl);
 		subject.ajaxObject.setRequestHeader("Cache-Control", "no-cache");
 		subject.ajaxObject.send(data);
-		subject.progressIndicatorParent.css({display: 'inline-block'});
 	},
 	writeError: function(){
 		this.writeBox($('.errorBox'), arguments[0]);
@@ -150,8 +149,12 @@ var isys_public_uploader = {
 			}, 15000);
 		});		
 	},
-	onLoadStart: function(){},
-	onLoadEnd: function(){},
+	onLoadStart: function(){
+		subject.progressIndicatorParent.css({display: 'inline-block'});
+	},
+	onLoadEnd: function(){
+		subject.progressIndicatorParent.css({display: 'none'});
+	},
 	onProgress: function(){
 		return;
 		var subject = isys_public_uploader;
