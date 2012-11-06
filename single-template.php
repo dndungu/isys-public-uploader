@@ -15,6 +15,7 @@ get_header(); ?>
 					<?php while(have_posts()){?>
 						<?php 
 							the_post();
+							$attachments = get_post_meta(get_the_ID(), 'attachments');
 							$categories = wp_get_post_terms($post->ID, 'public-post-category');
 							$companies = wp_get_post_terms($post->ID, 'public-post-company');
 							$companies_meta = get_option("company_taxonomy_term_{$companies[0]->term_id}");
@@ -27,9 +28,9 @@ get_header(); ?>
 								<br/>
 								Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
 								<br/>
-								<?php print date('l j.F o', get_the_time('U'))?>
+								<?php print date('l j. F o', get_the_time('U'))?>
 								<br/>
-								godkendt af <?php the_modified_author()?>
+								godkendt af <a href=""><?php the_modified_author()?></a>
 								<br/>
 								kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
 								<br/>
@@ -42,6 +43,20 @@ get_header(); ?>
 								<?php the_content(); ?>
 							</div>
 						</div>
+						<div class="row">
+							<div class="isys-half">
+								(<?php echo comments_number('0')?>) KOMMENTARER
+								<br/>
+								<br/>
+							</div>
+							<?php if(count($attachments)){?>
+							<div class="isys-half">
+								<?php foreach($attachments[0] as $attachment_id => $attachment_name){?>
+									<br/><a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
+								<?php }?>
+							</div>
+							<?php }?>
+						</div>						
 						<div class="row">
 							<span class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></span> likes, 
 							<span class="dislikes-count"><?php print intval(get_post_meta(get_the_ID(), 'dislikes', true))?></span> dislikes,

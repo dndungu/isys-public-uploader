@@ -131,11 +131,7 @@ class isys_visitor_posts {
 		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
 		add_post_meta($postID, 'author_name', self::postString('author_name'));
-		if(isset($_POST['attachments'])) {
-			foreach($_POST['attachments'] as $attachment){
-				add_post_meta($postID, 'attachment', $attachment);
-			}
-		}
+		add_post_meta($postID, 'attachments', (isset($_POST['attachments']) ? $_POST['attachments'] : array()));
 		print json_encode(array('success' => $postID));die();
 	}
 	
