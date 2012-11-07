@@ -170,9 +170,9 @@
 	width:255px;
 	border:0 none;
 	margin:1px 0 0 45px;
-	background-color:#e0e0e0;
+	background:transparent;
 	padding:6px 0;
-	height:28px;
+	height:27px;
 }
 
 .isys_visitor_posts .isys-main {
