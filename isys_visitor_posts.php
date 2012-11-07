@@ -199,7 +199,7 @@ class isys_visitor_posts {
 		print json_encode(array('success' => wp_insert_comment($comment)));die();
 	}
 	
-	public function archive_template($template){
+	public function category_template($template){
 		global $post;
 		$category_template = dirname( __FILE__ ).'/category-template.php';
 		return $post->post_type == 'public-post' ? $category_template : is_null($post) ? $category_template :  $template; 
@@ -358,12 +358,29 @@ class isys_visitor_posts {
 		}
 		return $posts;
 	}
+	
+	public function sidebar(){
+		register_sidebar( array(
+				'name' => 'Public Posts',
+				'id' => 'public-posts',
+				'description' => '',
+				'class' => '',
+				'before_widget' => '<div class="container">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3 class="widget-title">',
+				'after_title' => '</h3>'
+		));
+	}
 		
 }
 
-add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'));
+
 
 add_action('init', array('isys_visitor_posts', 'create_post_type'));
+
+add_action('widgets_init', array('isys_visitor_posts', 'sidebar'));
+
+add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'));
 
 add_action('wp_enqueue_scripts', array('isys_visitor_posts', 'enqueue_scripts'));
 
@@ -387,7 +404,11 @@ add_action( 'edited_public-post-company', array('isys_visitor_posts', 'company_s
 
 add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 10, 2 );
 
-add_filter('archive_template', array('isys_visitor_posts', 'archive_template'));
+add_filter('archive_template', array('isys_visitor_posts', 'category_template'));
+
+// add_filter('category_template', array('isys_visitor_posts', 'category_template'));
+
+// add_filter('search template', array('isys_visitor_posts', 'category_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
 

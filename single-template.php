@@ -37,7 +37,7 @@ get_header(); ?>
 								<br/>
 							</div>
 							<div class="isys-half">
-								<img src="<?php print $companies_meta['thumbnail_term_meta']?>" style="height:30px;float:right;"/>
+								<img src="<?php print $companies_meta['thumbnail_term_meta']?>" style="height:40px;float:right;"/>
 							</div>
 							<div class="entry-content">
 								<?php the_content(); ?>

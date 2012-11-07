@@ -149,6 +149,7 @@
 }
 
 .isys-half {
+	float:left;
 	display:inline-block;
 	width:49%;
 }
@@ -156,4 +157,43 @@
 #isys_visitor_post_form {
 	display:inline-block;
 	width:100%;
+}
+
+.isys_visitor_posts .search-form {
+	float:right;
+	width:300px;
+	height:80px;
+	background:url(images/sprite.png) 0 -60px scroll no-repeat transparent;
+}
+
+.isys_visitor_posts .search-form input[type="text"] {
+	width:255px;
+	border:0 none;
+	margin:1px 0 0 45px;
+	background-color:#e0e0e0;
+	padding:6px 0;
+	height:28px;
+}
+
+.isys_visitor_posts .isys-main {
+	float:left;
+	display:inline-block;
+}
+
+.isys_visitor_posts .widget-area .container {
+	text-transform:uppercase;
+	border-top:5px solid #c3c3c3;
+	padding:10px 0 45px 0;
+}
+
+.isys_visitor_posts .widget-area .container .textwidget {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-weight:400;
+	color:#6d6d6d;
+}
+
+.isys_visitor_posts .post-item {
+	padding:20px 0 0 0;
+	border-bottom:4px solid #c3c3c3;
+	border-top:1px solid #c3c3c3;
 }
