@@ -45,10 +45,10 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					</select>
 				</label>
 				<?php }?>
-				<p class="errorBox"></p>
 				<label class="attachments">
 					<span><?php echo __('Added files')?></span>
 					<span class="field">
+						<span class="errorBox"></span>
 						<input type="file" name="file_upload" style="float:left;width:100%;margin:5px 0;"/>
 						<span class="progress"></span>
 					</span>

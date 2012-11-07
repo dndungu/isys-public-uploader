@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.isys_visitor_posts {
+	font-size:1.25em;
+}
+
+.isys_visitor_posts input[type="text"], .isys_visitor_posts textarea, .isys_visitor_posts select {
+	font-size:1em;	
+}
+
 .isys_visitor_posts  form, .isys_visitor_posts  .row {
 	display:inline-block;
 	width:100%;
@@ -22,10 +30,6 @@
 
 .isys_visitor_posts label span {
 	width:15%;
-}
-
-.isys_visitor_posts label span:first-child {
-	font-size:13px;
 }
 
 .isys_visitor_posts label input, .isys_visitor_posts label textarea, .isys_visitor_posts label .field {
@@ -59,14 +63,19 @@
 	background:#70b040;
 	text-align:center;
 	color:#000;
-	font-size:1em;
 }
 
 .isys_visitor_posts .errorBox, .infoBox {
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:4px;
-	font-size:.75em;	
+	width:100%;
+	float:left;
+	display:inline-block;	
+}
+
+.errorBox {
+	color:#f00;
 }
 
 .post-vote {

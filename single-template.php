@@ -60,10 +60,10 @@ get_header(); ?>
 						<div class="row">
 							<span class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></span> likes, 
 							<span class="dislikes-count"><?php print intval(get_post_meta(get_the_ID(), 'dislikes', true))?></span> dislikes,
-							<span class="isys-button"> 
+							<span class="isys-button voting-button"> 
 								<a class="post-vote vote-down" vote="down" post="<?php the_ID()?>"></a>
 							</span>
-							<span class="isys-button">
+							<span class="isys-button voting-button">
 								<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>"></a>
 							</span>
 						</div>

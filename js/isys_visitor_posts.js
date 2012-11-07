@@ -45,7 +45,7 @@ var isys_public_uploader = {
 			message['do'] = 'post-vote';
 			message['postID'] = subject.attr('post');
 			jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, message, function(){
-				subject.parent().fadeOut();
+				jQuery('.voting-button').fadeOut();
 				switch(message['vote']){
 					case 'up':
 						jQuery('.likes-count').html(arguments[0]);
@@ -121,12 +121,15 @@ var isys_public_uploader = {
 		for(i in files){
 			var file = files[i];
 			if(!(file instanceof File)) continue;
-			if(file.size > subject.settings.maxPostSize){
-				subject.writeError('Please select a file with less than ' + (subject.settings.maxPostSize/1048576) + 'Mb.');
+			if(file.size > subject.settings.maxPostSize || file.size > 10485760){
+				var maxSize = subject.settings.maxPostSize > 10485760 ? 10485760 : subject.settings.maxPostSize;
+				subject.writeError('Please select a file with less than ' + (maxSize/1048576) + 'Mb.');
+				subject.uploadElement.val('');
 				return;
 			}
 			if(file.type.trim() != 'application/pdf'){
 				subject.writeError('Please upload PDF files only.');
+				subject.uploadElement.val('');
 				return;
 			}
 			data.append(file.name, file);
@@ -136,15 +139,15 @@ var isys_public_uploader = {
 		subject.ajaxObject.send(data);
 	},
 	writeError: function(){
-		this.writeBox($('.errorBox'), arguments[0]);
+		this.writeBox(jQuery('.errorBox'), arguments[0]);
 	},
 	writeBox: function(){
 		var subject = arguments[0];
-		subject.css({display: 'none'});
+		subject.hide();
 		subject.html(arguments[1]);
 		subject.fadeIn(function(){
 			setTimeout(function(){
-				subject.fadeOut();
+				subject.html('').fadeOut();
 			}, 15000);
 		});		
 	},
