@@ -94,7 +94,6 @@ var isys_public_uploader = {
 		subject.ajaxObject.upload.addEventListener('loadstart', subject.onLoadStart);
 		subject.ajaxObject.upload.addEventListener('loadend', subject.onLoadEnd);
 		subject.ajaxObject.upload.addEventListener('progress', subject.onProgress);
-		subject.ajaxObject.upload.addEventListener('progress', subject.onProgress);
 		subject.ajaxObject.onreadystatechange = function(){
 			subject.onComplete(subject.ajaxObject);
 		};		
@@ -114,7 +113,6 @@ var isys_public_uploader = {
 	},
 	ajaxUpload: function(){
 		var subject = this;
-		subject.progressIndicator.css({display: 'inline-block'});
 		var event = arguments[0];
 		var data = new FormData();
 		data.append('action', 'isys_visitor_plugin');
@@ -151,9 +149,11 @@ var isys_public_uploader = {
 		});		
 	},
 	onLoadStart: function(){
+		
 	},
 	onLoadEnd: function(){
-		isys_public_uploader.progressIndicator.css({display: 'none'});
+		isys_public_uploader.progressIndicator.html('').width(0);
+		isys_public_uploader.uploadElement.val('');
 	},
 	onProgress: function(){
 		var subject = isys_public_uploader;
@@ -162,18 +162,16 @@ var isys_public_uploader = {
 		var parentWidth = subject.progressIndicatorParent.width();
 		var width = Math.floor(((event.position / event.totalSize) * parentWidth)) - 2;
 		var widthPercentage = Math.ceil((width/parentWidth) * 100);
-		subject.progressIndicator.css({width: width}).html((widthPercentage + '%'));
+		subject.progressIndicator.width(width).html((widthPercentage + '%'));
 	},
 	onComplete: function(){
-		var subject = this;
+		var subject = isys_public_uploader;
 		if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
-		subject.progressIndicator.html('').width(0);
 		var response = jQuery.parseJSON(arguments[0].responseText);
 		for(i in response){
 			var attachment = response[i];
 			subject.attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
-		subject.uploadElement.val('');
 	},
 	removeUpload: function(){
 		jQuery('input[name="attachments[' + arguments[0] + ']"]').parent().remove();
