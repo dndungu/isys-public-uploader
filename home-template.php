@@ -9,13 +9,15 @@ get_header();
 ?>
 
 	<div id="container" class="isys_visitor_posts">
-		<div class="isys-half"><h1><?php echo __('VÆRKTØJSKASSEN')?></h1></div>
-		<div class="isys-half">
-			<form class="search-form" method="GET" action="<?php echo site_url()?>">
-					<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
-					<input type="hidden" id="searchsubmit"/>
-					<input type="hidden" name="post_type" value="public-post">
-			</form>
+		<div class="row">
+			<div class="isys-half"><h1><?php echo __('VÆRKTØJSKASSEN')?></h1></div>
+			<div class="isys-half">
+				<form class="search-form" method="GET" action="<?php echo site_url()?>">
+						<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
+						<input type="hidden" id="searchsubmit"/>
+						<input type="hidden" name="post_type" value="public-post">
+				</form>
+			</div>
 		</div>
 		<?php
 			$terms_table = $wpdb->prefix . 'terms';

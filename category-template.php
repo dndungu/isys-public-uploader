@@ -52,28 +52,30 @@ get_header();
 								<?php }?>
 							</span>
 						</div>
-						<div class="isys-half">
-							<h2>
-								<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
-							</h2>
-							<span style="text-transform:uppercase;">Indlæg af</span> <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
-							<br/>
-							<?php print date('l j. F o', get_the_time('U'))?>
-							<br/>
-							godkendt af <a href=""><?php the_modified_author()?></a>
-							<br/>
-							<?php print date('l j. F o', get_the_modified_time('U'))?>
-							<br/>
-							kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
-							<br/>
-							<br/>
-						</div>
-						<div class="isys-half">
-							<?php if(count($companies)){?>
-							<?php $logo = $companies[0]?>
-							<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
-							<?php }?>
-						</div>					 
+						<div class="row">
+							<div class="isys-half">
+								<h2>
+									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
+								</h2>
+								<span style="text-transform:uppercase;">Indlæg af</span> <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
+								<br/>
+								<?php print date('l j. F o', get_the_time('U'))?>
+								<br/>
+								godkendt af <a href=""><?php the_modified_author()?></a>
+								<br/>
+								<?php print date('l j. F o', get_the_modified_time('U'))?>
+								<br/>
+								kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
+								<br/>
+								<br/>
+							</div>
+							<div class="isys-half">
+								<?php if(count($companies)){?>
+								<?php $logo = $companies[0]?>
+								<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
+								<?php }?>
+							</div>
+						</div>	 
 						<div class="entry-summary">
 							<?php echo the_excerpt()?>
 							<div class="isys-half"  style="width:75%;">
