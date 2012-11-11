@@ -45,7 +45,7 @@ var isys_public_uploader = {
 			message['do'] = 'post-vote';
 			message['postID'] = subject.attr('post');
 			jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, message, function(){
-				jQuery('.voting-button').fadeOut();
+				subject.fadeOut();
 				switch(message['vote']){
 					case 'up':
 						jQuery('.likes-count').html(arguments[0]);

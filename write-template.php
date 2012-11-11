@@ -34,17 +34,20 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span>Your email</span>
 					<input type="text" name="author_email" placeholder="myname@mycompany.dk"/>
 				</label>
-				<?php $companies = get_terms('public-post-company', array('hide_empty' => false))?>
-				<?php if(count($companies)){?>
+				<?php
+				$companies = isys_visitor_posts::get_companies();
+				?>
 				<label>
 					<span>Your workplace</span>
-					<select name="company">
+					<select name="post_company">
+						<option value="0"><?php print __('Select Company')?></option>
+						<?php if(count($companies)){?>
 						<?php foreach($companies as $company){?>
-							<option value="<?php echo $company->term_id?>"><?php echo $company->name?></option>
+							<option value="<?php echo $company->pid?>"><?php echo $company->alttext?></option>
+						<?php }?>
 						<?php }?>
 					</select>
 				</label>
-				<?php }?>
 				<label class="attachments">
 					<span><?php echo __('Added files')?></span>
 					<span class="field">

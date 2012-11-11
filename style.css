@@ -80,42 +80,21 @@
 
 .post-vote {
 	cursor:pointer;
-	width:16px;
-	height:14px;
+	width:54px;
+	height:24px;
 	display:inline-block;
-	padding:4px 8px;
+	color:#fff;
+	padding:3px 0 0 8px;
+	text-align:left;
+}
+
+.post-vote:hover {
+	text-decoration:none;
+	color:#fff;
 }
 
 .vote-up {
-	background:url(images/thumbs_up.png) center center scroll no-repeat transparent;
-}
-
-.vote-down {
-	background:url(images/thumbs_down.png) center center scroll no-repeat transparent;
-}
-
-.isys-button {
-	text-shadow: 0 1px 0 #fff;
-	margin:0 0 20px 10px;
-	display:inline-block;
-	float:right;
-	text-transform:capitalize;
-	text-decoration:none;
-	color:#555;
-	cursor:pointer;
-	padding:0;
-	-webkit-border-radius: 3px;
-	-moz-border-radius:3px;
-	border-radius: 3px;
-	border:1px solid #aaa;
-	background-color: #e0e0e0;
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), color-stop(25%, #ffffff), to(#dcdcdc) );
-	background-image: -webkit-linear-gradient(#fafafa, #fafafa 25%, #dcdcdc);
-	background-image: -moz-linear-gradient(top, #fafafa, #fafafa 25%, #dcdcdc);
-	background-image: -ms-linear-gradient(#fafafa, #fafafa 25%, #dcdcdc);
-	background-image: -o-linear-gradient(#fafafa, #fafafa 25%, #dcdcdc);
-	background-image: linear-gradient(#fafafa, #fafafa 25%, #dcdcdc);
-	background-repeat: no-repeat;
+	background:url(images/sprite.png) 0 0 scroll no-repeat transparent;
 }
 
 .isys_visitor_posts .public-category-item {
@@ -162,7 +141,7 @@
 .isys_visitor_posts .search-form {
 	float:right;
 	width:300px;
-	height:80px;
+	height:65px;
 	background:url(images/sprite.png) 0 -60px scroll no-repeat transparent;
 }
 
@@ -196,4 +175,79 @@
 	padding:20px 0 0 0;
 	border-bottom:4px solid #c3c3c3;
 	border-top:1px solid #c3c3c3;
+}
+
+.isys_visitor_posts .isys-black-link {
+	weight:900;
+	color:#fff;
+	padding:5px 10px;
+	display:inline-block;
+	background:#000;
+	margin:0 0 20px 0;
+}
+
+.isys_visitor_posts .isys-leftbar {
+	text-align:center;
+	width:55px;
+	display:block;
+	margin:0 0 -150px -70px;
+}
+.isys_visitor_posts .isys-leftbar strong {
+	color:#d92b82;
+	padding:5px 0;
+	display:block;
+	font-weight:900;
+}
+
+.isys_visitor_posts .favourite_box {
+	margin:15px 0 0 0;
+	display:inline-block;
+	width:47px;
+	height:86px;
+	background:url(images/sprite.png) 0 -130px scroll no-repeat transparent;
+}
+
+.isys_visitor_posts .isys-comment {
+	padding:5px 0;
+	float:left;
+}
+
+.isys_visitor_posts .isys-comment .isys-comment-header {
+	border-top:1px solid #9a9a9a;
+	border-bottom:1px solid #9a9a9a;
+	display:block;
+	padding:5px 0;
+	text-transform:uppercase;
+}
+
+.isys_visitor_posts .isys-comment .isys-comment-content {
+	display:block;
+	padding:10px 0 20px 0;	
+}
+
+.isys_visitor_posts .isys-comment .isys-comment-header .comment-ip {
+	color:#c3c3c3;
+}
+
+.isys_visitor_posts .isys-attachments-count {
+	color:#9a9a9a;
+	text-align:left;
+	width:78px;
+	height:39px;
+	float:right;
+	display:inline-block;
+	background:url(images/sprite.png) 0 -350px scroll no-repeat transparent;
+}
+
+.isys_visitor_posts .isys-attachments-count span {
+	display:inline-block;
+	width:30px;
+	text-align:right;
+	weight:900;
+}
+
+.isys_visitor_posts .isys-company-logo {
+	display:inline-block;
+	height:40px;
+	float:right;
 }

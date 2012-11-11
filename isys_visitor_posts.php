@@ -52,27 +52,6 @@ class isys_visitor_posts {
 			)
 		);	
 		
-		register_taxonomy('public-post-company', 'public-post', 
-			array(
-				'hierarchical'	=> true,
-				'label'			=> __('Companies'),
-				'labels'		=> array(
-						'name' => _x( 'Companies', 'taxonomy general name' ),
-						'singular_name' => _x( 'Company', 'taxonomy singular name' ),
-						'search_items' =>  __( 'Search Companies' ),
-						'all_items' => __( 'All Companies' ),
-						'parent_item' => __( 'Parent Company' ),
-						'parent_item_colon' => __( 'Parent Company:' ),
-						'edit_item' => __( 'Edit Company' ),
-						'update_item' => __( 'Update Company' ),
-						'add_new_item' => __( 'Add New Company' ),
-						'new_item_name' => __( 'New Company Name' ),
-						'menu_name' => __( 'Companies' ),
-				),
-				'query_var'       => 'public-post-company',
-				'rewrite'         => array('slug' => 'companies' ),
-			)
-		);		
 	}
 	
 	public function ajax_controller(){
@@ -126,7 +105,7 @@ class isys_visitor_posts {
 				'post_status' => 'draft',
 				));
 		wp_set_post_terms($postID, self::postInteger('category'), 'public-post-category');
-		wp_set_post_terms($postID, self::postInteger('company'), 'public-post-company');
+		add_post_meta($postID, 'post_company', self::postInteger('post_company'));
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
@@ -371,10 +350,72 @@ class isys_visitor_posts {
 				'after_title' => '</h3>'
 		));
 	}
-		
+	
+	public function add_meta_boxes(){
+		add_meta_box('public-post-favourite', __('Favourite'), array('isys_visitor_posts', 'favourite_box'), 'public-post', 'side');
+		add_meta_box('public-post-company', __('Company'), array('isys_visitor_posts', 'company_box'), 'public-post', 'side');
+	}
+	
+	public function favourite_box(){
+		global $post;
+		wp_nonce_field( plugin_basename( __FILE__ ), 'favourite_nonce' );
+		$favourite_box = get_post_meta($post->ID, 'favourite_box', true);
+		?>
+			<label>
+				<input type="checkbox" id="favourite_box" name="favourite_box"<?php if($favourite_box == "Yes") {print ' checked="checked"';}?> value="Yes"/> <?php print __('Favourite')?>
+			</label>
+		<?php
+	}
+	
+	public function company_box(){
+		global $post;
+		wp_nonce_field( plugin_basename( __FILE__ ), 'company_nonce' );
+		$post_company = get_post_meta($post->ID, 'post_company', true);
+		$companies = self::get_companies();
+		if(!is_array($companies)) return;
+		?>
+			<label>
+				<select name="post_company" id="post_company">
+					<option value="0"><?php print __('Select Company')?></option>
+					<?php foreach($companies as $company){?>
+					<option value="<?php echo $company->pid?>"<?php if($post_company == $company->pid){print ' selected="selected"';}?>><?php print $company->alttext?></option>
+					<?php }?>
+				</select>
+			</label>
+		<?php
+	}
+	
+	public function save_favourite($post_id){
+		if ( !wp_verify_nonce( $_POST['favourite_nonce'], plugin_basename( __FILE__ ) ) ) return;
+		if($_POST['post_type'] != 'public-post') return;
+		if(!current_user_can( 'edit_post', $post_id )) return;
+		$favourite_box = self::postString('favourite_box');
+		$favourite_box = $favourite_box ? $favourite_box : 'No';
+		update_post_meta($post_id, 'favourite_box', $favourite_box);
+	}
+	
+	public function save_company($post_id){
+		if ( !wp_verify_nonce( $_POST['company_nonce'], plugin_basename( __FILE__ ) ) ) return;
+		if($_POST['post_type'] != 'public-post') return;
+		if(!current_user_can( 'edit_post', $post_id )) return;
+		$post_company = self::postInteger('post_company');
+		if($post_company){
+			update_post_meta($post_id, 'post_company', $post_company);
+		} 
+	}
+
+	public static function get_companies(){
+		$gallery = 52;
+		global $wpdb;
+		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_11_ngg_pictures RIGHT JOIN wp_11_ngg_gallery ON wp_11_ngg_pictures.galleryid=wp_11_ngg_gallery.gid WHERE galleryid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $gallery));
+	}
+
+	public static function get_company($pid){
+		global $wpdb;
+		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_11_ngg_pictures RIGHT JOIN wp_11_ngg_gallery ON wp_11_ngg_pictures.galleryid=wp_11_ngg_gallery.gid WHERE pid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $pid));
+	}
+	
 }
-
-
 
 add_action('init', array('isys_visitor_posts', 'create_post_type'));
 
@@ -406,12 +447,14 @@ add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_s
 
 add_filter('archive_template', array('isys_visitor_posts', 'category_template'));
 
-// add_filter('category_template', array('isys_visitor_posts', 'category_template'));
-
-// add_filter('search template', array('isys_visitor_posts', 'category_template'));
-
 add_filter('single_template', array('isys_visitor_posts', 'single_template'));
 
 add_filter('single_template', array('isys_visitor_posts', 'page_template'));
 
 add_filter('page_template', array('isys_visitor_posts', 'page_template'));
+
+add_action('add_meta_boxes', array('isys_visitor_posts', 'add_meta_boxes'));
+
+add_action( 'save_post', array('isys_visitor_posts', 'save_favourite'));
+
+add_action( 'save_post', array('isys_visitor_posts', 'save_company'));

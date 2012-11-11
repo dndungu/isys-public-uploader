@@ -11,17 +11,24 @@ get_header(); ?>
 
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main">
+				<div class="row">
+					<a class="isys-black-link" href="<?php echo get_bloginfo('url')?>/create-visitor-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+					<span class="isys-leftbar">
+						<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
+						<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
+						<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
+						<a class="favourite_box"></a>
+						<?php }?>
+					</span>
+				</div>
 				<?php if(have_posts()) {?>
 					<?php while(have_posts()){?>
 						<?php 
 							the_post();
 							$attachments = get_post_meta(get_the_ID(), 'attachments');
 							$categories = wp_get_post_terms($post->ID, 'public-post-category');
-							$companies = wp_get_post_terms($post->ID, 'public-post-company');
-							$companies_meta = get_option("company_taxonomy_term_{$companies[0]->term_id}");
+							$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 						?>
-						<a href="<?php print get_bloginfo('url')?>/visitor-posts"><?php print __('Back to main page')?></a>
-						<br/><br/>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<div class="isys-half">
 								<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
@@ -32,51 +39,51 @@ get_header(); ?>
 								<br/>
 								godkendt af <a href=""><?php the_modified_author()?></a>
 								<br/>
+								<?php print date('l j. F o', get_the_modified_time('U'))?>
+								<br/>
 								kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
 								<br/>
 								<br/>
 							</div>
 							<div class="isys-half">
-								<img src="<?php print $companies_meta['thumbnail_term_meta']?>" style="height:40px;float:right;"/>
+								<?php if(count($companies)){?>
+								<?php $logo = $companies[0]?>
+								<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
+								<?php }?>
 							</div>
 							<div class="entry-content">
 								<?php the_content(); ?>
 							</div>
 						</div>
-						<div class="row">
-							<div class="isys-half">
-								(<?php echo get_comments_number()?>) KOMMENTARER
-								<br/>
-								<br/>
-							</div>
-							<?php if(count($attachments)){?>
-							<div class="isys-half">
-								<?php foreach($attachments[0] as $attachment_id => $attachment_name){?>
-									<br/><a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
+						<div id="comments" style="padding:0 0 0 40px;">
+							<div class="row">
+								<div class="isys-half" style="color:#9a9a9a;">
+									(<?php echo get_comments_number()?>) KOMMENTARER
+									<br/>
+									<br/>
+								</div>
+								<?php if(count($attachments)){?>
+								<div class="isys-half">
+									<?php foreach($attachments[0] as $attachment_id => $attachment_name){?>
+										<br/><a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
+									<?php }?>
+								</div>
 								<?php }?>
 							</div>
-							<?php }?>
-						</div>						
-						<div class="row">
-							<span class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></span> likes, 
-							<span class="dislikes-count"><?php print intval(get_post_meta(get_the_ID(), 'dislikes', true))?></span> dislikes,
-							<span class="isys-button voting-button"> 
-								<a class="post-vote vote-down" vote="down" post="<?php the_ID()?>"></a>
-							</span>
-							<span class="isys-button voting-button">
-								<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>"></a>
-							</span>
-						</div>
-						<div id="comments">
 							<?php $comments = get_comments(array('post_id' => get_the_ID(), 'status' => 'approve'))?>
 							<?php if(count($comments)){?>
 								<?php foreach($comments as $comment){?>
-									<div class="row" style="padding:5px 0;float:left;border-top:1px dotted #888;">
-										<?php print $comment->comment_content?> - by <?php print $comment->comment_author?> <?php print human_time_diff(strtotime($comment->comment_date_gmt), current_time('timestamp'))?> ago
+									<div class="row isys-comment">
+										<div class="isys-comment-header"> 
+											<a href=""><?php print $comment->comment_author?></a> <span class="comment-ip">(<?php print $comment->comment_author_IP?>)</span> <?php print date('l j. F o', strtotime($comment->comment_date_gmt))?>
+										</div>
+										<div class="isys-comment-content">
+											<?php print $comment->comment_content?>
+										</div>
 									</div>
 								<?php }?>
 							<?php }?>
-							<form method="POST" id="isys_visitor_comment_form" style="border-top:1px dotted #888;padding:10px 0 0 0;">
+							<form method="POST" id="isys_visitor_comment_form">
 								<input type="hidden" name="action" value="isys_visitor_plugin"/>
 								<input type="hidden" name="do" value="create-comment"/>
 								<input type="hidden" name="post_id" value="<?php the_ID()?>"/>
