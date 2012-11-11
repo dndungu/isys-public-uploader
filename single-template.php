@@ -13,13 +13,6 @@ get_header(); ?>
 			<div id="content" role="main">
 				<div class="row">
 					<a class="isys-black-link" href="<?php echo get_bloginfo('url')?>/create-visitor-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
-					<span class="isys-leftbar">
-						<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
-						<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
-						<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
-						<a class="favourite_box"></a>
-						<?php }?>
-					</span>
 				</div>
 				<?php if(have_posts()) {?>
 					<?php while(have_posts()){?>
@@ -30,6 +23,15 @@ get_header(); ?>
 							$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 						?>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<div class="row">
+								<span class="isys-leftbar">
+									<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
+									<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
+									<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
+									<a class="favourite_box"></a>
+									<?php }?>
+								</span>							
+							</div>
 							<div class="isys-half">
 								<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
 								<br/>

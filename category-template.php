@@ -21,11 +21,9 @@ get_header();
 							<span style="font-size:1.5em;">
 								<a href="">INDLÆG</a>
 								<br/>
-								<?php print single_cat_title( '', false )?>
-								<br/>
 							</span>
 							arkivet indeholder <?php print $categories[0]->count?> indlæg
-							<br/><br/>						
+							<br/><br/><br/><br/>					
 							<?php
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
 							$posts_from = (($page_number - 1) * get_option('posts_per_page')) + 1;
@@ -55,12 +53,16 @@ get_header();
 							</span>
 						</div>
 						<div class="isys-half">
-							<h2><a href="<?php echo the_permalink()?>"><?php echo the_title()?></a></h2>
+							<h2>
+								<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
+							</h2>
 							<span style="text-transform:uppercase;">Indlæg af</span> <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
 							<br/>
 							<?php print date('l j. F o', get_the_time('U'))?>
 							<br/>
 							godkendt af <a href=""><?php the_modified_author()?></a>
+							<br/>
+							<?php print date('l j. F o', get_the_modified_time('U'))?>
 							<br/>
 							kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
 							<br/>
