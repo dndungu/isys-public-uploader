@@ -189,8 +189,9 @@
 .isys_visitor_posts .isys-leftbar {
 	text-align:center;
 	width:55px;
-	display:block;
-	margin:0 0 -150px -70px;
+	display:inline-block;
+	float:left;
+	margin:-20px 15px 0 0;
 }
 .isys_visitor_posts .isys-leftbar strong {
 	color:#d92b82;

@@ -43,16 +43,15 @@ get_header();
 						$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 				?>
 					<div class="post-item row">
-						<div class="row">
-							<span class="isys-leftbar">
+
+						<div class="row" style="margin-left:-70px;width:530px;padding-top:10px;">
+							<div class="isys-leftbar">
 								<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
 								<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
 								<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
 								<a class="favourite_box"></a>
 								<?php }?>
-							</span>
-						</div>
-						<div class="row">
+							</div>						
 							<div class="isys-half">
 								<h2>
 									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
