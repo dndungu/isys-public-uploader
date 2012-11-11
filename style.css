@@ -130,7 +130,7 @@
 .isys-half {
 	float:left;
 	display:inline-block;
-	width:49%;
+	width:230px;
 }
 
 #isys_visitor_post_form {
@@ -249,6 +249,6 @@
 
 .isys_visitor_posts .isys-company-logo {
 	display:inline-block;
-	height:40px;
+	max-width:250px;
 	float:right;
 }

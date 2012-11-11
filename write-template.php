@@ -12,7 +12,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 
 	<div id="container" class="isys_visitor_posts">
 			
-			<a href="/visitor-posts"><?php echo __('Back to main page')?></a>
+			<a href="/visitor-posts" class="isys-black-link"><?php echo __('Back to main page')?></a>
 			<br/><br/>
 			<h1 class="page-title"></h1>
 			<form method="POST" id="isys_visitor_post_form">

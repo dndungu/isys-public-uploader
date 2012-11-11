@@ -23,35 +23,35 @@ get_header(); ?>
 							$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 						?>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<div class="row">
-								<span class="isys-leftbar">
+							<div class="row" style="width:530px;margin-left:-70px;">
+								<div class="isys-leftbar" style="padding:5px 0 0 0;">
 									<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
 									<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
 									<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
 									<a class="favourite_box"></a>
 									<?php }?>
-								</span>							
-							</div>
-							<div class="isys-half">
-								<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
-								<br/>
-								Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
-								<br/>
-								<?php print date('l j. F o', get_the_time('U'))?>
-								<br/>
-								godkendt af <a href=""><?php the_modified_author()?></a>
-								<br/>
-								<?php print date('l j. F o', get_the_modified_time('U'))?>
-								<br/>
-								kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
-								<br/>
-								<br/>
-							</div>
-							<div class="isys-half">
-								<?php if(count($companies)){?>
-								<?php $logo = $companies[0]?>
-								<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
-								<?php }?>
+								</div>														
+								<div class="isys-half">
+									<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
+									<br/>
+									Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
+									<br/>
+									<?php print date('l j. F o', get_the_time('U'))?>
+									<br/>
+									godkendt af <a href=""><?php the_modified_author()?></a>
+									<br/>
+									<?php print date('l j. F o', get_the_modified_time('U'))?>
+									<br/>
+									kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
+									<br/>
+									<br/>
+								</div>
+								<div class="isys-half">
+									<?php if(count($companies)){?>
+									<?php $logo = $companies[0]?>
+									<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
+									<?php }?>
+								</div>
 							</div>
 							<div class="entry-content">
 								<?php the_content(); ?>
