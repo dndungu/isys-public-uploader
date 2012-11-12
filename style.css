@@ -122,13 +122,13 @@ body {
 }
 
 .isys_visitor_posts .public-category-name {
-	font-size:1.75em;
+	font-size:1.25em;
 	display:inline-block;
 	margin:10px 0 0 0;
 	float:left;
 	width:100%;
 	text-transform:uppercase;
-	font-weight:900;
+	font-weight:600;
 }
 
 .isys-half {
