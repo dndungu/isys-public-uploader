@@ -23,18 +23,16 @@ get_header();
 			$terms_table = $wpdb->prefix . 'terms';
 			$term_taxonomy_table = $wpdb->prefix . 'term_taxonomy';
 			$categories = get_terms('public-post-category', array('hide_empty' => 0, 'orderby' => 'count', 'order' => 'DESC'));
-			$i = 0;
 			foreach($categories as $category){
 				$term_meta = get_option( "category_taxonomy_term_{$category->term_id}" );
 				$weight = $term_meta['weight_term_meta'];
-				$weight += $i;
 				$rows[$weight] = array(
 								'url' => get_term_link($category),
 								'thumbnail' => $term_meta['thumbnail_term_meta'],
 								'name' => $category->name
 								);
-				$i += 100;
 			}
+			arsort($rows);
 		?>
 		<?php 
 			foreach($rows as $row) {
