@@ -32,7 +32,7 @@ get_header();
 								'name' => $category->name
 								);
 			}
-			asort($rows);
+			ksort($rows);
 		?>
 		<?php 
 			foreach($rows as $weight => $row) {
