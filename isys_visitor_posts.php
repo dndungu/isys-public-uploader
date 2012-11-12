@@ -223,6 +223,11 @@ class isys_visitor_posts {
 			<input type="text" name="term_meta[weight_term_meta]" id="term_meta[weight_term_meta]" value="" size="2" maxlength="2"/>
 			<p class="description"><?php echo __('Enter sorting weight here'); ?></p>			
 		</div>
+		<div class="form-field">
+			<label for="term_meta[sideimage_term_meta]"><?php echo __('Side Image'); ?></label>
+			<input type="text" name="term_meta[sideimage_term_meta]" id="term_meta[sideimage_term_meta]" value=""/>
+			<p class="description"><?php echo __('Enter side image URL here'); ?></p>			
+		</div>
 		<?php
 	}
 	
@@ -244,6 +249,13 @@ class isys_visitor_posts {
 				<p class="description"><?php echo __('Enter sorting weight here'); ?></p>
 			</td>
 		</tr>		
+		<tr class="form-field">
+			<th scope="row" valign="top"><label for="term_meta[sideimage_term_meta]"><?php echo __('Side Image'); ?></label></th>
+			<td>
+				<input type="text" name="term_meta[sideimage_term_meta]" id="term_meta[sideimage_term_meta]" value="<?php echo esc_attr( $term_meta['sideimage_term_meta'] ) ? esc_attr( $term_meta['sideimage_term_meta'] ) : ''; ?>">
+				<p class="description"><?php echo __('Enter side image URL here'); ?></p>
+			</td>
+		</tr>
 		<?php
 	}
 	
