@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+body {
+	font-family: Verdana,Arial,sans-serif;
+}
+
 .isys_visitor_posts {
 	font-size:1.25em;
 }
