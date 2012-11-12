@@ -127,15 +127,11 @@ get_header(); ?>
 				if(strlen($sideimage)) {
 					?>
 					<p><img src="<?php print $sideimage?>" width="300"/></p>
-					<?php
-				}else{
-					?>
-<!-- 					<p><img src="/wp-content/plugins/isys-public-uploader/images/categoryone.png" width="300"/></p> -->
+					<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
 					<?php
 				}
 				?>
-				<?php ?>
-				<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
+				<?php ?>				
 				<form class="search-form" method="GET" action="<?php echo site_url()?>">
 					<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
 					<input type="hidden" id="searchsubmit"/>
