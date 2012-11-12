@@ -35,9 +35,9 @@ get_header();
 			arsort($rows);
 		?>
 		<?php 
-			foreach($rows as $row) {
+			foreach($rows as $weight => $row) {
 		?>
-			<div class="public-category-item">
+			<div class="public-category-item" weight="<?php print $weight?>">
 				<a href="<?php echo $row['url']?>">
 					<span class="public-category-image" style="background-image:url(<?php echo $row['thumbnail']?>);"></span>
 					<span class="public-category-name"><?php echo $row['name']?></span>
