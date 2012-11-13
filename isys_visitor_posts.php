@@ -429,44 +429,44 @@ class isys_visitor_posts {
 	
 }
 
-add_action('init', array('isys_visitor_posts', 'create_post_type'));
+add_action('init', array('isys_visitor_posts', 'create_post_type'), 0);
 
-add_action('widgets_init', array('isys_visitor_posts', 'sidebar'));
+add_action('widgets_init', array('isys_visitor_posts', 'sidebar'), 0);
 
 add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'), 0);
 
-add_action('wp_enqueue_scripts', array('isys_visitor_posts', 'enqueue_scripts'));
+add_action('wp_enqueue_scripts', array('isys_visitor_posts', 'enqueue_scripts'), 0);
 
-add_action('wp_ajax_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_controller'));
+add_action('wp_ajax_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_controller'), 0);
 
-add_action('wp_ajax_nopriv_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_controller'));
+add_action('wp_ajax_nopriv_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_controller'), 0);
 
-add_action('public-post-category_add_form_fields', array('isys_visitor_posts', 'category_add_meta_field'), 10, 2);
+add_action('public-post-category_add_form_fields', array('isys_visitor_posts', 'category_add_meta_field'), 0, 2);
 
-add_action('public-post-category_edit_form_fields', array('isys_visitor_posts', 'category_edit_meta_field'), 10, 2);
+add_action('public-post-category_edit_form_fields', array('isys_visitor_posts', 'category_edit_meta_field'), 0, 2);
 
-add_action('public-post-company_add_form_fields', array('isys_visitor_posts', 'company_add_meta_field'), 10, 2);
+add_action('public-post-company_add_form_fields', array('isys_visitor_posts', 'company_add_meta_field'), 0, 2);
 
-add_action('public-post-company_edit_form_fields', array('isys_visitor_posts', 'company_edit_meta_field'), 10, 2);
+add_action('public-post-company_edit_form_fields', array('isys_visitor_posts', 'company_edit_meta_field'), 0, 2);
 
-add_action( 'edited_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 10, 2 );
+add_action( 'edited_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
 
-add_action( 'create_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 10, 2 );
+add_action( 'create_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
 
-add_action( 'edited_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 10, 2 );
+add_action( 'edited_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 0, 2 );
 
-add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 10, 2 );
+add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 0, 2 );
 
-add_filter('archive_template', array('isys_visitor_posts', 'category_template'));
+add_filter('archive_template', array('isys_visitor_posts', 'category_template'), 0);
 
-add_filter('single_template', array('isys_visitor_posts', 'single_template'));
+add_filter('single_template', array('isys_visitor_posts', 'single_template'), 0);
 
-add_filter('single_template', array('isys_visitor_posts', 'page_template'));
+add_filter('single_template', array('isys_visitor_posts', 'page_template'), 0);
 
-add_filter('page_template', array('isys_visitor_posts', 'page_template'));
+add_filter('page_template', array('isys_visitor_posts', 'page_template'), 0);
 
-add_action('add_meta_boxes', array('isys_visitor_posts', 'add_meta_boxes'));
+add_action('add_meta_boxes', array('isys_visitor_posts', 'add_meta_boxes'), 0);
 
-add_action( 'save_post', array('isys_visitor_posts', 'save_favourite'));
+add_action( 'save_post', array('isys_visitor_posts', 'save_favourite'), 0);
 
-add_action( 'save_post', array('isys_visitor_posts', 'save_company'));
+add_action( 'save_post', array('isys_visitor_posts', 'save_company'), 0);
