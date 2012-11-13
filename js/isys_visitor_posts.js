@@ -106,7 +106,7 @@ var isys_public_uploader = {
 					subject.ajaxUpload(arguments[0]);
 					break;
 				case 'iframe':
-					console.info('iframe');
+					subject.iframeUpload(arguments[0]);
 					break;
 			}
 		});
@@ -137,6 +137,9 @@ var isys_public_uploader = {
 		subject.ajaxObject.open("POST", isys_public_uploader_the_ajax_script.ajaxurl);
 		subject.ajaxObject.setRequestHeader("Cache-Control", "no-cache");
 		subject.ajaxObject.send(data);
+	},
+	iframeUpload: function(){
+		
 	},
 	writeError: function(){
 		this.writeBox(jQuery('.errorBox'), arguments[0]);

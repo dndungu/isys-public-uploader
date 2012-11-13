@@ -433,7 +433,7 @@ add_action('init', array('isys_visitor_posts', 'create_post_type'));
 
 add_action('widgets_init', array('isys_visitor_posts', 'sidebar'));
 
-add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'));
+add_action('the_posts', array('isys_visitor_posts', 'create_virtual_page'), 0);
 
 add_action('wp_enqueue_scripts', array('isys_visitor_posts', 'enqueue_scripts'));
 
