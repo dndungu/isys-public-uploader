@@ -101,7 +101,7 @@ get_header(); ?>
 									<span id="recaptcha_image" class="field"></span>
 								</label>
 								<label>
-									<span><a href="javascript:Recaptcha.reload()">Switch words</a></span>
+									<span><a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a></span>
 									<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('enter-captcha')?>" id="recaptcha_response_field" />
 								</label>								
 								<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
