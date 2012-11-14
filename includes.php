@@ -30,30 +30,29 @@ class isys_visitor_posts {
 
 	public function create_post_type(){
 		register_post_type('blogindlæg',
-		array(
-		'label'			=> __('Vaekst Mangfoldighed'),
-		'public'		=> true,
-		'show_ui'		=> true,
-		'query_var'		=> 'blogindlæg',
-		'rewrite'		=> array('slug' => 'blogindlægs'),
-		'hierarchical'	=> true,
-		'menu_position'	=> 5,
-		'supports'		=> array(
-		'title',
-		'excerpts',
-		'editor',
-		'comments'
-				),
-		)
+			array(
+				'label'			=> __('Vaekst Mangfoldighed'),
+				'public'		=> true,
+				'show_ui'		=> true,
+				'query_var'		=> 'blogindlæg',
+				'rewrite'		=> array('slug' => 'blogindlægs'),
+				'hierarchical'	=> true,
+				'menu_position'	=> 5,
+				'supports'		=> array(
+				'title',
+				'excerpts',
+				'editor',
+				'comments'
+					),
+			)
 		);
-
 		register_taxonomy('blog-indlaeg-kategori', 'blogindlæg',
-		array(
-		'hierarchical'    => true,
-		'label'           => __('Kategorier'),
-		'query_var'       => 'blog-indlaeg-kategori',
-		'rewrite'         => array('slug' => 'blogindlægs' ),
-		)
+			array(
+				'hierarchical'    => true,
+				'label'           => __('Kategorier'),
+				'query_var'       => 'blog-indlaeg-kategori',
+				'rewrite'         => array('slug' => 'blogindlægs' ),
+			)
 		);
 
 	}
