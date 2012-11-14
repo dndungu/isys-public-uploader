@@ -7,8 +7,8 @@ get_header();
 					global $wp;
 					$kategori = get_term_by('slug', $wp->query_vars['blogindlaegs'], 'blog-indlaeg-kategori', OBJECT);
 				?>
-					<div class="row" style="display:none;">
-						<?php print_r($wp->query_vars);?>
+					<div class="row">
+						<?php print_r($wp->query_vars)?>
 					</div>
 					<div class="row">
 						<h1>
