@@ -12,17 +12,17 @@ require_once(dirname( __FILE__ ).'/libraries/recaptchalib.php');
 
 class isys_visitor_posts {
 	
-	private static $recaptcha_public_key = '6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e';
+	public static $recaptcha_public_key = '6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e';
 	
-	private static $recaptcha_private_key = '6Lfgi9gSAAAAABPWVmDvBqftb8A3FDQg9a3qp0qC';
+	public static $recaptcha_private_key = '6Lfgi9gSAAAAABPWVmDvBqftb8A3FDQg9a3qp0qC';
 	
-	private static $landing_page_slug = 'visitor-posts';
+	public static $landing_page_slug = 'visitor-posts';
 	
-	private static $landing_page_title = 'Public Posts';
+	public static $landing_page_title = 'Public Posts';
 	
-	private static $form_page_slug = 'create-visitor-post';
+	public static $form_page_slug = 'create-visitor-post';
 	
-	private static $form_page_title = 'Create Public Post';
+	public static $form_page_title = 'Create Public Post';
 	
 	public function create_post_type(){
 		register_post_type('public-post',
@@ -258,31 +258,7 @@ class isys_visitor_posts {
 		</tr>
 		<?php
 	}
-	
-	public function company_add_meta_field(){
-		?>
-		<div class="form-field">
-			<label for="term_meta[thumbnail_term_meta]"><?php echo __('Logo'); ?></label>
-			<input type="text" name="term_meta[thumbnail_term_meta]" id="term_meta[thumbnail_term_meta]" value=""/>
-			<p class="description"><?php echo __('Enter company logo source URL here'); ?></p>			
-		</div>
-		<?php
-	}
-	
-	public function company_edit_meta_field($term){
-		$id = $term->term_id;
-		$term_meta = get_option( "company_taxonomy_term_{$id}" );
-		?>
-		<tr class="form-field">
-			<th scope="row" valign="top"><label for="term_meta[thumbnail_term_meta]"><?php echo __('Logo'); ?></label></th>
-			<td>
-				<input type="text" name="term_meta[thumbnail_term_meta]" id="term_meta[thumbnail_term_meta]" value="<?php echo esc_attr( $term_meta['thumbnail_term_meta'] ) ? esc_attr( $term_meta['thumbnail_term_meta'] ) : ''; ?>">
-				<p class="description"><?php echo __('Enter company logo source URL here'); ?></p>
-			</td>
-		</tr>
-		<?php
-	}
-	
+		
 	public function category_save_meta( $term_id ) {
 		if(!isset( $_POST['term_meta'] )) return;
 		$term_meta = get_option( "taxonomy_{$term_id}" );
@@ -292,17 +268,6 @@ class isys_visitor_posts {
 			$term_meta[$key] = $_POST['term_meta'][$key];
 		}
 		update_option( "category_taxonomy_term_{$term_id}", $term_meta );
-	}
-	
-	public function company_save_meta( $term_id ) {
-		if(!isset( $_POST['term_meta'] )) return;
-		$term_meta = get_option( "taxonomy_{$term_id}" );
-		$cat_keys = array_keys( $_POST['term_meta'] );
-		foreach ( $cat_keys as $key ) {
-			if(!isset ( $_POST['term_meta'][$key] )) continue;
-			$term_meta[$key] = $_POST['term_meta'][$key];
-		}
-		update_option( "company_taxonomy_term_{$term_id}", $term_meta );
 	}
 	
 	public function virtual_page(){
@@ -445,17 +410,9 @@ add_action('public-post-category_add_form_fields', array('isys_visitor_posts', '
 
 add_action('public-post-category_edit_form_fields', array('isys_visitor_posts', 'category_edit_meta_field'), 0, 2);
 
-add_action('public-post-company_add_form_fields', array('isys_visitor_posts', 'company_add_meta_field'), 0, 2);
-
-add_action('public-post-company_edit_form_fields', array('isys_visitor_posts', 'company_edit_meta_field'), 0, 2);
-
 add_action( 'edited_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
 
 add_action( 'create_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
-
-add_action( 'edited_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 0, 2 );
-
-add_action( 'create_public-post-company', array('isys_visitor_posts', 'company_save_meta'), 0, 2 );
 
 add_filter('archive_template', array('isys_visitor_posts', 'category_template'), 0);
 

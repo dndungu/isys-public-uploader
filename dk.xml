@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language name="Danish" code="dk">
+	<label>visitor-posts</label>
+	<label>Public Posts</label>
+	<label>create-visitor-post</label>
+	<label>Create Public Post</label>
+	<label>public-post-category</label>
+	<label>The reCAPTCHA was not entered correctly.</label>
+	<label>Could not move {$filename} to {$destination}</label>
+	<label>The reCAPTCHA was not entered correctly.</label>
+	<label>Thumbnail</label>
+	<label>Enter thumbnail URL here</label>
+	<label>Weight</label>
+	<label>Enter sorting weight here</label>
+	<label>Side Image</label>
+	<label>Enter side image URL here</label>
+	<label>Favourite</label>
+	<label>Company</label>
+	<label>Back to main page</label>
+	<label>Title</label>
+	<label>My title</label>
+	<label>Your name</label>
+	<label>My name</label>
+	<label>Your email</label>
+	<label>myname@mycompany.dk</label>
+	<label>Your workplace</label>
+	<label>Select Company</label>
+	<label>Added files</label>
+	<label>Switch words</label>
+	<label>Enter the words above</label>
+	<label>Cancel</label>
+	<label>Post</label>
+	<label>LIKE</label>
+	<label>Name</label>
+	<label>Comment</label>
+	<label>Switch words</label>
+	<label>Thank you for the post - a moderator will read it and publish. Click here to return to {$category_name}</label>
+	<label>Thank you for the comment - a moderator will read it and publish</label>
+	<label>Please select a file with less than {$maxpostsize}</label>
+	<label>Please upload PDF files only.</label>
+	<label>no posts found</label>
+	<label>Submit Comment</label>
+</language>

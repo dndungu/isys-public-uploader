@@ -12,7 +12,7 @@ get_header(); ?>
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main">
 				<div class="row">
-					<a class="isys-black-link" href="<?php echo get_bloginfo('url')?>/create-visitor-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+					<a class="isys-black-link" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/'. $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 				</div>
 				<?php if(have_posts()) {?>
 					<?php while(have_posts()){?>
@@ -120,7 +120,6 @@ get_header(); ?>
 				<?php }?>
 			</div>
 			<div class="widget-area">
-				<?php //dynamic_sidebar('public-posts')?>
 				<?php
 				$category_meta = get_option("category_taxonomy_term_{$categories[0]->term_id}");
 				$sideimage = $category_meta['sideimage_term_meta'];
