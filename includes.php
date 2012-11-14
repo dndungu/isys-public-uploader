@@ -31,7 +31,7 @@ class isys_visitor_posts {
 	public function create_post_type(){
 		register_post_type('blogindlæg',
 		array(
-		'label'			=> __('Visitor Posts'),
+		'label'			=> __('Vaekst Mangfoldighed'),
 		'public'		=> true,
 		'show_ui'		=> true,
 		'query_var'		=> 'blogindlæg',
@@ -50,9 +50,9 @@ class isys_visitor_posts {
 		register_taxonomy('blog-indlaeg-kategori', 'blogindlæg',
 		array(
 		'hierarchical'    => true,
-		'label'           => __('Categories'),
+		'label'           => __('Kategorier'),
 		'query_var'       => 'blog-indlaeg-kategori',
-		'rewrite'         => array('slug' => 'categories' ),
+		'rewrite'         => array('slug' => 'blogindlægs' ),
 		)
 		);
 
@@ -124,7 +124,7 @@ class isys_visitor_posts {
 		foreach($_FILES as $upload){
 			$destination = $upload_dir['path'].'/'.$upload['name'];
 			$filename = $upload['tmp_name'];
-			move_uploaded_file($filename, $destination) or die("Could not move {$filename} to {$destination}");
+			move_uploaded_file($filename, $destination) or die("Kunne ikke flytte filen {$filename} til {$destination}");
 			$wp_filetype =  wp_check_filetype($destination);
 			$ID = wp_insert_attachment(array(
 					'guid' => $destination,
