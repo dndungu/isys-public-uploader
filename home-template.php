@@ -22,7 +22,7 @@ get_header();
 		<?php
 			$terms_table = $wpdb->prefix . 'terms';
 			$term_taxonomy_table = $wpdb->prefix . 'term_taxonomy';
-			$categories = get_terms('public-post-category', array('hide_empty' => 0, 'orderby' => 'count', 'order' => 'DESC'));
+			$categories = get_terms('blog-indlaeg-kategori', array('hide_empty' => 0, 'orderby' => 'count', 'order' => 'DESC'));
 			foreach($categories as $category){
 				$term_meta = get_option( "category_taxonomy_term_{$category->term_id}" );
 				$weight = $term_meta['weight_term_meta'];

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language name="Danish" code="dk">
 	<label name="visitor-posts">vaekst-mangfoldighed</label>
-	<label name="public-posts">Blogindlæg</label>
+	<label name="public-posts">blogindlæg</label>
 	<label name="create-visitor-post">opret-blog-indlaeg</label>
 	<label name="public-post-category">blog-indlaeg-kategori</label>
 	<label name="incorrect-captcha">Koden er ikke tastet korrekt.</label>

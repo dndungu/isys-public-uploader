@@ -26,13 +26,13 @@ add_action('wp_ajax_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_cont
 
 add_action('wp_ajax_nopriv_isys_visitor_plugin', array('isys_visitor_posts', 'ajax_controller'), 0);
 
-add_action('public-post-category_add_form_fields', array('isys_visitor_posts', 'category_add_meta_field'), 0, 2);
+add_action('blog-indlaeg-kategori_add_form_fields', array('isys_visitor_posts', 'category_add_meta_field'), 0, 2);
 
-add_action('public-post-category_edit_form_fields', array('isys_visitor_posts', 'category_edit_meta_field'), 0, 2);
+add_action('blog-indlaeg-kategori_edit_form_fields', array('isys_visitor_posts', 'category_edit_meta_field'), 0, 2);
 
-add_action( 'edited_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
+add_action( 'edited_blog-indlaeg-kategori', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
 
-add_action( 'create_public-post-category', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
+add_action( 'create_blog-indlaeg-kategori', array('isys_visitor_posts', 'category_save_meta'), 0, 2 );
 
 add_filter('archive_template', array('isys_visitor_posts', 'category_template'), 0);
 

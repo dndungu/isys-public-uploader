@@ -47,11 +47,11 @@ class isys_visitor_posts {
 		)
 		);
 
-		register_taxonomy('public-post-category', 'public-post',
+		register_taxonomy('blog-indlaeg-kategori', 'public-post',
 		array(
 		'hierarchical'    => true,
 		'label'           => __('Categories'),
-		'query_var'       => 'public-post-category',
+		'query_var'       => 'blog-indlaeg-kategori',
 		'rewrite'         => array('slug' => 'categories' ),
 		)
 		);
@@ -108,7 +108,7 @@ class isys_visitor_posts {
 				'post_content' => self::postString('description'),
 				'post_status' => 'draft',
 		));
-		wp_set_post_terms($postID, self::postInteger('category'), 'public-post-category');
+		wp_set_post_terms($postID, self::postInteger('category'), 'blog-indlaeg-kategori');
 		add_post_meta($postID, 'post_company', self::postInteger('post_company'));
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);

@@ -9,7 +9,7 @@
 
 get_header();
 
-$categories = wp_get_post_terms($post->ID, 'public-post-category');
+$categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 
 ?>
 

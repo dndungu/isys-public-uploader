@@ -4,7 +4,7 @@ get_header();
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main" class="isys-main">
 				<?php
-					$categories = wp_get_post_terms($post->ID, 'public-post-category');
+					$categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					global $wp_query;
 				?>
 					<div class="row">
@@ -39,7 +39,7 @@ get_header();
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
-						$categories = wp_get_post_terms($post->ID, 'public-post-category');
+						$categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 						$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 				?>
 					<div class="post-item row">

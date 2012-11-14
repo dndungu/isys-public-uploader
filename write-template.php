@@ -2,9 +2,6 @@
 
 get_header();
 
-?>
-<?php
-
 $parts = explode("/", $_SERVER['REQUEST_URI']);
 $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 
@@ -76,7 +73,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 			<script type="text/javascript">
 				Recaptcha.create("6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e", document.getElementById('recaptcha_widget'), {theme: "custom"});
 			</script>					
-			<?php $category_term = get_term_by('id', $category_id, 'public-post-category')?>
+			<?php $category_term = get_term_by('id', $category_id, 'blog-indlaeg-kategori')?>
 			<input type="hidden" name="category_name" id="category_name" value="<?php echo $category_term->name?>"/>
 	</div>
 
