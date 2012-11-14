@@ -34,7 +34,8 @@
 }
 
 .isys_visitor_posts label select {
-	width:36%;
+	width:50%;
+	clear:both;
 }
 
 .isys_visitor_posts input[type="reset"], .isys_visitor_posts input[type="submit"], .isys_visitor_posts input[type="button"] {
