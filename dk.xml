@@ -19,7 +19,7 @@
 	<label>Back to main page</label>
 	<label>Title</label>
 	<label>My title</label>
-	<label>Your name</label>
+	<label>Enter your name</label>
 	<label>My name</label>
 	<label>Your email</label>
 	<label>myname@mycompany.dk</label>
@@ -33,6 +33,7 @@
 	<label>LIKE</label>
 	<label>Name</label>
 	<label>Comment</label>
+	<label>Add a comment</label>
 	<label>Switch words</label>
 	<label>Thank you for the post - a moderator will read it and publish. Click here to return to {$category_name}</label>
 	<label>Thank you for the comment - a moderator will read it and publish</label>
