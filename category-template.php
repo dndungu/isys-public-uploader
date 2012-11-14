@@ -84,7 +84,7 @@ get_header();
 						<div class="entry-summary">
 							<?php echo the_excerpt()?>
 							<?php $attachments = get_post_meta(get_the_ID(), 'attachments')?>
-							<div class="isys-half"  style="width:75%;font-family: Gill Sans W02,Arial,sans-serif;">
+							<div class="isys-half"  style="color:#9a9a9a;width:75%;font-family: Gill Sans W02,Arial,sans-serif;">
 								<p>
 									DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
 									<br/>
