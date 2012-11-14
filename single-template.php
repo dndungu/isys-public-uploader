@@ -124,7 +124,9 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 			</div>
 			<div class="widget-area">
 				<?php
-				$category_meta = get_option("category_taxonomy_term_{$categories[0]->term_id}");
+				$option_key = "category_taxonomy_term_{$categories[0]->term_id}";
+				print_r($option_key);
+				$category_meta = get_option($option_key);
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
