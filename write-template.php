@@ -12,7 +12,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 
 	<div id="container" class="isys_visitor_posts">
 			
-			<a href="/visitor-posts" class="isys-black-link"><?php echo __('Back to main page')?></a>
+			<a href="/visitor-posts" class="isys-black-link"><?php echo isys_visitor_posts::translate('back-main-page')?></a>
 			<br/><br/>
 			<h1 class="page-title"></h1>
 			<form method="POST" id="isys_visitor_post_form">
@@ -20,19 +20,19 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<input type="hidden" name="do" value="create-post"/>
 				<input type="hidden" name="category" value="<?php echo intval($category_id)?>"/>
 				<label>
-					<span>Title</span>
-					<input type="text" name="title" placeholder="My title"/>
+					<span><?php print isys_visitor_posts::translate('title')?></span>
+					<input type="text" name="title" placeholder="<?php print isys_visitor_posts::translate('enter-title')?>"/>
 				</label>				
 				<div id="postdivrich" class="postarea" style="float:left;width:95%;display:inline-block;padding:10px 0;">
 					<?php wp_editor('', 'description', array('media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10))?>
 				</div>
 				<label>
-					<span>Your name</span>
-					<input type="text" name="author_name" placeholder="My name"/>
+					<span><?php print isys_visitor_posts::translate('name')?></span>
+					<input type="text" name="author_name" placeholder="<?php print isys_visitor_posts::translate('enter-name')?>"/>
 				</label>
 				<label>
-					<span>Your email</span>
-					<input type="text" name="author_email" placeholder="myname@mycompany.dk"/>
+					<span><?php print isys_visitor_posts::translate('your-email')?></span>
+					<input type="text" name="author_email" placeholder="<?php print isys_visitor_posts::translate('email-sample')?>"/>
 				</label>
 				<?php
 				$companies = isys_visitor_posts::get_companies();
@@ -40,7 +40,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<label>
 					<span>Your workplace</span>
 					<select name="post_company">
-						<option value="0"><?php print __('Select Company')?></option>
+						<option value="0"><?php print isys_visitor_posts::translate('select-company')?></option>
 						<?php if(count($companies)){?>
 						<?php foreach($companies as $company){?>
 							<option value="<?php echo $company->pid?>"><?php echo $company->alttext?></option>
@@ -49,7 +49,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					</select>
 				</label>
 				<label class="attachments">
-					<span><?php echo __('Added files')?></span>
+					<span><?php print isys_visitor_posts::translate('added-files')?></span>
 					<span class="field">
 						<span class="errorBox"></span>
 						<input type="file" name="file_upload" style="float:left;width:100%;margin:5px 0;"/>
@@ -60,11 +60,11 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span id="recaptcha_image" class="field"></span>
 				</label>
 				<label>
-					<span><a href="javascript:Recaptcha.reload()">Switch words</a></span>
-					<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="Enter the words above" id="recaptcha_response_field" />
+					<span><a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a></span>
+					<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
 				</label>
 				<span style="float:left;width:95%;display:inline-block;">
-					<input type="reset" name="cancel" class="button" value="Cancel"/> <input type="submit" name="submit" class="button" value="Post"/>
+					<input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/> <input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/>
 				</span>
 			</form>
   			<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>

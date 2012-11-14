@@ -68,7 +68,7 @@ var isys_public_uploader = {
 					jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
 					jQuery('#recaptcha_response_field').val('');
 				}else {
-					subject.html('Thank you for the post - a moderator will read it and publish. Click here to return to <a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
+					subject.html(isys_visitor_posts_locale['post-thanks']);
 				}
 			});
 		});
@@ -81,7 +81,7 @@ var isys_public_uploader = {
 					jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
 					jQuery('#recaptcha_response_field').val('');
 				}else {
-					subject.html('Thank you for the comment - a moderator will read it and publish.</a>');
+					subject.html(isys_visitor_posts_locale['comment-thanks']);
 				}
 			});			
 		});

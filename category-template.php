@@ -47,7 +47,7 @@ get_header();
 						<div class="row" style="margin-left:-70px;width:530px;padding-top:10px;">
 							<div class="isys-leftbar">
 								<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
-								<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
+								<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>"><?php print isys_visitor_posts::translate('like')?></a>
 								<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
 								<a class="favourite_box"></a>
 								<?php }?>

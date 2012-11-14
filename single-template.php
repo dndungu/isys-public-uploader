@@ -26,7 +26,7 @@ get_header(); ?>
 							<div class="row" style="width:530px;margin-left:-70px;">
 								<div class="isys-leftbar" style="padding:5px 0 0 0;">
 									<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
-									<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>">LIKE</a>
+									<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>"><?php print isys_visitor_posts::translate('like')?></a>
 									<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
 									<a class="favourite_box"></a>
 									<?php }?>
@@ -90,21 +90,21 @@ get_header(); ?>
 								<input type="hidden" name="do" value="create-comment"/>
 								<input type="hidden" name="post_id" value="<?php the_ID()?>"/>
 								<label>
-									<span>Name</span>
-									<input type="text" name="author_name" placeholder="<?php print __('Enter your name')?>"/>
+									<span><?php print isys_visitor_posts::translate('your-name')?></span>
+									<input type="text" name="author_name" placeholder="<?php print isys_visitor_posts::translate('enter-name')?>"/>
 								</label>
 								<label>
-									<span>Comment</span>
-									<textarea rows="3" cols="12" name="comment_content" placeholder="Add a comment"></textarea>
+									<span><?php print isys_visitor_posts::translate('comment')?></span>
+									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
 								</label>
 								<label id="recaptcha_widget">
 									<span id="recaptcha_image" class="field"></span>
 								</label>
 								<label>
 									<span><a href="javascript:Recaptcha.reload()">Switch words</a></span>
-									<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="Enter the words above" id="recaptcha_response_field" />
+									<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('enter-captcha')?>" id="recaptcha_response_field" />
 								</label>								
-								<input type="submit" class="button" value="Submit Comment"/>
+								<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
 							</form>
 				  			<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
 							<script type="text/javascript">
