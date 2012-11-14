@@ -5,11 +5,10 @@ get_header();
 			<div id="content" role="main" class="isys-main">
 				<?php
 					global $wp_query;
-					$kategori = get_term_by('slug', str_replace('blogindlaegs/', '', $wp_query->query['pagename']), 'blog-indlaeg-kategori', OBJECT);
+					$slug = str_replace('blogindlaegs/', '', $wp_query->query['pagename']);
+					query_posts(array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any') ));
+					$kategori = get_term_by('slug', $slug, 'blog-indlaeg-kategori', OBJECT);
 				?>
-					<div class="row" st>
-						<?php print_r($wp_query->query)?>
-					</div>
 					<div class="row">
 						<h1>
 							<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
