@@ -97,18 +97,18 @@
 }
 
 .isys_visitor_posts .public-category-item {
-	width:29%;
+	width:33%;
 	display:inline-block;
-	margin:10px 2%;
+	margin: 10px 0px;
 	text-align:center;
 	float:left;
-	padding:0;
+	padding: 0;
 	height:260px;
 }
 
 .isys_visitor_posts .public-category-image {
 	background:center center scroll no-repeat transparent;
-	width:100%;
+	width:75%;
 	display:inline-block;
 	float:left;
 	margin:0;
@@ -119,9 +119,9 @@
 .isys_visitor_posts .public-category-name {
 	font-size:1.25em;
 	display:inline-block;
-	margin:10px 0 0 0;
+	margin:10px 10px 0 0;
 	float:left;
-	width:100%;
+	width:90%;
 	font-weight:bold;
 	text-align:left;
 	font-family: Gill Sans W02,Arial,sans-serif;
@@ -147,6 +147,8 @@
 }
 
 .isys_visitor_posts .search-form input[type="text"] {
+	font-family: Gill Sans W02,Arial,sans-serif;
+	font-weight:bold;
 	width:255px;
 	border:0 none;
 	margin:1px 0 0 45px;
