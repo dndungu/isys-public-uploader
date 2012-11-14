@@ -15,7 +15,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 			<form method="POST" id="isys_visitor_post_form">
 				<input type="hidden" name="action" value="isys_visitor_plugin"/>
 				<input type="hidden" name="do" value="create-post"/>
-				<input type="hidden" name="category" value="15"/>
+				<input type="hidden" name="category" value="<?php print $category_id?>"/>
 				<label>
 					<span><?php print isys_visitor_posts::translate('title')?></span>
 					<input type="text" name="title" placeholder="<?php print isys_visitor_posts::translate('enter-title')?>"/>

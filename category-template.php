@@ -32,7 +32,7 @@ get_header();
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
-							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?' . $kategori->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?' . (intval($kategori->term_id) > 0 ? $kategori->term_id : 15)?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 						</div>
 					</div>
 				<?php
