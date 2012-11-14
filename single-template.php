@@ -42,11 +42,11 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<br/>
 									<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 									<br/>
-									<?php print date('l j. F o', get_the_time('U'))?>
+									<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_time('U'))?></span>
 									<br/>
 									godkendt af <a href="" style="text-transform:uppercase;"><?php the_modified_author()?></a>
 									<br/>
-									<?php print date('l j. F o', get_the_modified_time('U'))?>
+									<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_modified_time('U'))?></span>
 									<br/>
 									kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
 									<br/>
