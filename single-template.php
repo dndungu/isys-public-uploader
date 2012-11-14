@@ -140,7 +140,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					<input type="hidden" id="searchsubmit"/>
 					<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
-				
+				<p><a href="<?php print isys_visitor_posts::$landing_page_slug?>">TILBAGE TIL FORSIDEN</a></p>
 			</div>
 		</div>
 
