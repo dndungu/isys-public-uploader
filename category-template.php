@@ -122,7 +122,7 @@ get_header();
 					<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
 				<p style="text-align:center;font-weight:900;font-family: Gill Sans W02,Arial,sans-serif;">
-					<a href="<?php print isys_visitor_posts::$landing_page_slug?>">TILBAGE TIL FORSIDEN</a>
+					<a href="/<?php print isys_visitor_posts::$landing_page_slug?>">TILBAGE TIL FORSIDEN</a>
 				</p>
 			</div>
 		</div><!-- #container -->
