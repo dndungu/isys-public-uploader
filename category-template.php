@@ -6,6 +6,7 @@ get_header();
 				<?php
 					$categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					global $wp_query;
+					$kategori = get_term_by('slug', $wp_query->query['name'], 'blog-indlaeg-kategori', OBJECT);
 				?>
 					<div class="row">
 						<h1>
@@ -13,7 +14,7 @@ get_header();
 						</h1>
 					</div>
 					<div class="row">
-						<?php print nl2br($categories[0]->description, true)?>
+						<?php print nl2br($kategori->description, true)?>
 						<br/><br/>
 					</div>
 					<div class="row" style="color:#6d6d6d;">
@@ -22,17 +23,17 @@ get_header();
 								<a href="">INDLÆG</a>
 								<br/>
 							</span>
-							arkivet indeholder <?php print $categories[0]->count?> indlæg
+							arkivet indeholder <?php print $kategori->count?> indlæg
 							<br/><br/><br/><br/>					
 							<?php
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
 							$posts_from = (($page_number - 1) * get_option('posts_per_page')) + 1;
 							?>
-							<strong> | <?php print $posts_from?> – <?php print ($posts_from + get_option('posts_per_page') - 1)?> af <?php print $categories[0]->count?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
+							<strong> | <?php print $posts_from?> – <?php print ($posts_from + get_option('posts_per_page') - 1)?> af <?php print $kategori->count?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
-							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?' . $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?' . $kategori->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 						</div>
 					</div>
 				<?php
@@ -64,7 +65,7 @@ get_header();
 								<br/>
 								<?php print date('l j. F o', get_the_modified_time('U'))?>
 								<br/>
-								kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
+								kategori: <a href="<?php print get_term_link($kategori)?>"><?php print $kategori->name?></a>
 								<br/>
 								<br/>
 							</div>
@@ -100,7 +101,7 @@ get_header();
 				</div>
 			<div class="widget-area">
 				<?php
-				$category_meta = get_option("category_taxonomy_term_{$categories[0]->term_id}");
+				$category_meta = get_option("category_taxonomy_term_{$kategori->term_id}");
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
