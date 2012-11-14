@@ -5,7 +5,7 @@ get_header();
 			<div id="content" role="main" class="isys-main">
 				<?php
 					global $wp_query;
-					$kategori = get_term_by('slug', $wp_query->query['name'], 'blog-indlaeg-kategori', OBJECT);
+					$kategori = get_term_by('slug', $wp_query->query['blogindlaegs'], 'blog-indlaeg-kategori', OBJECT);
 				?>
 					<div class="row" style="display:none;">
 						<?php print_r($wp_query->query)?>
