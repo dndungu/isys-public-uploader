@@ -9,6 +9,9 @@ get_header();
 					$kategori = get_term_by('slug', $slug, 'blog-indlaeg-kategori', OBJECT);
 				?>
 					<div class="row">
+						<?php print_r($kategori);?>
+					</div>
+					<div class="row">
 						<h1>
 							<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
 						</h1>
@@ -37,8 +40,8 @@ get_header();
 						</div>
 					</div>
 				<?php
-				$args = array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any', 'posts_per_page'=> 5) );
-				query_posts($args);
+				//$args = array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any', 'posts_per_page'=> 5) );
+				//query_posts($args);
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
@@ -96,7 +99,7 @@ get_header();
 					</div>
 				<?php	
 					}
-					wp_reset_query();
+					//wp_reset_query();
 				}else{
 					echo isys_visitor_posts::translate('no-posts');
 				}
