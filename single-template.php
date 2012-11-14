@@ -138,7 +138,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 				<form class="search-form" method="GET" action="<?php echo site_url()?>">
 					<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
 					<input type="hidden" id="searchsubmit"/>
-					<input type="hidden" name="post_type" value="public-post">
+					<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
 			</div>
 		</div>

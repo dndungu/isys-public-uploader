@@ -29,13 +29,13 @@ class isys_visitor_posts {
 	}
 
 	public function create_post_type(){
-		register_post_type('public-post',
+		register_post_type('blogindlæg',
 		array(
 		'label'			=> __('Visitor Posts'),
 		'public'		=> true,
 		'show_ui'		=> true,
-		'query_var'		=> 'public-post',
-		'rewrite'		=> array('slug' => 'public-posts'),
+		'query_var'		=> 'blogindlæg',
+		'rewrite'		=> array('slug' => 'blogindlægs'),
 		'hierarchical'	=> true,
 		'menu_position'	=> 5,
 		'supports'		=> array(
@@ -47,7 +47,7 @@ class isys_visitor_posts {
 		)
 		);
 
-		register_taxonomy('blog-indlaeg-kategori', 'public-post',
+		register_taxonomy('blog-indlaeg-kategori', 'blogindlæg',
 		array(
 		'hierarchical'    => true,
 		'label'           => __('Categories'),
@@ -103,7 +103,7 @@ class isys_visitor_posts {
 			return;
 		}
 		$postID = wp_insert_post(array(
-				'post_type' => 'public-post',
+				'post_type' => 'blogindlæg',
 				'post_title' => self::postString('title'),
 				'post_content' => self::postString('description'),
 				'post_status' => 'draft',
@@ -185,12 +185,12 @@ class isys_visitor_posts {
 	public function category_template($template){
 		global $post;
 		$category_template = dirname( __FILE__ ).'/category-template.php';
-		return $post->post_type == 'public-post' ? $category_template : is_null($post) ? $category_template :  $template;
+		return $post->post_type == 'blogindlæg' ? $category_template : is_null($post) ? $category_template :  $template;
 	}
 
 	public function single_template($template){
 		global $post;
-		if($post->post_type == 'public-post'){
+		if($post->post_type == 'blogindlæg'){
 			return dirname( __FILE__ ).'/single-template.php';
 		}
 		return $template;
@@ -324,7 +324,7 @@ class isys_visitor_posts {
 	public function sidebar(){
 		register_sidebar( array(
 				'name' => 'Public Posts',
-				'id' => 'public-posts',
+				'id' => 'blogindlægs',
 				'description' => '',
 				'class' => '',
 				'before_widget' => '<div class="container">',
@@ -335,8 +335,8 @@ class isys_visitor_posts {
 	}
 	
 	public function add_meta_boxes(){
-		add_meta_box('public-post-favourite', __('Favourite'), array('isys_visitor_posts', 'favourite_box'), 'public-post', 'side');
-		add_meta_box('public-post-company', __('Company'), array('isys_visitor_posts', 'company_box'), 'public-post', 'side');
+		add_meta_box('blogindlæg-favourite', __('Favourite'), array('isys_visitor_posts', 'favourite_box'), 'blogindlæg', 'side');
+		add_meta_box('blogindlæg-company', __('Company'), array('isys_visitor_posts', 'company_box'), 'blogindlæg', 'side');
 	}
 	
 	public function favourite_box(){
@@ -370,7 +370,7 @@ class isys_visitor_posts {
 	
 	public function save_favourite($post_id){
 		if ( !wp_verify_nonce( $_POST['favourite_nonce'], plugin_basename( __FILE__ ) ) ) return;
-		if($_POST['post_type'] != 'public-post') return;
+		if($_POST['post_type'] != 'blogindlæg') return;
 		if(!current_user_can( 'edit_post', $post_id )) return;
 		$favourite_box = self::postString('favourite_box');
 		$favourite_box = $favourite_box ? $favourite_box : 'No';
@@ -379,7 +379,7 @@ class isys_visitor_posts {
 	
 	public function save_company($post_id){
 		if ( !wp_verify_nonce( $_POST['company_nonce'], plugin_basename( __FILE__ ) ) ) return;
-		if($_POST['post_type'] != 'public-post') return;
+		if($_POST['post_type'] != 'blogindlæg') return;
 		if(!current_user_can( 'edit_post', $post_id )) return;
 		$post_company = self::postInteger('post_company');
 		if($post_company){
