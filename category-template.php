@@ -6,7 +6,6 @@ get_header();
 				<?php
 					global $wp_query;
 					$slug = str_replace('blogindlaegs/', '', $wp_query->query['pagename']);
-					query_posts(array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any') ));
 					$kategori = get_term_by('slug', $slug, 'blog-indlaeg-kategori', OBJECT);
 				?>
 					<div class="row">
@@ -38,6 +37,7 @@ get_header();
 						</div>
 					</div>
 				<?php
+				query_posts(array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any') ));
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
