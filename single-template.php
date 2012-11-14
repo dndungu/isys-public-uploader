@@ -11,8 +11,6 @@ get_header();
 
 $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 
-print_r($categories);
-
 ?>
 
 
