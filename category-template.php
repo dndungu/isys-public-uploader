@@ -66,8 +66,6 @@ get_header();
 								<br/>
 								<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_time('U'))?></span>
 								<br/>
-								godkendt af <a href=""><?php the_modified_author()?></a>
-								<br/>
 								<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_modified_time('U'))?></span>
 								<br/>
 								kategori: <a href="<?php print get_term_link($kategori)?>"><?php print $kategori->name?></a>
