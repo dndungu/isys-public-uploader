@@ -4,11 +4,11 @@ get_header();
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main" class="isys-main">
 				<?php
-					global $wp_query;
-					$kategori = get_term_by('slug', $wp_query->query['blogindlaegs'], 'blog-indlaeg-kategori', OBJECT);
+					global $wp;
+					$kategori = get_term_by('slug', $wp->query_vars['blogindlaegs'], 'blog-indlaeg-kategori', OBJECT);
 				?>
 					<div class="row" style="display:none;">
-						<?php print_r($wp_query->query)?>
+						<?php print_r($wp->query_vars);?>
 					</div>
 					<div class="row">
 						<h1>
