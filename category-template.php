@@ -85,9 +85,11 @@ get_header();
 							<?php echo the_excerpt()?>
 							<?php $attachments = get_post_meta(get_the_ID(), 'attachments')?>
 							<div class="isys-half"  style="width:75%;">
-								<p>DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
-								<br/>
-								FRA <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET</p>
+								<p>
+									DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
+									<br/>
+									DER ER  <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET
+								</p>
 							</div>
 							<?php if(count($attachments)){?>
 							<div class="isys-half"  style="width:25%;">
