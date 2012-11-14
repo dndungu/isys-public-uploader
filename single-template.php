@@ -92,6 +92,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<?php }?>
 							<?php }?>
 							<form method="POST" id="isys_visitor_comment_form">
+								<h2>TILFØJ KOMMENTAR</h2>
 								<input type="hidden" name="action" value="isys_visitor_plugin"/>
 								<input type="hidden" name="do" value="create-comment"/>
 								<input type="hidden" name="post_id" value="<?php the_ID()?>"/>
