@@ -35,7 +35,7 @@ class isys_visitor_posts {
 				'public'		=> true,
 				'show_ui'		=> true,
 				'query_var'		=> 'blogindlaeg',
-				'rewrite'		=> array('slug' => 'blogindlaegs'),
+				'rewrite'		=> array('slug' => 'blogindlaeg'),
 				'hierarchical'	=> true,
 				'menu_position'	=> 5,
 				'supports'		=> array(
@@ -50,8 +50,8 @@ class isys_visitor_posts {
 			array(
 				'hierarchical'    => true,
 				'label'           => __('Kategorier'),
-				'query_var'       => 'blog-indlaeg-kategori',
-				'rewrite'         => array('slug' => 'kategori' ),
+				'query_var'       => 'blogindlaegs',
+				'rewrite'         => array('slug' => 'blogindlaegs' ),
 			)
 		);
 
