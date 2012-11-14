@@ -1,9 +1,4 @@
 @CHARSET "UTF-8";
-
-body {
-	font-family: Gills sans,Arial,sans-serif;
-}
-
 .isys_visitor_posts {
 	font-size:1.25em;
 }
@@ -170,8 +165,6 @@ body {
 }
 
 .isys_visitor_posts .widget-area .container .textwidget {
-	font-family: Verdana,Arial,Helvetica,sans-serif;
-	font-weight:400;
 	color:#6d6d6d;
 }
 

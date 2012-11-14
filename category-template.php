@@ -99,7 +99,6 @@ get_header();
 				?>
 				</div>
 			<div class="widget-area">
-				<?php //dynamic_sidebar('public-posts')?>
 				<?php
 				$category_meta = get_option("category_taxonomy_term_{$categories[0]->term_id}");
 				$sideimage = $category_meta['sideimage_term_meta'];
