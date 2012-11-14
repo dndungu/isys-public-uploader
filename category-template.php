@@ -87,12 +87,12 @@ get_header();
 							<div class="isys-half"  style="width:75%;">
 								<p>DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
 								<br/>
-								FRA <a href=""><?php echo count()?></a> DOKUMENTER VEDHÆFTET</p>
+								FRA <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET</p>
 							</div>
 							<?php if(count(get_post_meta(get_the_ID(), 'attachments'))){?>
 							<div class="isys-half"  style="width:25%;">
 								<a class="isys-attachments-count">
-									<span><?php echo count(get_post_meta(get_the_ID(), 'attachments'))?></span>
+									<span><?php echo count($attachments)?></span>
 								</a>
 							</div>
 							<?php }?>
