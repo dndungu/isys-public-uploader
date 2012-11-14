@@ -56,16 +56,12 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					</span>
 				</label>
 				<label id="recaptcha_widget">
-					<span>
-						<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
-					</span>
 					<span id="recaptcha_image" class="field"></span>
 				</label>
 				<label>
 					<span>&nbsp;</span>
-					<span class="field">
-						<a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a>
-					</span>
+					<input type="text" name="recaptcha_response_field" style="width:75%;float:left;" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
+					<a href="javascript:Recaptcha.reload()" style="width:25%;float:left;display:inline-block;"><?php print isys_visitor_posts::translate('switch-words')?></a>
 				</label>
 				<span style="float:left;width:95%;display:inline-block;">
 					<input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/> <input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/>
