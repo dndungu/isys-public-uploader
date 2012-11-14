@@ -40,7 +40,9 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 						<option value="0"><?php print isys_visitor_posts::translate('select-company')?></option>
 						<?php if(count($companies)){?>
 						<?php foreach($companies as $company){?>
+						<?php if(strlen($company->alttext)) {?>
 							<option value="<?php echo $company->pid?>"><?php echo $company->alttext?></option>
+						<?php }?>
 						<?php }?>
 						<?php }?>
 					</select>
