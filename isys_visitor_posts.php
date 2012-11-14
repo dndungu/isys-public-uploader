@@ -36,6 +36,8 @@ add_action( 'create_blog-indlaeg-kategori', array('isys_visitor_posts', 'categor
 
 add_filter('archive_template', array('isys_visitor_posts', 'category_template'), 0);
 
+add_filter('404_template', array('isys_visitor_posts', 'single_template'), 0);
+
 add_filter('single_template', array('isys_visitor_posts', 'single_template'), 0);
 
 add_filter('single_template', array('isys_visitor_posts', 'page_template'), 0);
