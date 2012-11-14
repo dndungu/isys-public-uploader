@@ -56,6 +56,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					</span>
 				</label>
 				<label id="recaptcha_widget">
+					<span>&nbsp;</span>
 					<span id="recaptcha_image" class="field"></span>
 				</label>
 				<label>
