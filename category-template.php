@@ -9,6 +9,9 @@ get_header();
 					$slug = strlen($slug) ? $slug : $wp_query->query['blogindlaegs'];
 					$kategori = get_term_by('slug', $slug, 'blog-indlaeg-kategori', OBJECT);
 				?>
+					<div class="row" style="display:none;">
+						<?php print_r($kategori);?>
+					</div>
 					<div class="row">
 						<h1>
 							<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
