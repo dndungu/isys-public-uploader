@@ -103,7 +103,7 @@ get_header();
 					echo isys_visitor_posts::translate('no-posts');
 				}
 				?>
-					<div class="row" style="font-family: Gill Sans W02,Arial,sans-serif;color:#9a9a9a;margin:50px 0 0 0;">
+					<div class="row" style="font-family: Gill Sans W02,Arial,sans-serif;color:#9a9a9a;margin:150px 0 0 0;">
 						<strong>ANSVAR</strong>
 						<p>
 							Det er tanken, at VGM værktøjskassen skal være dynamisk, og indholdet skal komme fra brugerne på sitet. Københavns Kommune tager således ikke ansvar for indlæggene på sitet.
