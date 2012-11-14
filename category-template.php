@@ -32,7 +32,7 @@ get_header();
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
-							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url')?>/create-visitor-post/?<?php echo $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+							<a class="isys-black-link" style="float:right;" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?' . $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 						</div>
 					</div>
 				<?php

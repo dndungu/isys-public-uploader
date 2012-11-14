@@ -7,19 +7,23 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header();
+
+$categories = wp_get_post_terms($post->ID, 'public-post-category');
+
+?>
+
 
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main">
 				<div class="row">
-					<a class="isys-black-link" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/'. $wp_query->queried_object->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
+					<a class="isys-black-link" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?'. $categories[0]->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 				</div>
 				<?php if(have_posts()) {?>
 					<?php while(have_posts()){?>
 						<?php 
 							the_post();
 							$attachments = get_post_meta(get_the_ID(), 'attachments');
-							$categories = wp_get_post_terms($post->ID, 'public-post-category');
 							$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 						?>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

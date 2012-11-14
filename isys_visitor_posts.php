@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: iSys Public Uploader
+Plugin Name:  iSys AddDiversity Blog
 Plugin URI: http://www.isys.dk
 Description: It allows for public posts
-Version: 1.0
-Author: David Njuguna
-Author URI: http://www.davidnjuguna.com
+Version: 1.0.0
+Author: iSys ApS
+Author URI: http://www.isys.dk
 */
 
 require_once(dirname( __FILE__ ) . '/libraries/recaptchalib.php');

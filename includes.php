@@ -6,13 +6,13 @@ class isys_visitor_posts {
 
 	public static $recaptcha_private_key = '6Lfgi9gSAAAAABPWVmDvBqftb8A3FDQg9a3qp0qC';
 
-	public static $landing_page_slug = 'visitor-posts';
+	public static $landing_page_slug = 'vaekst-mangfoldighed';
 
-	public static $landing_page_title = 'Public Posts';
+	public static $landing_page_title = 'Blogindlæg';
 
-	public static $form_page_slug = 'create-visitor-post';
+	public static $form_page_slug = 'opret-blog-indlaeg';
 
-	public static $form_page_title = 'Create Public Post';
+	public static $form_page_title = 'Opret Blog Indlaeg';
 
 	public static $translation;
 
