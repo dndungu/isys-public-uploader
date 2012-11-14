@@ -12,7 +12,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 
 	<div id="container" class="isys_visitor_posts">
 			
-			<a href="/vaekst-mangfoldighed" class="isys-black-link"><?php echo isys_visitor_posts::translate('back-main-page')?></a>
+			<a href="/<?php print isys_visitor_posts::$landing_page_slug?>" class="isys-black-link"><?php echo isys_visitor_posts::translate('back-main-page')?></a>
 			<br/><br/>
 			<h1 class="page-title"></h1>
 			<form method="POST" id="isys_visitor_post_form">
