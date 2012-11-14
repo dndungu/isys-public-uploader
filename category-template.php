@@ -89,7 +89,7 @@ get_header();
 								<br/>
 								FRA <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET</p>
 							</div>
-							<?php if(count(get_post_meta(get_the_ID(), 'attachments'))){?>
+							<?php if(count($attachments)){?>
 							<div class="isys-half"  style="width:25%;">
 								<a class="isys-attachments-count">
 									<span><?php echo count($attachments)?></span>
