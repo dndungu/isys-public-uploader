@@ -56,7 +56,7 @@ get_header();
 								<a class="favourite_box"></a>
 								<?php }?>
 							</div>						
-							<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;">
+							<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;">
 								<h2>
 									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
 								</h2>

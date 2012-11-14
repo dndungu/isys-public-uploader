@@ -35,7 +35,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<a class="favourite_box"></a>
 									<?php }?>
 								</div>														
-								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;">
+								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;">
 									<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
 									<br/>
 									INDLÆG AF
