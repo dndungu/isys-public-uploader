@@ -121,7 +121,9 @@ get_header();
 					<input type="hidden" id="searchsubmit"/>
 					<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
-				<p style="text-align:center;font-weight:900;"><a href="<?php print isys_visitor_posts::$landing_page_slug?>">TILBAGE TIL FORSIDEN</a></p>
+				<p style="text-align:center;font-weight:900;">
+					<a href="<?php print isys_visitor_posts::$landing_page_slug?>">TILBAGE TIL FORSIDEN</a>
+				</p>
 			</div>
 		</div><!-- #container -->
 <?php 
