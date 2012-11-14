@@ -55,7 +55,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<div class="isys-half">
 									<?php if(count($companies)){?>
 									<?php $logo = $companies[0]?>
-									<img src="<?php print $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
+									<img src="<?php print site_url() . '/' . $logo->path . '/thumbs/thumbs_' . $logo->filename?>" alt="<?php print $logo->alttext?>" class="isys-company-logo"/>
 									<?php }?>
 								</div>
 							</div>
