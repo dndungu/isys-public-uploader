@@ -122,8 +122,9 @@
 	margin:10px 0 0 0;
 	float:left;
 	width:100%;
-	text-transform:uppercase;
-	font-weight:600;
+	font-weight:bold;
+	text-align:left;
+	font-family: Gill Sans W02,Arial,sans-serif;
 }
 
 .isys-half {
