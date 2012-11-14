@@ -44,7 +44,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<br/>
 									<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_time('U'))?></span>
 									<br/>
-									godkendt af <a href="" style="text-transform:uppercase;"><?php the_modified_author()?></a>
+									godkendt af <a href=""><span style="text-transform:uppercase;"><?php the_modified_author()?></span></a>
 									<br/>
 									<span style="text-transform:lowercase;"><?php print date('l j. F o', get_the_modified_time('U'))?></span>
 									<br/>
