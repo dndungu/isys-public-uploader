@@ -51,7 +51,7 @@ class isys_visitor_posts {
 				'hierarchical'    => true,
 				'label'           => __('Kategorier'),
 				'query_var'       => 'blog-indlaeg-kategori',
-				'rewrite'         => array('slug' => 'blogindlaegs' ),
+				'rewrite'         => array('slug' => 'kategori' ),
 			)
 		);
 
