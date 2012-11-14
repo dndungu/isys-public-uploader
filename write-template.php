@@ -61,7 +61,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<label>
 					<span>&nbsp;</span>
 					<input type="text" name="recaptcha_response_field" style="width:60%;float:left;" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
-					<a href="javascript:Recaptcha.reload()" style="width:20%;float:left;display:inline-block;"><?php print isys_visitor_posts::translate('switch-words')?></a>
+					<a href="javascript:Recaptcha.reload()" style="width:18%;margin:5px 1%;float:left;display:inline-block;"><?php print isys_visitor_posts::translate('switch-words')?></a>
 				</label>
 				<span style="float:left;width:95%;display:inline-block;">
 					<input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/> <input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/>
