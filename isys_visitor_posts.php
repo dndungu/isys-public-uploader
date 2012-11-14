@@ -10,7 +10,7 @@ Author URI: http://www.davidnjuguna.com
 
 require_once(dirname( __FILE__ ) . '/libraries/recaptchalib.php');
 
-require_once(dirname( __FILE__ ) . '/libraries/isys_visitor_posts.php');
+require_once(dirname( __FILE__ ) . '/includes.php');
 
 isys_visitor_posts::initTranslator(dirname( __FILE__ ) . '/dk.xml');
 

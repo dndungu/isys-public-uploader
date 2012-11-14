@@ -308,7 +308,7 @@ class isys_visitor_posts {
 			$virtual_page->post_parent = -10;
 		}
 		if(substr($url, 0, strlen(self::$landing_page_slug)) == self::$landing_page_slug || substr($url, 0, strlen(self::$form_page_slug)) == self::$form_page_slug){
-			$qp_query->is_singular = true;
+			$wp_query->is_singular = true;
 			$wp_query->is_page = true;
 			$wp_query->is_home = false;
 			$wp_query->is_archive = false;

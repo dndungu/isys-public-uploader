@@ -2,7 +2,7 @@
 
 header('Content-type: text/javascript');
 
-require_once(dirname( __FILE__ ) . '/libraries/isys_visitor_posts.php');
+require_once(dirname( __FILE__ ) . '/includes.php');
 
 isys_visitor_posts::initTranslator(dirname( __FILE__ ) . '/dk.xml');
 
