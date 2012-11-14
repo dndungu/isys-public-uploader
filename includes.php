@@ -8,7 +8,7 @@ class isys_visitor_posts {
 
 	public static $landing_page_slug = 'vaekst-mangfoldighed';
 
-	public static $landing_page_title = 'Blogindlæg';
+	public static $landing_page_title = 'vaekst-mangfoldighed';
 
 	public static $form_page_slug = 'opret-blog-indlaeg';
 
@@ -29,13 +29,13 @@ class isys_visitor_posts {
 	}
 
 	public function create_post_type(){
-		register_post_type('blogindlæg',
+		register_post_type('vaekst-mangfoldighed',
 			array(
 				'label'			=> __('Vaekst Mangfoldighed'),
 				'public'		=> true,
 				'show_ui'		=> true,
-				'query_var'		=> 'blogindlæg',
-				'rewrite'		=> array('slug' => 'blogindlægs'),
+				'query_var'		=> 'vaekst-mangfoldighed',
+				'rewrite'		=> array('slug' => 'vaekst-mangfoldigheds'),
 				'hierarchical'	=> true,
 				'menu_position'	=> 5,
 				'supports'		=> array(
@@ -46,12 +46,12 @@ class isys_visitor_posts {
 					),
 			)
 		);
-		register_taxonomy('blog-indlaeg-kategori', 'blogindlæg',
+		register_taxonomy('blog-indlaeg-kategori', 'vaekst-mangfoldighed',
 			array(
 				'hierarchical'    => true,
 				'label'           => __('Kategorier'),
 				'query_var'       => 'blog-indlaeg-kategori',
-				'rewrite'         => array('slug' => 'blogindlægs' ),
+				'rewrite'         => array('slug' => 'vaekst-mangfoldigheds' ),
 			)
 		);
 
@@ -102,7 +102,7 @@ class isys_visitor_posts {
 			return;
 		}
 		$postID = wp_insert_post(array(
-				'post_type' => 'blogindlæg',
+				'post_type' => 'vaekst-mangfoldighed',
 				'post_title' => self::postString('title'),
 				'post_content' => self::postString('description'),
 				'post_status' => 'draft',
@@ -184,12 +184,12 @@ class isys_visitor_posts {
 	public function category_template($template){
 		global $post;
 		$category_template = dirname( __FILE__ ).'/category-template.php';
-		return $post->post_type == 'blogindlæg' ? $category_template : is_null($post) ? $category_template :  $template;
+		return $post->post_type == 'vaekst-mangfoldighed' ? $category_template : is_null($post) ? $category_template :  $template;
 	}
 
 	public function single_template($template){
 		global $post;
-		if($post->post_type == 'blogindlæg'){
+		if($post->post_type == 'vaekst-mangfoldighed'){
 			return dirname( __FILE__ ).'/single-template.php';
 		}
 		return $template;
@@ -323,7 +323,7 @@ class isys_visitor_posts {
 	public function sidebar(){
 		register_sidebar( array(
 				'name' => 'Public Posts',
-				'id' => 'blogindlægs',
+				'id' => 'vaekst-mangfoldigheds',
 				'description' => '',
 				'class' => '',
 				'before_widget' => '<div class="container">',
@@ -334,8 +334,8 @@ class isys_visitor_posts {
 	}
 	
 	public function add_meta_boxes(){
-		add_meta_box('blogindlæg-favourite', __('Favourite'), array('isys_visitor_posts', 'favourite_box'), 'blogindlæg', 'side');
-		add_meta_box('blogindlæg-company', __('Company'), array('isys_visitor_posts', 'company_box'), 'blogindlæg', 'side');
+		add_meta_box('vaekst-mangfoldighed-favourite', __('Favourite'), array('isys_visitor_posts', 'favourite_box'), 'vaekst-mangfoldighed', 'side');
+		add_meta_box('vaekst-mangfoldighed-company', __('Company'), array('isys_visitor_posts', 'company_box'), 'vaekst-mangfoldighed', 'side');
 	}
 	
 	public function favourite_box(){
@@ -369,7 +369,7 @@ class isys_visitor_posts {
 	
 	public function save_favourite($post_id){
 		if ( !wp_verify_nonce( $_POST['favourite_nonce'], plugin_basename( __FILE__ ) ) ) return;
-		if($_POST['post_type'] != 'blogindlæg') return;
+		if($_POST['post_type'] != 'vaekst-mangfoldighed') return;
 		if(!current_user_can( 'edit_post', $post_id )) return;
 		$favourite_box = self::postString('favourite_box');
 		$favourite_box = $favourite_box ? $favourite_box : 'No';
@@ -378,7 +378,7 @@ class isys_visitor_posts {
 	
 	public function save_company($post_id){
 		if ( !wp_verify_nonce( $_POST['company_nonce'], plugin_basename( __FILE__ ) ) ) return;
-		if($_POST['post_type'] != 'blogindlæg') return;
+		if($_POST['post_type'] != 'vaekst-mangfoldighed') return;
 		if(!current_user_can( 'edit_post', $post_id )) return;
 		$post_company = self::postInteger('post_company');
 		if($post_company){
