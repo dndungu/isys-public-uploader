@@ -37,7 +37,7 @@ get_header();
 						</div>
 					</div>
 				<?php
-				query_posts(array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any') ));
+				query_posts(array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any', 'posts_per_page'=> 5) ));
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
