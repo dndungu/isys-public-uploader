@@ -252,3 +252,7 @@
 	max-width:250px;
 	float:right;
 }
+
+#isys_visitor_comment_form input[type="text"], #isys_visitor_comment_form textarea {
+	background-color:#e1e1e1;
+}
