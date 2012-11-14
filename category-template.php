@@ -5,11 +5,10 @@ get_header();
 			<div id="content" role="main" class="isys-main">
 				<?php
 					global $wp_query;
-					$queriedObject = $wp_query->get_queried_object();
-					$kategori = get_term_by('slug', $queriedObject->slug, 'blog-indlaeg-kategori', OBJECT);
+					$kategori = get_term_by('slug', str_replace('blogindlaegs/', '', $wp_query->query['pagename']), 'blog-indlaeg-kategori', OBJECT);
 				?>
-					<div class="row">
-						<?php print_r($queriedObject)?>
+					<div class="row" st>
+						<?php print_r($wp_query->query)?>
 					</div>
 					<div class="row">
 						<h1>
