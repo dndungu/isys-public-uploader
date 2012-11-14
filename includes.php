@@ -184,6 +184,7 @@ class isys_visitor_posts {
 	public function category_template($template){
 		global $post;
 		$category_template = dirname( __FILE__ ).'/category-template.php';
+		error_log(var_export($post));
 		return $post->post_type == 'blogindlaeg' ? $category_template : is_null($post) ? $category_template :  $template;
 	}
 
