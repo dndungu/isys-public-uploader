@@ -27,12 +27,9 @@
 	padding:5px 0;
 }
 
-.isys_visitor_posts label span {
-	width:15%;
-}
 
 .isys_visitor_posts label input, .isys_visitor_posts label textarea, .isys_visitor_posts label .field {
-	width:80%;
+	width:100%;
 	float:left;
 }
 
