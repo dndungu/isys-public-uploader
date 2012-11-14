@@ -54,10 +54,12 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					</span>
 				</label>
 				<label id="recaptcha_widget">
+					<span>
+						<a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a>
+					</span>
 					<span id="recaptcha_image" class="field"></span>
 				</label>
 				<label>
-					<span><a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a></span>
 					<input type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
 				</label>
 				<span style="float:left;width:95%;display:inline-block;">
