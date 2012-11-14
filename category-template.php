@@ -4,6 +4,7 @@ get_header();
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main" class="isys-main">
 				<?php
+					query_posts('post_status=any');
 					global $wp_query;
 					$kategori = get_term_by('slug', $wp_query->query['name'], 'blog-indlaeg-kategori', OBJECT);
 				?>
@@ -94,7 +95,7 @@ get_header();
 				<?php	
 					}
 				}else{
-					echo 'no posts';
+					echo isys_visitor_posts::translate('no-posts');
 				}
 				?>
 				</div>
