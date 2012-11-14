@@ -24,6 +24,20 @@ class isys_visitor_posts {
 	
 	public static $form_page_title = 'Create Public Post';
 	
+	public static $translation;
+	
+	public static function initTranslator(){
+		$language = simplexml_load_file(dirname( __FILE__ ) . '/dk.xml');
+		foreach($language as $translation){
+			$name = (string) $translation->attributes()->name;
+			self::$translation[$name] = (string) $translation;
+		}
+	}
+	
+	public static function translate($key){
+		return array_key_exists($key, self::$translation) ? self::$translation[$key] : "Mangler Label";
+	}
+	
 	public function create_post_type(){
 		register_post_type('public-post',
 			array(
@@ -393,6 +407,8 @@ class isys_visitor_posts {
 	}
 	
 }
+
+isys_visitor_posts::initTranslator();
 
 add_action('init', array('isys_visitor_posts', 'create_post_type'), 0);
 
