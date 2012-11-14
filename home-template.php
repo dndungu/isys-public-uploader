@@ -10,7 +10,7 @@ get_header();
 
 	<div id="container" class="isys_visitor_posts">
 		<div class="row">
-			<div style="display:inline;float:left;width:50%;"><h1><?php echo __('VÆRKTØJSKASSEN')?></h1></div>
+			<div style="display:inline;float:left;width:50%;"><h1><?php echo __('VÆKST & MANGFOLDIGHED')?></h1></div>
 			<div style="display:inline;float:right;width:50%;">
 				<form class="search-form" method="GET" action="<?php echo site_url()?>">
 						<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
