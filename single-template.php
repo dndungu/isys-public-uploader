@@ -119,7 +119,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								Recaptcha.create("6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e", document.getElementById('recaptcha_widget'), {theme: "custom"});
 							</script>					
 						</div>
-						<div class="row" style="font-family: Gill Sans W02,Arial,sans-serif;color:#9a9a9a;margin:150px 0 0 0;">
+						<div class="row" style="font-family: Gill Sans,Arial,sans-serif;color:#9a9a9a;margin:150px 0 0 0;">
 							<strong>ANSVAR</strong>
 							<br/>
 							Det er tanken, at VGM værktøjskassen skal være dynamisk, og indholdet skal komme fra brugerne på sitet. Københavns Kommune tager således ikke ansvar for indlæggene på sitet.
