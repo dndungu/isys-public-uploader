@@ -83,10 +83,11 @@ get_header();
 						</div>	 
 						<div class="entry-summary">
 							<?php echo the_excerpt()?>
+							<?php $attachments = get_post_meta(get_the_ID(), 'attachments')?>
 							<div class="isys-half"  style="width:75%;">
 								<p>DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
 								<br/>
-								FRA <a href=""><?php echo count(get_post_meta(get_the_ID(), 'attachments'))?></a> DOKUMENTER VEDHÆFTET</p>
+								FRA <a href=""><?php echo count()?></a> DOKUMENTER VEDHÆFTET</p>
 							</div>
 							<?php if(count(get_post_meta(get_the_ID(), 'attachments'))){?>
 							<div class="isys-half"  style="width:25%;">
