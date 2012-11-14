@@ -4,7 +4,6 @@ get_header();
 		<div id="container" class="isys_visitor_posts">
 			<div id="content" role="main" class="isys-main">
 				<?php
-					$categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					global $wp_query;
 					$kategori = get_term_by('slug', $wp_query->query['name'], 'blog-indlaeg-kategori', OBJECT);
 				?>
@@ -27,9 +26,9 @@ get_header();
 							<br/><br/><br/><br/>					
 							<?php
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
-							$posts_from = (($page_number - 1) * get_option('posts_per_page')) + 1;
+							$posts_from = (($page_number - 1) * get_option('posts_per_page'));
 							?>
-							<strong> | <?php print $posts_from?> – <?php print ($posts_from + get_option('posts_per_page') - 1)?> af <?php print $kategori->count?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
+							<strong> | <?php print $posts_from?> – <?php print ($posts_from + get_option('posts_per_page'))?> af <?php print $kategori->count?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
