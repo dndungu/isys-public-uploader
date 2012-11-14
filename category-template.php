@@ -9,9 +9,6 @@ get_header();
 					$slug = strlen($slug) ? $slug : $wp_query->query['blogindlaegs'];
 					$kategori = get_term_by('slug', $slug, 'blog-indlaeg-kategori', OBJECT);
 				?>
-					<div class="row" style="display:none;">
-						<?php print_r($kategori);?>
-					</div>
 					<div class="row">
 						<h1>
 							<?php printf( __( '%s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );?>
@@ -59,11 +56,13 @@ get_header();
 								<a class="favourite_box"></a>
 								<?php }?>
 							</div>						
-							<div class="isys-half">
+							<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;">
 								<h2>
 									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
 								</h2>
-								<span style="text-transform:uppercase;">Indlæg af</span> <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
+								INDLÆG AF
+								<br/>
+								<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 								<br/>
 								<?php print date('l j. F o', get_the_time('U'))?>
 								<br/>

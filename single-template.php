@@ -35,18 +35,20 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<a class="favourite_box"></a>
 									<?php }?>
 								</div>														
-								<div class="isys-half">
+								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;">
 									<h1 class="entry-title" style="color:#d92b82;"><?php the_title(); ?></h1>
 									<br/>
-									Indlæg af <?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a>
+									INDLÆG AF
+									<br/>
+									<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 									<br/>
 									<?php print date('l j. F o', get_the_time('U'))?>
 									<br/>
-									godkendt af <a href=""><?php the_modified_author()?></a>
+									godkendt af <a href="" style="text-transform:uppercase;"><?php the_modified_author()?></a>
 									<br/>
 									<?php print date('l j. F o', get_the_modified_time('U'))?>
 									<br/>
-									kategori: <a href="<?php print get_term_link($categories[0])?>"><?php print $categories[0]->name?></a>
+									kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
 									<br/>
 									<br/>
 								</div>
@@ -94,11 +96,9 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<input type="hidden" name="do" value="create-comment"/>
 								<input type="hidden" name="post_id" value="<?php the_ID()?>"/>
 								<label>
-									<span><?php print isys_visitor_posts::translate('your-name')?></span>
 									<input type="text" name="author_name" placeholder="<?php print isys_visitor_posts::translate('enter-name')?>"/>
 								</label>
 								<label>
-									<span><?php print isys_visitor_posts::translate('comment')?></span>
 									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
 								</label>
 								<label id="recaptcha_widget">
@@ -140,6 +140,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					<input type="hidden" id="searchsubmit"/>
 					<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
+				
 			</div>
 		</div>
 
