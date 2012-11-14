@@ -33,9 +33,9 @@
 	<label name="comment">Kommentar</label>
 	<label name="add-comment">Tilføj en kommentar</label>
 	<label name="switch-words">Skift kode</label>
-	<label name="post-thanks">Tak for dit input. Klik her for at komme tilbage til oversigten for {$category_name}</label>
+	<label name="post-thanks">Tak for dit input. Klik her for at komme tilbage til oversigten for </label>
 	<label name="comment-thanks">Tak for din kommentar</label>
-	<label name="file-too-big">Venligst vælg en fil med en størrelse mindre end {$maxpostsize}</label>
+	<label name="file-too-big">Venligst vælg en fil med en størrelse mindre end </label>
 	<label name="pdf-only">Du har kun mulighed for, at tilføje PDF filer på dette site.</label>
 	<label name="no-posts">Ingen indlæg</label>
 	<label name="submit-comment">Send</label>

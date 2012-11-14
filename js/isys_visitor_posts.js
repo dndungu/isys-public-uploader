@@ -68,7 +68,7 @@ var isys_public_uploader = {
 					jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
 					jQuery('#recaptcha_response_field').val('');
 				}else {
-					subject.html(isys_visitor_posts_locale['post-thanks']);
+					subject.html(isys_visitor_posts_locale['post-thanks'] + '<a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
 				}
 			});
 		});
