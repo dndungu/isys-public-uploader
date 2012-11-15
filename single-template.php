@@ -66,11 +66,10 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<br/>
 									<br/>
 								</div>
-								<div class="isys-half" style="width:50%;">
+								<div class="isys-half" style="width:50%;text-align:right;">
 									<?php if(count($attachments)){?>
 									<?php foreach($attachments as $attachment_id => $attachment_name){?>
-										<a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
-										<br/>
+										<a class="pdf_link" title="<?php print $attachment_name?>" href="<?php print wp_get_attachment_url($attachment_id)?>"></a>
 									<?php }?>
 									<?php }?>
 								</div>

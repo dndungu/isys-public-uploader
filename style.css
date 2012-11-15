@@ -262,3 +262,10 @@
 #isys_visitor_comment_form input[type="submit"] {
 	float:left;
 }
+
+.isys_visitor_posts .pdf_link {
+	display:inline-block;
+	width:50px;
+	height:65px;
+	background:url(images/sprite.png) 0 -230px scroll no-repeat transparent;
+}
