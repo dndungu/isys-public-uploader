@@ -23,7 +23,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 					<?php while(have_posts()){?>
 						<?php 
 							the_post();
-							$attachments = get_post_meta(get_the_ID(), 'attachments');
+							$attachments = get_post_meta(get_the_ID(), 'attachments', true);
 							$companies = isys_visitor_posts::get_company(get_post_meta(get_the_ID(), 'post_company', true));
 						?>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -61,18 +61,19 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 						</div>
 						<div id="comments" style="padding:0 0 0 40px;font-family: Gill Sans W02,Arial,sans-serif;">
 							<div class="row">
-								<div class="isys-half" style="color:#9a9a9a;">
+								<div class="isys-half" style="color:#9a9a9a;width:50%;">
 									(<?php echo get_comments_number()?>) KOMMENTARER
 									<br/>
 									<br/>
 								</div>
-								<?php if(count($attachments)){?>
-								<div class="isys-half">
-									<?php foreach($attachments[0] as $attachment_id => $attachment_name){?>
-										<br/><a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
+								<div class="isys-half" style="width:50%;">
+									<?php if(count($attachments)){?>
+									<?php foreach($attachments as $attachment_id => $attachment_name){?>
+										<a href="<?php print wp_get_attachment_url($attachment_id)?>"><?php print $attachment_name?></a>
+										<br/>
+									<?php }?>
 									<?php }?>
 								</div>
-								<?php }?>
 							</div>
 							<?php $comments = get_comments(array('post_id' => get_the_ID(), 'status' => 'approve'))?>
 							<?php if(count($comments)){?>

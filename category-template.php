@@ -30,7 +30,7 @@ get_header();
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
 							$posts_from = (($page_number - 1) * get_option('posts_per_page'));
 							?>
-							<strong> | <?php print $posts_from?> – <?php print ($posts_from + get_option('posts_per_page'))?> af <?php print $kategori->count?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
+							<strong> | <?php print $posts_from?> – <?php print intval($posts_from + get_option('posts_per_page'))?> af <?php print intval($kategori->count)?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
@@ -38,7 +38,7 @@ get_header();
 						</div>
 					</div>
 				<?php
-				query_posts(array('post_type'=>'blogindlaeg', 'blogindlaegs' => $slug, 'posts_per_page' => get_option('posts_per_page'), 'paged' => $wp_query->query_vars['paged']));
+				query_posts(array('post_type'=>'blogindlaeg', 'blogindlaegs' => $slug, 'posts_per_page' => get_option('posts_per_page'), 'paged' => get_query_var('paged')));
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
@@ -77,22 +77,26 @@ get_header();
 							</div>
 						</div>	 
 						<div class="entry-summary">
-							<?php echo the_excerpt()?>
-							<?php $attachments = get_post_meta(get_the_ID(), 'attachments')?>
-							<div class="isys-half"  style="color:#9a9a9a;width:75%;font-family: Gill Sans W02,Arial,sans-serif;">
-								<p>
-									DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
-									<br/>
-									DER ER  <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET
-								</p>
+							<div class="row">
+								<?php echo the_excerpt()?>
 							</div>
-							<?php if(count($attachments)){?>
-							<div class="isys-half"  style="width:25%;">
-								<a class="isys-attachments-count">
-									<span><?php echo count($attachments)?></span>
-								</a>
+							<div class="row">
+								<?php $attachments = get_post_meta(get_the_ID(), 'attachments', true)?>
+								<div class="isys-half" style="color:#9a9a9a;width:75%;font-family: Gill Sans W02,Arial,sans-serif;">
+									<p>
+										DER ER <a href="<?php echo the_permalink()?>"><?php echo get_comments_number()?></a> KOMMENTARER
+										<br/>
+										DER ER  <a href=""><?php echo count($attachments)?></a> DOKUMENTER VEDHÆFTET
+									</p>
+								</div>
+								<div class="isys-half"  style="width:25%;">
+									<?php if(count($attachments)){?>
+									<a class="isys-attachments-count">
+										<span><?php echo count($attachments)?></span>
+									</a>
+									<?php }?>
+								</div>
 							</div>
-							<?php }?>
 						</div>
 					</div>
 				<?php	
