@@ -38,8 +38,7 @@ get_header();
 						</div>
 					</div>
 				<?php
-				//$args = array_merge( $wp_query->query_vars, array( 'post_type' => 'blogindlaeg', 'blog-indlaeg-kategori' => $slug, 'post_status' => 'any', 'posts_per_page'=> 5) );
-				//query_posts($args);
+				query_posts(array('post_type'=>'blogindlaeg', 'blogindlaegs' => $slug, 'posts_per_page' => get_option('posts_per_page'), 'paged' => $wp_query->query_vars['paged']));
 				if(have_posts()){
 					while(have_posts()){
 						the_post();
@@ -98,7 +97,7 @@ get_header();
 					</div>
 				<?php	
 					}
-					//wp_reset_query();
+					wp_reset_query();
 				}else{
 					echo isys_visitor_posts::translate('no-posts');
 				}
