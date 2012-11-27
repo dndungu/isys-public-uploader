@@ -20,7 +20,7 @@ get_header();
 					</div>
 					<div class="row" style="color:#6d6d6d;">
 						<div class="isys-half">
-							<span style="font-size:1.5em;">
+							<span style="font-size:1.5em;font-family:Gill Sans W02;font-weight:900;">
 								<a href="">INDLÆG</a>
 								<br/>
 							</span>
