@@ -24,7 +24,9 @@ get_header();
 								<a href="">INDLÆG</a>
 								<br/>
 							</span>
-							arkivet indeholder <?php print $kategori->count?> indlæg
+							<span style="font-family:Gill Sans W02 Light;">
+								arkivet indeholder <?php print $kategori->count?> indlæg
+							</span>
 							<br/><br/><br/><br/>					
 							<?php
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;

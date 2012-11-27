@@ -284,3 +284,7 @@
 	float:right;
 	width:40%;
 }
+
+.isys_visitor_posts .likes-count {
+	padding-bottom: 0px;
+}
