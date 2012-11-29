@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 .isys_visitor_posts {
 	font-size:1.25em;
-	padding:0 0 15px 0;
+	padding:0 0 120px 0;
 }
 
 .isys_visitor_posts input[type="text"], .isys_visitor_posts textarea, .isys_visitor_posts select {
