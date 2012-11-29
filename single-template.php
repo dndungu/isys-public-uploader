@@ -66,7 +66,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 						</div>
 						<div id="comments" style="padding:0 0 0 40px;font-family: Gill Sans W02,Arial,sans-serif;">
 							<div class="row">
-								<div class="isys-half" style="color:#9a9a9a;width:50%;font-family: Gill Sans Bold W02;font-weight:600;font-size:12px;">
+								<div class="isys-half" style="color:#9a9a9a;width:50%;">
 									(<?php echo get_comments_number()?>) KOMMENTARER
 									<br/>
 									<br/>
