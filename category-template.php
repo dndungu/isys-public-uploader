@@ -57,18 +57,20 @@ get_header();
 								<a class="favourite_box"></a>
 								<?php }?>
 							</div>						
-							<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;font-size:12px;">
+							<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;">
 								<h2>
 									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
 								</h2>
 								INDLÆG AF
 								<br/>
-								<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
+								<span style="text-transform:uppercase;font-size:12px;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 								<br/>
 								<?php setlocale(LC_TIME, 'da_DK');?>
-								<span style="text-transform:lowercase;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
+								<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
 								<br/>
-								kategori: <a href="<?php print get_term_link($kategori)?>"><?php print $kategori->name?></a>
+								<span style="font-size:12px;">
+									kategori: <a href="<?php print get_term_link($kategori)?>"><?php print $kategori->name?></a>
+								</span>
 								<br/>
 								<br/>
 							</div>
