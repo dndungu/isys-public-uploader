@@ -61,7 +61,9 @@ get_header();
 								<h2>
 									<a href="<?php echo the_permalink()?>"><?php echo the_title()?></a>
 								</h2>
+								<span style="font-size:12px;">
 								INDLÆG AF
+								</span>
 								<br/>
 								<span style="text-transform:uppercase;font-size:12px;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 								<br/>
