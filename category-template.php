@@ -18,8 +18,8 @@ get_header();
 						<?php print nl2br($kategori->description, true)?>
 						<br/><br/>
 					</div>
-					<div class="row" style="color:#6d6d6d;font-size:12px;">
-						<div class="isys-half">
+					<div class="row" style="color:#6d6d6d;">
+						<div class="isys-half" style="font-size:12px;">
 							<span style="font-family:Gill Sans W02 Bold;">
 								<a href="">INDLÆG</a>
 								<br/>
