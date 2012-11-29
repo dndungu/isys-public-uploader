@@ -114,8 +114,6 @@
 	margin:0;
 	padding:0;
 	height:180px;
-	font-family:Gill Sans W02 Light;
-	font-weight:900;
 }
 
 .isys_visitor_posts .public-category-name {
@@ -126,7 +124,8 @@
 	width:90%;
 	font-weight:bold;
 	text-align:left;
-	font-family: Gill Sans W02,Arial,sans-serif;
+	font-family:Gill Sans W02 Light;
+	font-weight:900;
 }
 
 .isys-half {
