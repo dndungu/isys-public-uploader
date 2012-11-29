@@ -36,9 +36,11 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<?php }?>
 								</div>														
 								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;">
-									<h1 class="entry-title" style="color:#d92b82;margin-bottom:-10px;"><?php the_title(); ?></h1>
+									<h1 class="entry-title" style="color:#d92b82;margin-bottom:-10px;font-family:Garamond;font-size:14px;line-height:28px;"><?php the_title(); ?></h1>
 									<br/>
-									INDLÆG AF
+									<span style="font-family:Gill Sans W02 Bold;font-weight:600;font-size:12px;">
+										INDLÆG AF
+									</span>
 									<br/>
 									<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 									<br/>

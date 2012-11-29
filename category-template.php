@@ -79,7 +79,7 @@ get_header();
 							</div>
 						</div>	 
 						<div class="entry-summary">
-							<div class="row">
+							<div class="row" style="font-size:20px;line-height:24px;">
 								<?php echo the_excerpt()?>
 							</div>
 							<div class="row">
