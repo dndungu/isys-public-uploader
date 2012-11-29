@@ -19,12 +19,12 @@ get_header();
 						<br/><br/>
 					</div>
 					<div class="row" style="color:#6d6d6d;">
-						<div class="isys-half" style="font-size:12px;">
-							<span style="font-family:Gill Sans W02 Bold;">
+						<div class="isys-half">
+							<span style="font-family:Gill Sans W02 Bold;font-size:12px;">
 								<a href="">INDLÆG</a>
 								<br/>
 							</span>
-							<span style="font-family:Gill Sans W02 Light;">
+							<span style="font-family:Gill Sans W02 Light;font-size:12px;">
 								arkivet indeholder <?php print $kategori->count?> indlæg
 							</span>
 							<br/><br/><br/><br/>					
@@ -32,7 +32,7 @@ get_header();
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
 							$posts_from = (($page_number - 1) * get_option('posts_per_page'));
 							?>
-							<strong style="font-family:Gill Sans;"> | <?php print $posts_from?> – <?php print intval($posts_from + get_option('posts_per_page'))?> af <?php print intval($kategori->count)?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
+							<strong style="font-family:Gill Sans;font-size:12px;"> | <?php print $posts_from?> – <?php print intval($posts_from + get_option('posts_per_page'))?> af <?php print intval($kategori->count)?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
 							<br/><br/>	
 						</div>
 						<div class="isys-half">
