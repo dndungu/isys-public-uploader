@@ -20,7 +20,7 @@ get_header();
 					</div>
 					<div class="row" style="color:#6d6d6d;">
 						<div class="isys-half">
-							<span style="font-size:1.5em;font-family:Gill Sans W02;font-weight:900;">
+							<span style="font-size:1.5em;font-family:Gill Sans W02 Bold;">
 								<a href="">INDLÆG</a>
 								<br/>
 							</span>
@@ -32,7 +32,7 @@ get_header();
 							$page_number = (get_query_var('paged')) ? get_query_var('paged') : 1;
 							$posts_from = (($page_number - 1) * get_option('posts_per_page'));
 							?>
-							<strong> | <?php print $posts_from?> – <?php print intval($posts_from + get_option('posts_per_page'))?> af <?php print intval($kategori->count)?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
+							<strong style="font-family:Gill Sans;"> | <?php print $posts_from?> – <?php print intval($posts_from + get_option('posts_per_page'))?> af <?php print intval($kategori->count)?> | <?php next_posts_link( __( 'FLERE', '' ) ); previous_posts_link( __( 'FLERE', '' ) )?> | </strong>
 							<br/><br/>	
 						</div>
 						<div class="isys-half">

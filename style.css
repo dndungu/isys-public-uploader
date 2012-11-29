@@ -139,7 +139,7 @@
 }
 
 .isys_visitor_posts .search-form {
-	font-family: Gill Sans W02,Arial,sans-serif;
+	font-family: Gill Sans W02 Light,Arial,sans-serif;
 	float:right;
 	width:300px;
 	height:65px;
@@ -147,7 +147,7 @@
 }
 
 .isys_visitor_posts .search-form input[type="text"] {
-	font-family: Gill Sans W02,Arial,sans-serif;
+	font-family: Gill Sans W02 Light,Arial,sans-serif;
 	font-weight:bold;
 	width:255px;
 	border:0 none;
