@@ -35,19 +35,19 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<a class="favourite_box"></a>
 									<?php }?>
 								</div>														
-								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;">
+								<div class="isys-half" style="font-family:Gill Sans W02,Arial,sans-serif;color:#9a9a9a;font-size:12px;">
 									<h1 class="entry-title" style="color:#d92b82;margin-bottom:-10px;font-family:Garamond;font-size:14px;line-height:28px;"><?php the_title(); ?></h1>
 									<br/>
-									<span style="font-family:Gill Sans W02 Bold;font-weight:600;font-size:12px;">
+									<span style="font-family:Gill Sans W02 Bold;font-weight:600;">
 										INDLÆG AF
 									</span>
 									<br/>
-									<span style="text-transform:uppercase;font-size:12px;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
+									<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 									<br/>
 									<?php setlocale(LC_TIME, 'da_DK');?>
-									<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
+									<span style="text-transform:lowercase;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
 									<br/>
-									<span style="font-size:12px;">
+									<span>
 										kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
 									</span>
 									<br/>
