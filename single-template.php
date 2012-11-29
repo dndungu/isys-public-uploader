@@ -29,7 +29,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<div class="row" style="width:530px;margin-left:-70px;">
 								<div class="isys-leftbar" style="padding:5px 0 0 0;">
-									<strong class="likes-count"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
+									<strong class="likes-count" style="padding-bottom:0px;"><?php print intval(get_post_meta(get_the_ID(), 'likes', true))?></strong>
 									<a class="post-vote vote-up" vote="up" post="<?php the_ID()?>"><?php print isys_visitor_posts::translate('like')?></a>
 									<?php if(get_post_meta(get_the_ID(), 'favourite_box', true) == 'Yes'){?>
 									<a class="favourite_box"></a>
@@ -42,12 +42,14 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 										INDLÆG AF
 									</span>
 									<br/>
-									<span style="text-transform:uppercase;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
+									<span style="text-transform:uppercase;font-size:12px;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
 									<br/>
 									<?php setlocale(LC_TIME, 'da_DK');?>
-									<span style="text-transform:lowercase;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
+									<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
 									<br/>
-									kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
+									<span style="font-size:12px;">
+										kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
+									</span>
 									<br/>
 									<br/>
 								</div>
