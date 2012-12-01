@@ -20,7 +20,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php print isys_visitor_posts::translate('title')?></span>
 					<input type="text" name="title" placeholder="<?php print isys_visitor_posts::translate('enter-title')?>"/>
 				</label>				
-				<div id="postdivrich" class="postarea" style="float:left;width:95%;display:inline-block;padding:10px 0;">
+				<div id="postdivrich" class="postarea" style="float:left;width:100%;display:inline-block;padding:10px 0;">
 					<?php wp_editor('', 'description', array('media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10))?>
 				</div>
 				<label>
@@ -34,19 +34,6 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<?php
 				$companies = isys_visitor_posts::get_companies();
 				?>
-				<label>
-					<span>Your workplace</span>
-					<select name="post_company">
-						<option value="0"><?php print isys_visitor_posts::translate('select-company')?></option>
-						<?php if(count($companies)){?>
-						<?php foreach($companies as $company){?>
-						<?php if(strlen($company->alttext)) {?>
-							<option value="<?php echo $company->pid?>"><?php echo $company->alttext?></option>
-						<?php }?>
-						<?php }?>
-						<?php }?>
-					</select>
-				</label>
 				<label class="attachments">
 					<span><?php print isys_visitor_posts::translate('added-files')?></span>
 					<span class="field">
@@ -55,28 +42,18 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 						<span class="progress"></span>
 					</span>
 				</label>
-				<label id="recaptcha_widget">
-					<span>&nbsp;</span>
-					<span id="recaptcha_image" class="field"></span>
+				<label>
+					<span><?php print isys_visitor_posts::translate('username')?></span>
+					<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" maxlength="255"/>
 				</label>
 				<label>
-					<span>&nbsp;</span>
-					<input type="text" name="recaptcha_response_field" style="width:75%;float:left;" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('added-files')?>" id="recaptcha_response_field" />
-					<a href="javascript:Recaptcha.reload()" style="width:18%;margin:5px 1%;float:left;display:inline-block;"><?php print isys_visitor_posts::translate('switch-words')?></a>
+					<span><?php print isys_visitor_posts::translate('password')?></span>
+					<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?>" maxlength="255"/>
 				</label>
-				<span style="float:left;width:95%;display:inline-block;">
-					<input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/> <input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/>
-				</span>
+				<div class="label">
+					<input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
+				</div>
 			</form>
-  			<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
-			<script type="text/javascript">
-				var RecaptchaOptions = {
-			    	theme : 'custom'
-				};
-			 </script>  							
-			<script type="text/javascript">
-				Recaptcha.create("6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e", document.getElementById('recaptcha_widget'), {theme: "custom"});
-			</script>					
 			<?php $category_term = get_term_by('id', $category_id, 'blog-indlaeg-kategori')?>
 			<input type="hidden" name="category_name" id="category_name" value="<?php echo $category_term->name?>"/>
 	</div>
