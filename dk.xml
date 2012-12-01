@@ -39,4 +39,8 @@
 	<label name="pdf-only">Du har kun mulighed for, at tilføje PDF filer på dette site.</label>
 	<label name="no-posts">Ingen indlæg</label>
 	<label name="submit-comment">Send</label>
+	<label name="username">Username</label>
+	<label name="enter-username">Enter username</label>
+	<label name="password">Password</label>
+	<label name="enter-password">Enter password</label>
 </language>

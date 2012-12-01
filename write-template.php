@@ -44,11 +44,11 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				</label>
 				<label>
 					<span><?php print isys_visitor_posts::translate('username')?></span>
-					<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" maxlength="255"/>
+					<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 				</label>
 				<label>
 					<span><?php print isys_visitor_posts::translate('password')?></span>
-					<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?>" maxlength="255"/>
+					<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
 				</label>
 				<div class="label">
 					<input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/>

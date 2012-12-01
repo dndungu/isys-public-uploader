@@ -105,26 +105,18 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<label>
 									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
 								</label>
-								<label id="recaptcha_widget">
-									<span id="recaptcha_image" class="field"></span>
+								<label>
+									<span><?php print isys_visitor_posts::translate('username')?></span>
+									<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 								</label>
 								<label>
-									<input style="width:75%;margin:5px 1%;float:left;display:inline-block;" type="text" name="recaptcha_response_field" id="recaptcha_response_field" maxlength="128" placeholder="<?php print isys_visitor_posts::translate('enter-captcha')?>" id="recaptcha_response_field" />
-									<span style="width:18%;margin:5px 1%;float:left;display:inline-block;">
-										<a href="javascript:Recaptcha.reload()"><?php print isys_visitor_posts::translate('switch-words')?></a>
-									</span>
+									<span><?php print isys_visitor_posts::translate('password')?></span>
+									<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
 								</label>								
+								<div class="label">
 								<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
+								</div>
 							</form>
-				  			<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
-							<script type="text/javascript">
-								var RecaptchaOptions = {
-							    	theme : 'custom'
-								};
-							 </script>  							
-							<script type="text/javascript">
-								Recaptcha.create("6Lfgi9gSAAAAAOBUxMtjJlSd8PNn1sxQbgH1OP6e", document.getElementById('recaptcha_widget'), {theme: "custom"});
-							</script>					
 						</div>
 						<div class="row" style="font-family: Gill Sans W02 Light;color:#9a9a9a;margin:150px 0 0 0;font-size:10px;line-height:14px;">
 							<strong style="font-family: Gill Sans W02 Bold,Arial,sans-serif;">ANSVAR</strong>

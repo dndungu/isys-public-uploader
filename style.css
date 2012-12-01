@@ -257,7 +257,7 @@
 	float:right;
 }
 
-#isys_visitor_comment_form input[type="text"], #isys_visitor_comment_form textarea {
+#isys_visitor_comment_form input[type="text"], #isys_visitor_comment_form input[type="password"],#isys_visitor_comment_form textarea {
 	background-color:#e1e1e1;
 	border:1px solid #e1e1e1;
 	color:#000;
@@ -288,4 +288,11 @@
 
 .isys_visitor_posts .likes-count {
 	padding-bottom: 0px;
+}
+
+.isys_visitor_posts input[type="password"]{
+	font-family: 'Garamond W02';
+	font-size: 1em;
+	line-height: 18px;
+	border: 1px solid #ccc;
 }

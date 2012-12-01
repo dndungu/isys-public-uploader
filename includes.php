@@ -397,4 +397,32 @@ class isys_visitor_posts {
 		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_11_ngg_pictures RIGHT JOIN wp_11_ngg_gallery ON wp_11_ngg_pictures.galleryid=wp_11_ngg_gallery.gid WHERE pid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $pid));
 	}
 	
+	public static function isAuthenticated(){
+		
+	}
+	
+	public static function doAuthenticate(){
+		
+	}
+	
+	public function writeSession($key, $value){
+		$_SESSION[$key] = $value;
+	}
+	
+	public function readSession($key){
+		if(!array_key_exists($key, $_SESSION) || !$this->verifyHash()) {
+			return NULL;
+		} else {
+			return $_SESSION[$key];
+		}		
+	}
+	
+	public static function purgeSession(){
+		$_SESSION = array();
+		if (isset($_COOKIE[session_name()])) {
+			setcookie(session_name(), '', time() - 42000, '/');
+		}
+		session_destroy();		
+	}
+	
 }
