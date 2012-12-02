@@ -21,7 +21,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<input type="text" name="title" placeholder="<?php print isys_visitor_posts::translate('enter-title')?>"/>
 				</label>				
 				<div id="postdivrich" class="postarea" style="float:left;width:100%;display:inline-block;padding:10px 0;">
-					<?php wp_editor('', 'description', array('media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10))?>
+					<?php wp_editor('', 'description', array('dfw' => true, 'media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10));?>
 				</div>
 				<label>
 					<span><?php print isys_visitor_posts::translate('name')?></span>
@@ -30,6 +30,14 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<label>
 					<span><?php print isys_visitor_posts::translate('your-email')?></span>
 					<input type="text" name="author_email" placeholder="<?php print isys_visitor_posts::translate('email-sample')?>"/>
+				</label>
+				<label class="attachments">
+					<span><?php print isys_visitor_posts::translate('added-files')?></span>
+					<span class="field">
+						<span class="errorBox"></span>
+						<input type="file" name="file_upload" id="attachmentFiles" style="float:left;width:100%;margin:5px 0;" multiple="multiple"/>
+						<span class="progress"></span>
+					</span>
 				</label>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
