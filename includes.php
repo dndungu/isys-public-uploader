@@ -108,7 +108,7 @@ class isys_visitor_posts {
 				'post_status' => 'publish',
 		));
 		wp_set_post_terms($postID, self::postInteger('category'), 'blog-indlaeg-kategori');
-		add_post_meta($postID, 'post_company', self::postInteger('post_company'));
+		add_post_meta($postID, 'post_company', self::readSession('company'));
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
@@ -404,7 +404,7 @@ class isys_visitor_posts {
 	public static function doAuthenticate(){
 		global $wpdb;
 //		print_r($wpdb->query(sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix)));die();
-		self::writeSession('isys', array('username' => 'test', 'company' => 'ABC Company'));
+		self::writeSession('isys', array('username' => 'testuser', 'company' => '3718'));
 		return true;
 	}
 	

@@ -31,17 +31,6 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php print isys_visitor_posts::translate('your-email')?></span>
 					<input type="text" name="author_email" placeholder="<?php print isys_visitor_posts::translate('email-sample')?>"/>
 				</label>
-				<?php
-				$companies = isys_visitor_posts::get_companies();
-				?>
-				<label class="attachments">
-					<span><?php print isys_visitor_posts::translate('added-files')?></span>
-					<span class="field">
-						<span class="errorBox"></span>
-						<input type="file" name="file_upload" id="attachmentFiles" style="float:left;width:100%;margin:5px 0;" multiple="multiple"/>
-						<span class="progress"></span>
-					</span>
-				</label>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
 					<span><?php print isys_visitor_posts::translate('username')?></span>
