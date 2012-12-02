@@ -82,7 +82,6 @@ foreach($companies as $key => $company){
 	$company['password'] = $password;
 	$company['username'] = $username;
 	$company['organisation'] = str_replace(',', '', $company['organisation']);
-	$company['alttext'] = str_replace(',', '', $company['alttext']);
 	$company['fullname'] = str_replace(',', '', $company['fullname']);
 	$csv[] = implode(', ', $company);
 }

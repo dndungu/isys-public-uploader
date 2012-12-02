@@ -8,6 +8,8 @@ Author: iSys ApS
 Author URI: http://www.isys.dk
 */
 
+session_start();
+
 require_once(dirname( __FILE__ ) . '/libraries/recaptchalib.php');
 
 require_once(dirname( __FILE__ ) . '/includes.php');

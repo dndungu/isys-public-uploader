@@ -402,6 +402,8 @@ class isys_visitor_posts {
 	}
 	
 	public static function doAuthenticate(){
+		global $wpdb;
+		print_r($wpdb->query(sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix)));die();
 		self::writeSession('isys', array('username' => 'test', 'company' => 'ABC Company'));
 		return true;
 	}
