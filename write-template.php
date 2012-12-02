@@ -38,10 +38,11 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php print isys_visitor_posts::translate('added-files')?></span>
 					<span class="field">
 						<span class="errorBox"></span>
-						<input type="file" name="file_upload" style="float:left;width:100%;margin:5px 0;"/>
+						<input type="file" name="file_upload" id="attachmentFiles" style="float:left;width:100%;margin:5px 0;" multiple="multiple"/>
 						<span class="progress"></span>
 					</span>
 				</label>
+				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
 					<span><?php print isys_visitor_posts::translate('username')?></span>
 					<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
@@ -50,6 +51,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php print isys_visitor_posts::translate('password')?></span>
 					<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
 				</label>
+				<?php }?>
 				<div class="label">
 					<input type="submit" name="submit" class="button" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="button" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
 				</div>

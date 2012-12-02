@@ -43,4 +43,6 @@
 	<label name="enter-username">Enter username</label>
 	<label name="password">Password</label>
 	<label name="enter-password">Enter password</label>
+	<label name="invalid-credentials">You have entered invalid credentials.</label>
+	<label name="from-email">support@blanddigibyen.dk</label>
 </language>

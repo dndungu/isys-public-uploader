@@ -5,7 +5,7 @@ var isys_public_uploader = {
 		this.initMaxPostSize();
 		this.initUploadObject();
 		this.initPostSubmit();
-		this.initFileUpload();
+//		this.initFileUpload();
 		this.initVoting();
 	},
 	initStringTrim: function(){
@@ -60,17 +60,8 @@ var isys_public_uploader = {
 	initPostSubmit: function(){
 		jQuery('#isys_visitor_post_form').submit(function(event){
 			event.preventDefault();
+			isys_public_uploader.ajaxUpload();
 			tinyMCE.triggerSave();
-			var subject = jQuery(this);
-			jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, subject.serialize(), function(){
-				var response = jQuery.parseJSON(arguments[0]);
-				if(typeof response.error == 'string'){
-					jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
-					jQuery('#recaptcha_response_field').val('');
-				}else {
-					subject.html(isys_visitor_posts_locale['post-thanks'] + '<a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
-				}
-			});
 		});
 		jQuery('#isys_visitor_comment_form').submit(function(event){
 			event.preventDefault();
@@ -85,6 +76,18 @@ var isys_public_uploader = {
 				}
 			});			
 		});
+	},
+	postArticle: function(){
+		var subject = jQuery('#isys_visitor_post_form');
+		jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, subject.serialize(), function(){
+			var response = jQuery.parseJSON(arguments[0]);
+			if(typeof response.error == 'string'){
+				jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
+				jQuery('#recaptcha_response_field').val('');
+			}else {
+				subject.html(isys_visitor_posts_locale['post-thanks'] + '<a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
+			}
+		});		
 	},
 	initUploadObject: function(){
 		var subject = this;
@@ -113,11 +116,13 @@ var isys_public_uploader = {
 	},
 	ajaxUpload: function(){
 		var subject = this;
-		var event = arguments[0];
 		var data = new FormData();
 		data.append('action', 'isys_visitor_plugin');
 		data.append('do', 'upload-pdf');
-		var files = event.currentTarget.files;
+		var files = document.getElementById('attachmentFiles').files;
+		if(!files.length) {
+			isys_public_uploader.postArticle();
+		}
 		for(i in files){
 			var file = files[i];
 			if(!(file instanceof File)) continue;
@@ -178,6 +183,7 @@ var isys_public_uploader = {
 			var attachment = response[i];
 			subject.attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
+		isys_public_uploader.postArticle();
 	},
 	removeUpload: function(){
 		jQuery('input[name="attachments[' + arguments[0] + ']"]').parent().remove();

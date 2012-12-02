@@ -76,7 +76,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<div class="isys-half" style="width:50%;text-align:right;">
 									<?php if(count($attachments)){?>
 									<?php foreach($attachments as $attachment_id => $attachment_name){?>
-										<a class="pdf_link" title="<?php print $attachment_name?>" href="<?php print wp_get_attachment_url($attachment_id)?>"></a>
+										<a class="pdf_link" title="<?php print $attachment_name?>" href="<?php print str_replace(realpath($_SERVER["DOCUMENT_ROOT"]), '', wp_get_attachment_url($attachment_id))?>"></a>
 									<?php }?>
 									<?php }?>
 								</div>
@@ -105,6 +105,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<label>
 									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
 								</label>
+								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>
 									<span><?php print isys_visitor_posts::translate('username')?></span>
 									<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
@@ -112,9 +113,10 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<label>
 									<span><?php print isys_visitor_posts::translate('password')?></span>
 									<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
-								</label>								
+								</label>
+								<?php }?>								
 								<div class="label">
-								<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
+									<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
 								</div>
 							</form>
 						</div>

@@ -96,10 +96,10 @@ class isys_visitor_posts {
 	}
 
 	private function create_post(){
-		$response = recaptcha_check_answer(self::$recaptcha_private_key, $_SERVER["REMOTE_ADDR"], self::postString('recaptcha_challenge_field'), self::postString('recaptcha_response_field'));
-		if(!$response->is_valid) {
-			print json_encode(array('error' => "The reCAPTCHA was not entered correctly."));die();
-			return;
+		if(!self::isAuthenticated()){
+			if(!self::doAuthenticate()){
+				print json_encode(array('error' => self::translate('invalid-credentials')));die();
+			}
 		}
 		$postID = wp_insert_post(array(
 				'post_type' => 'blogindlaeg',
@@ -357,7 +357,7 @@ class isys_visitor_posts {
 		if(!is_array($companies)) return;
 		?>
 			<label>
-				<select name="post_company" id="post_company">
+				<select name="post_company" id="post_company" style="width:100%;">
 					<option value="0"><?php print __('Select Company')?></option>
 					<?php foreach($companies as $company){?>
 					<option value="<?php echo $company->pid?>"<?php if($post_company == $company->pid){print ' selected="selected"';}?>><?php print $company->alttext?></option>
@@ -398,11 +398,12 @@ class isys_visitor_posts {
 	}
 	
 	public static function isAuthenticated(){
-		
+		return is_array(self::readSession('isys'));
 	}
 	
 	public static function doAuthenticate(){
-		
+		self::writeSession('isys', array('username' => 'test', 'company' => 'ABC Company'));
+		return true;
 	}
 	
 	public function writeSession($key, $value){
@@ -423,6 +424,23 @@ class isys_visitor_posts {
 			setcookie(session_name(), '', time() - 42000, '/');
 		}
 		session_destroy();		
+	}
+	
+	public static function randomString($size = 8){
+		$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";
+		$i = 0;
+		$s = array();
+		while ($i++ <= $size) {
+			$s[] = substr($chars, (rand() % 59), 1);
+		}
+		return join("", $s);
+	}
+	
+	private static function sendEmail($to, $subject, $message){
+		$headers  = "MIME-Version: 1.0\r\n";
+		$headers .= "Content-type: text/html; charset=utf-8\r\n";
+		$headers .= "From: ".self::translate('from-email')."\r\n";	
+		mail($to, $subject, $message, $headers);
 	}
 	
 }
