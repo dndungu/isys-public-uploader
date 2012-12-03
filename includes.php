@@ -108,7 +108,7 @@ class isys_visitor_posts {
 				'post_status' => 'publish',
 		));
 		wp_set_post_terms($postID, self::postInteger('category'), 'blog-indlaeg-kategori');
-		add_post_meta($postID, 'post_company', self::readSession('company'));
+		add_post_meta($postID, 'post_company', self::readSession('pid'));
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
@@ -165,9 +165,10 @@ class isys_visitor_posts {
 	}
 
 	private function create_comment(){
-		$response = recaptcha_check_answer(self::$recaptcha_private_key, $_SERVER["REMOTE_ADDR"], self::postString('recaptcha_challenge_field'), self::postString('recaptcha_response_field'));
-		if(!$response->is_valid) {
-			print json_encode(array('error' => "The reCAPTCHA was not entered correctly."));die();
+		if(!self::isAuthenticated()){
+			if(!self::doAuthenticate()){
+				print json_encode(array('error' => self::translate('invalid-credentials')));die();
+			}
 		}
 		$comment = array(
 				'comment_post_ID' => self::postInteger('post_id'),
@@ -403,9 +404,15 @@ class isys_visitor_posts {
 	
 	public static function doAuthenticate(){
 		global $wpdb;
-//		print_r($wpdb->query(sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix)));die();
-		self::writeSession('isys', array('username' => 'testuser', 'company' => '3718'));
-		return true;
+		$sql = sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix, $wpdb->escape(self::postString('author_username')), md5(self::postString('author_password')));
+		$user = $wpdb->get_results($sql);
+		if(is_array($user) && count($user)){
+			self::writeSession('isys', array('pid' => $user[0]->pid, 'username' => $user[0]->username));
+			return true;
+		}else{
+			self::purgeSession();
+			return false;
+		}
 	}
 	
 	public function writeSession($key, $value){
@@ -413,7 +420,7 @@ class isys_visitor_posts {
 	}
 	
 	public function readSession($key){
-		if(!array_key_exists($key, $_SESSION) || !$this->verifyHash()) {
+		if(!array_key_exists($key, $_SESSION)) {
 			return NULL;
 		} else {
 			return $_SESSION[$key];
@@ -441,7 +448,7 @@ class isys_visitor_posts {
 	private static function sendEmail($to, $subject, $message){
 		$headers  = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8\r\n";
-		$headers .= "From: ".self::translate('from-email')."\r\n";	
+		$headers .= "From: ".self::translate('email-from')."\r\n";	
 		mail($to, $subject, $message, $headers);
 	}
 	

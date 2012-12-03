@@ -108,11 +108,11 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>
 									<span><?php print isys_visitor_posts::translate('username')?></span>
-									<input type="text" name="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
+									<input type="text" name="author_username" id="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 								</label>
 								<label>
 									<span><?php print isys_visitor_posts::translate('password')?></span>
-									<input type="password" name="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
+									<input type="password" name="author_password" id="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
 								</label>
 								<?php }?>								
 								<div class="label">

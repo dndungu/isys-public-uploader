@@ -5,7 +5,6 @@ var isys_public_uploader = {
 		this.initMaxPostSize();
 		this.initUploadObject();
 		this.initPostSubmit();
-//		this.initFileUpload();
 		this.initVoting();
 	},
 	initStringTrim: function(){
@@ -69,8 +68,7 @@ var isys_public_uploader = {
 			jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, subject.serialize(), function(){
 				var response = jQuery.parseJSON(arguments[0]);
 				if(typeof response.error == 'string'){
-					jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
-					jQuery('#recaptcha_response_field').val('');
+					isys_public_uploader.showInvalidCredentials(response.error);
 				}else {
 					subject.html(isys_visitor_posts_locale['comment-thanks']);
 				}
@@ -82,12 +80,16 @@ var isys_public_uploader = {
 		jQuery.post(isys_public_uploader_the_ajax_script.ajaxurl, subject.serialize(), function(){
 			var response = jQuery.parseJSON(arguments[0]);
 			if(typeof response.error == 'string'){
-				jQuery('#recaptcha_response_field').attr('placeholder', response.error).css({border:"1px inset #fb3a3a"});
-				jQuery('#recaptcha_response_field').val('');
+				isys_public_uploader.showInvalidCredentials(response.error);
 			}else {
 				subject.html(isys_visitor_posts_locale['post-thanks'] + '<a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
 			}
 		});		
+	},
+	showInvalidCredentials: function(){
+		var message = arguments[0];
+		$('#author_username').css({"border-color": "#fb3a3a"}).attr('placeholder', message).val('');
+		$('#author_password').css({"border-color": "#fb3a3a"}).val('');
 	},
 	initUploadObject: function(){
 		var subject = this;

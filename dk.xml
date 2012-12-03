@@ -44,5 +44,19 @@
 	<label name="password">Password</label>
 	<label name="enter-password">Enter password</label>
 	<label name="invalid-credentials">You have entered invalid credentials.</label>
-	<label name="from-email">support@blanddigibyen.dk</label>
+	<label name="email-from">support@blanddigibyen.dk</label>
+	<label name="email-subject">Your blanddigibyen.dk account</label>
+	<label name="email-message">
+		Dear {name},
+		
+		Sed urna tortor, {company} non vehicula at, accumsan nec justo. {password}
+		
+		Duis non felis ligula, sollicitudin tempus turpis. Maecenas aliquam lacus orci. Vivamus imperdiet sodales lectus, auctor congue metus volutpat in.
+		
+		Mauris porta massa non mauris accumsan malesuada. Ut sed felis a augue sagittis ornare. Nam ut quam eros. Sed viverra cursus mauris eu sagittis. 
+		
+		Aenean lobortis tincidunt lacinia. Quisque condimentum, nulla quis adipiscing semper, purus est tempor magna, ut congue magna dolor quis mauris.
+		
+		The blanddigibyen.dk team.
+	</label>
 </language>

@@ -67,7 +67,6 @@ $csv = array();
 
 foreach($companies as $key => $company){
 	$username = preg_replace("/[^a-zA-Z0-9]+/", "", $company['organisation']);
-	$username = strlen($username) ? $username : preg_replace("/[^a-zA-Z0-9]+/", "", $company['alttext']);
 	$username = strlen($username) ? $username : preg_replace("/[^a-zA-Z0-9]+/", "", $company['fullname']);
 	$username = strtolower($username);
 	$password = randomString(8);
