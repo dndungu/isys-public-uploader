@@ -41,6 +41,9 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				</label>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
+					For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter. Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
+				</label>
+				<label>
 					<span><?php print isys_visitor_posts::translate('username')?></span>
 					<input type="text" name="author_username" id="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 				</label>

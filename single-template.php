@@ -107,6 +107,9 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								</label>
 								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>
+									For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter.<br/>Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
+								</label>
+								<label>
 									<span><?php print isys_visitor_posts::translate('username')?></span>
 									<input type="text" name="author_username" id="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 								</label>
@@ -136,7 +139,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
-					<p><img src="<?php print $sideimage?>" width="300" style="border:1px solid #000;"/></p>
+					<p><img src="<?php print $sideimage?>" width="380" style="border:1px solid #000;"/></p>
 					<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
 					<?php
 				}

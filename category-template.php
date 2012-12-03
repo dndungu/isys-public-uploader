@@ -126,7 +126,7 @@ get_header();
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
-					<p><img src="<?php print $sideimage?>" width="300" style="border:1px solid #000;"/></p>
+					<p><img src="<?php print $sideimage?>" width="380" style="border:1px solid #000;"/></p>
 					<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
 					<?php
 				}

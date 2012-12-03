@@ -6,7 +6,7 @@ class isys_visitor_posts {
 
 	public static $recaptcha_private_key = '6Lfgi9gSAAAAABPWVmDvBqftb8A3FDQg9a3qp0qC';
 
-	public static $landing_page_slug = 'vaekst-mangfoldighed';
+	public static $landing_page_slug = 'vaekstogmangfoldighed';
 
 	public static $landing_page_title = 'Blogindlæg';
 
