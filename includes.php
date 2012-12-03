@@ -446,7 +446,7 @@ class isys_visitor_posts {
 		return join("", $s);
 	}
 	
-	private static function sendEmail($to, $subject, $message){
+	public static function sendEmail($to, $subject, $message){
 		$headers  = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8\r\n";
 		$headers .= "From: ".self::translate('email-from')."\r\n";	
