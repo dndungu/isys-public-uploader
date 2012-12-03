@@ -108,7 +108,8 @@ class isys_visitor_posts {
 				'post_status' => 'publish',
 		));
 		wp_set_post_terms($postID, self::postInteger('category'), 'blog-indlaeg-kategori');
-		add_post_meta($postID, 'post_company', self::readSession('pid'));
+		$isys = self::readSession('isys');
+		add_post_meta($postID, 'post_company', $isys['company']);
 		add_post_meta($postID, 'likes', 0);
 		add_post_meta($postID, 'dislikes', 0);
 		add_post_meta($postID, 'author_email', self::postString('author_email'));
@@ -407,7 +408,7 @@ class isys_visitor_posts {
 		$sql = sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix, $wpdb->escape(self::postString('author_username')), md5(self::postString('author_password')));
 		$user = $wpdb->get_results($sql);
 		if(is_array($user) && count($user)){
-			self::writeSession('isys', array('pid' => $user[0]->pid, 'username' => $user[0]->username));
+			self::writeSession('isys', array('company' => $user[0]->pid, 'username' => $user[0]->username));
 			return true;
 		}else{
 			self::purgeSession();

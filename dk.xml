@@ -47,16 +47,19 @@
 	<label name="email-from">support@blanddigibyen.dk</label>
 	<label name="email-subject">Your blanddigibyen.dk account</label>
 	<label name="email-message">
-		Dear {name},
+		Velkommen {fullname}
+
+		{company} har nu underskrevet manfoldighedscharter, og kan bidrage til siden.
+
+		Når I vil bidrage med informationer på sitet, skal I bruge følgende informationer:
+
+		Brugernavn: {username}		
+		Adgangskode: {password}
+
+		Æbler og pærer med stort Æ i Øresund med åbne øjne i en Å.
+
+		Med venlig hilsen
 		
-		Sed urna tortor, {company} non vehicula at, accumsan nec justo. {password}
-		
-		Duis non felis ligula, sollicitudin tempus turpis. Maecenas aliquam lacus orci. Vivamus imperdiet sodales lectus, auctor congue metus volutpat in.
-		
-		Mauris porta massa non mauris accumsan malesuada. Ut sed felis a augue sagittis ornare. Nam ut quam eros. Sed viverra cursus mauris eu sagittis. 
-		
-		Aenean lobortis tincidunt lacinia. Quisque condimentum, nulla quis adipiscing semper, purus est tempor magna, ut congue magna dolor quis mauris.
-		
-		The blanddigibyen.dk team.
+		Københavns Kommune	
 	</label>
 </language>
