@@ -104,7 +104,7 @@ class isys_visitor_posts {
 		$postID = wp_insert_post(array(
 				'post_type' => 'blogindlaeg',
 				'post_title' => self::postString('title'),
-				'post_content' => self::postString('description'),
+				'post_content' => $_POST['description'],
 				'post_status' => 'publish',
 		));
 		wp_set_post_terms($postID, self::postInteger('category'), 'blog-indlaeg-kategori');
