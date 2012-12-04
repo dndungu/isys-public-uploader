@@ -24,11 +24,9 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<?php wp_editor('', 'description', array('dfw' => true, 'media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10, 'background-color' => '#e1e1e1'));?>
 				</div>
 				<label>
-					<span><?php //print isys_visitor_posts::translate('name')?></span>
 					<input type="text" name="author_name" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('name')?>"/>
 				</label>
 				<label>
-					<span><?php //print isys_visitor_posts::translate('your-email')?></span>
 					<input type="text" name="author_email" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('your-email')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('your-email')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('your-email')?>"/>
 				</label>
 				<label class="attachments">
@@ -41,20 +39,18 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				</label>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
-					For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter. Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
-				</label>
-				<label>
-					<span><?php //print isys_visitor_posts::translate('username')?></span>
 					<input type="text" name="author_username" id="author_username" autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('username')?>"/>
 				</label>
 				<label>
-					<span><?php //print isys_visitor_posts::translate('password')?></span>
-					<input type="password" name="author_password" id="author_password" autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('password')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('password')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('password')?>"/>
+					<input type="password" name="author_password" id="author_password" autocomplete="off" placeholder="<?php print isys_visitor_posts::translate('enter-password')?>"/>
 				</label>
 				<?php }?>
 				<div class="label">
 					<input type="submit" name="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="isys-black-link" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
 				</div>
+				<label>
+					For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter. Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
+				</label>
 			</form>
 			<?php $category_term = get_term_by('id', $category_id, 'blog-indlaeg-kategori')?>
 			<input type="hidden" name="category_name" id="category_name" value="<?php echo $category_term->name?>"/>

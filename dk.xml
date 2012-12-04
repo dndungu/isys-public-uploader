@@ -18,7 +18,7 @@
 	<label name="title">Overskrift</label>
 	<label name="enter-title">Overskrift</label>
 	<label name="enter-name">Navn</label>
-	<label name="enter-name">Navn</label>
+	<label name="enter-name">NAVN...</label>
 	<label name="your-email">E-mail</label>
 	<label name="email-sample">mitnavn@mitfirma.dk</label>
 	<label name="your-workplace">Vælg afsenderfirma</label>
@@ -30,7 +30,7 @@
 	<label name="post">Send</label>
 	<label name="like">LIKE</label>
 	<label name="name">Navn</label>
-	<label name="comment">Kommentar</label>
+	<label name="comment">SKRIV KOMMENTAR</label>
 	<label name="add-comment">Tilføj en kommentar</label>
 	<label name="switch-words">Skift kode</label>
 	<label name="post-thanks">Tak for dit input. Klik her for at komme tilbage til oversigten for </label>

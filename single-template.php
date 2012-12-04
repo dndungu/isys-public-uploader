@@ -109,12 +109,9 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<input type="text" name="author_name" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('author_name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('author_name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('author_name')?>"/>
 								</label>
 								<label>
-									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
+									<textarea rows="3" cols="12" name="comment_content" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('author_name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('author_name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('author_name')?>"></textarea>
 								</label>
 								<?php if(!isys_visitor_posts::isAuthenticated()){?>
-								<label>
-									For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter.<br/>Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
-								</label>
 								<label>
 									<input type="text" name="author_username" id="author_username" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('username')?>" autocomplete="off"/>
 								</label>
@@ -123,8 +120,11 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								</label>
 								<?php }?>								
 								<div class="label">
-									<input type="submit" class="button" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
+									<input type="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
 								</div>
+								<label>
+									For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter.<br/>Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
+								</label>
 							</form>
 						</div>
 						<div class="row" style="font-family: Gill Sans W02 Light;color:#9a9a9a;margin:150px 0 0 0;font-size:10px;line-height:14px;">
