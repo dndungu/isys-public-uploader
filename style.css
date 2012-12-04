@@ -209,6 +209,10 @@
 	border:2px solid #000;
 }
 
+.isys_visitor_posts .isys-black-link:first-child {
+	margin-left:0;
+}
+
 .isys_visitor_posts .isys-leftbar {
 	text-align:center;
 	width:55px;
