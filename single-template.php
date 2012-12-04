@@ -122,9 +122,11 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<div class="label">
 									<input type="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
 								</div>
+								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>
 									For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter.<br/>Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
 								</label>
+								<?php }?>
 							</form>
 						</div>
 						<div class="row" style="font-family: Gill Sans W02 Light;color:#9a9a9a;margin:150px 0 0 0;font-size:10px;line-height:14px;">

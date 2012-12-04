@@ -48,9 +48,11 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<div class="label">
 					<input type="submit" name="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="isys-black-link" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
 				</div>
+				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
 					For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter. Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
 				</label>
+				<?php }?>
 			</form>
 			<?php $category_term = get_term_by('id', $category_id, 'blog-indlaeg-kategori')?>
 			<input type="hidden" name="category_name" id="category_name" value="<?php echo $category_term->name?>"/>
