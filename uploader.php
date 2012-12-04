@@ -36,7 +36,6 @@
 			}
 			var checkFiles = false;
 			var uploadForm = jQuery('#iframe_uploader');
-			var indicateProgress = window.parent.isys_public_uploader.poorProgressIndicator;
 			jQuery('#attachmentFiles').focus(function(){
 				checkFiles = setInterval(function(){
 					var subject = jQuery(this);
@@ -48,6 +47,9 @@
 						subject.blur();
 					}, 500);
 				}, 500);
+			});
+			uploadForm.submit(function(){
+				window.parent.isys_public_uploader.poorProgressIndicator();
 			});
 		});
 	</script>
