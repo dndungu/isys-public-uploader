@@ -53,13 +53,11 @@ function randomString($size = 8){
 	return join("", $s);
 }
 
-print_r(dbFetch(dbQuery("SELECT * FROM `wp_11_ngg_pictures` LIMIT 50")));die();
+//dbQuery("UPDATE `wp_11_ngg_pictures` SET `username` = (FLOOR(100000000 * RAND()) * `pid`)");
 
-dbQuery("UPDATE `wp_11_ngg_pictures` SET `username` = (FLOOR(100000000 * RAND()) * `pid`)");
+//dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD UNIQUE (`username`)") or die(mysqli_error($dbConnection));
 
-dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD UNIQUE (`username`)") or die(mysqli_error($dbConnection));
-
-dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD  `password` VARCHAR( 32 ) NOT NULL AFTER  `username`") or die(mysqli_error($dbConnection));
+//dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD  `password` VARCHAR( 32 ) NOT NULL AFTER  `username`") or die(mysqli_error($dbConnection));
 
 $companies = dbFetch(dbQuery(sprintf("SELECT `pid`, `organisation`, `fullname`, `email` FROM `wp_11_ngg_pictures`")));
 
