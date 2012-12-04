@@ -202,7 +202,7 @@ var isys_public_uploader = {
 		var width = 0;
 		var progressIndicator = jQuery('#progress_indicator');
 		var totalWidth = progressIndicator.parent().width();
-		this.poorProgressInterval.setInterval(function(){
+		this.poorProgressInterval = setInterval(function(){
 			width += 10;
 			if(width > totalWidth) {
 				width = 10;
