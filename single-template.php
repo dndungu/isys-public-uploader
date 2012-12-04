@@ -120,7 +120,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								</label>
 								<?php }?>								
 								<div class="label">
-									<input type="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
+									<input type="submit" class="isys-black-link" style="color:#fff;" value="<?php print isys_visitor_posts::translate('submit-comment')?>"/>
 								</div>
 								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>

@@ -46,7 +46,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				</label>
 				<?php }?>
 				<div class="label">
-					<input type="submit" name="submit" class="isys-black-link" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="isys-black-link" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
+					<input type="submit" name="submit" class="isys-black-link" style="color:#fff;" value="<?php print isys_visitor_posts::translate('post')?>"/> <input type="reset" name="cancel" class="isys-black-link" style="color:#fff;" value="<?php print isys_visitor_posts::translate('cancel')?>"/>
 				</div>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>
 				<label>
