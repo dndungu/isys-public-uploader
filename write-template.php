@@ -18,18 +18,18 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				<input type="hidden" name="category" value="<?php print $category_id?>"/>
 				<label>
 					<span><?php //print isys_visitor_posts::translate('title')?></span>
-					<input type="text" name="title" placeholder="<?php print isys_visitor_posts::translate('title')?>" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('title')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('title')?>"/>
+					<input type="text" name="title" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('title')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('title')?>"/>
 				</label>				
 				<div id="postdivrich" class="postarea" style="float:left;width:100%;display:inline-block;padding:10px 0;">
 					<?php wp_editor('', 'description', array('dfw' => true, 'media_buttons' => false, 'textarea_name' => 'description', 'textarea_rows' => 10, 'background-color' => '#e1e1e1'));?>
 				</div>
 				<label>
 					<span><?php //print isys_visitor_posts::translate('name')?></span>
-					<input type="text" name="author_name" placeholder="<?php print isys_visitor_posts::translate('enter-name')?>" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('name')?>"/>
+					<input type="text" name="author_name" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('name')?>"/>
 				</label>
 				<label>
 					<span><?php //print isys_visitor_posts::translate('your-email')?></span>
-					<input type="text" name="author_email" placeholder="<?php print isys_visitor_posts::translate('email-sample')?>" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('your-email')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('your-email')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('your-email')?>"/>
+					<input type="text" name="author_email" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('your-email')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('your-email')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('your-email')?>"/>
 				</label>
 				<label class="attachments">
 					<span><?php print isys_visitor_posts::translate('added-files')?></span>
@@ -45,11 +45,11 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 				</label>
 				<label>
 					<span><?php //print isys_visitor_posts::translate('username')?></span>
-					<input type="text" name="author_username" id="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('username')?>"/>
+					<input type="text" name="author_username" id="author_username" autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('username')?>"/>
 				</label>
 				<label>
 					<span><?php //print isys_visitor_posts::translate('password')?></span>
-					<input type="password" name="author_password" id="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('password')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('password')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('password')?>"/>
+					<input type="password" name="author_password" id="author_password" autocomplete="off" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('password')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('password')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('password')?>"/>
 				</label>
 				<?php }?>
 				<div class="label">
