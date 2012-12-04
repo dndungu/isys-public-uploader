@@ -43,14 +43,14 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<span style="font-family:Gill Sans W02 Bold;font-weight:600;font-size:12px;">
 										INDLÆG AF
 									</span>
-									<br/>
-									<span style="text-transform:uppercase;font-size:12px;">
-										<?php $author_name = get_post_meta(get_the_ID(), 'author_name', true)?>
-										<?php $author_name = strlen($author_name) ? $author_name : (count($companies) ? $companies[0]->organisation : false)?>
-										<?php if($author_name){?>
-											<?php print $author_name?>
-										<?php }?>
+									<?php $author_name = get_post_meta(get_the_ID(), 'author_name', true)?>
+									<?php $author_name = strlen($author_name) ? $author_name : (count($companies) ? $companies[0]->organisation : false)?>
+									<?php if($author_name){?>
+									<br/>									
+									<span style="text-transform:uppercase;font-size:12px;">									
+										<?php print $author_name?>
 									</span>
+									<?php }?>
 									<br/>
 									<?php setlocale(LC_TIME, 'da_DK');?>
 									<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
