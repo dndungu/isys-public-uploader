@@ -191,12 +191,12 @@ var isys_public_uploader = {
 		var totalWidth = progressIndicator.parent().width();
 		isys_public_uploader.poorProgressInterval = setInterval(function(){
 			width += 10;
-			if(width > totalWidth) {
+			var percentageWidth = Math.floor((width / totalWidth) * 100);
+			if(percentageWidth > 100) {
 				clearInterval(isys_public_uploader.poorProgressInterval);
 				progressIndicator.html('').width(0);
 				isys_public_uploader.uploadElement.val('');
 			}
-			var percentageWidth = Math.floor((width / totalWidth) * 100);
 			progressIndicator.width(width).html(percentageWidth + '%');
 		}, 250);		
 	},
