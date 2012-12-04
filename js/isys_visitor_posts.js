@@ -191,7 +191,7 @@ var isys_public_uploader = {
 		var totalWidth = progressIndicator.parent().width();
 		isys_public_uploader.poorProgressInterval = setInterval(function(){
 			width += 10;
-			var percentageWidth = Math.floor((width / totalWidth) * 100) - 2;
+			var percentageWidth = Math.floor((width / totalWidth) * 100) - 10;
 			if(percentageWidth > 100) {
 				clearInterval(isys_public_uploader.poorProgressInterval);
 				progressIndicator.html('').width(0);
