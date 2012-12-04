@@ -19,7 +19,7 @@
 	<form enctype="multipart/form-data" id="iframe_uploader" method="post" action="/wp-admin/admin-ajax.php">
 		<input type="hidden" name="action" value="isys_visitor_plugin"/>
 		<input type="hidden" name="do" value="iframe-upload-pdf"/>
-		<input type="file" name="file_upload" id="attachmentFiles" onchange="javascript:document.getElementById('iframe_uploader').submit()"/>
+		<input type="file" name="file_upload" id="attachmentFiles"/>
 	</form>
 	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2" type="text/javascript"></script>
 	<script type="text/javascript">
@@ -49,7 +49,6 @@
 				}, 500);
 			});
 			uploadForm.submit(function(){
-				alert('ding');
 				window.parent.isys_public_uploader.poorProgressIndicator();
 			});
 		});
