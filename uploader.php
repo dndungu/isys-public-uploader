@@ -36,7 +36,7 @@
 			}
 			var checkFiles = false;
 			var uploadForm = jQuery('#iframe_uploader');
-			jQuery('#attachmentFiles').focus(function(){
+			jQuery('#attachmentFiles').click(function(){
 				var subject = jQuery(this);
 				checkFiles = setInterval(function(){
 					if(subject.val().length == 0) return;
@@ -44,7 +44,6 @@
 					clearInterval(checkFiles);
 					setTimeout(function(){
 						uploadForm.submit();
-						subject.blur();
 					}, 500);
 				}, 500);
 			});
