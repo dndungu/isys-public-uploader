@@ -109,7 +109,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<input type="text" name="author_name" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('enter-name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('')?>'){this.value = 'enter-name';}" value="<?php print isys_visitor_posts::translate('enter-name')?>"/>
 								</label>
 								<label>
-									<textarea rows="3" cols="12" name="comment_content" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('author_name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('enter-comment')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('enter-comment')?>"></textarea>
+									<textarea rows="3" cols="12" name="comment_content" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('author_name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('enter-comment')?>'){this.value = '';}"><?php print isys_visitor_posts::translate('enter-comment')?></textarea>
 								</label>
 								<?php if(!isys_visitor_posts::isAuthenticated()){?>
 								<label>
