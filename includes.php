@@ -131,7 +131,7 @@ class isys_visitor_posts {
 			move_uploaded_file($filename, $destination) or die("Kunne ikke flytte filen {$filename} til {$destination}");
 			$wp_filetype =  wp_check_filetype($destination);
 			$ID = wp_insert_attachment(array(
-					'guid' => $destination,
+					'guid' => str_replace(realpath($_SERVER["DOCUMENT_ROOT"]), '', $destination),
 					'post_mime_type' => $wp_filetype['type'],
 					'post_title' => preg_replace('/\.[^.]+$/', '', $upload['name']),
 					'post_content' => 'public file upload',
