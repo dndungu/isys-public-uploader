@@ -391,12 +391,12 @@ class isys_visitor_posts {
 	public static function get_companies(){
 		$gallery = 52;
 		global $wpdb;
-		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_11_ngg_pictures RIGHT JOIN wp_11_ngg_gallery ON wp_11_ngg_pictures.galleryid=wp_11_ngg_gallery.gid WHERE galleryid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $gallery));
+		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_ngg_pictures RIGHT JOIN wp_ngg_gallery ON wp_ngg_pictures.galleryid=wp_ngg_gallery.gid WHERE galleryid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $gallery));
 	}
 
 	public static function get_company($pid){
 		global $wpdb;
-		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_11_ngg_pictures RIGHT JOIN wp_11_ngg_gallery ON wp_11_ngg_pictures.galleryid=wp_11_ngg_gallery.gid WHERE pid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $pid));
+		return $wpdb->get_results(sprintf("SELECT *, IF(LEFT(alttext, 1) BETWEEN '0' AND '9', 2, 1) AS sortOrder1 FROM wp_ngg_pictures RIGHT JOIN wp_ngg_gallery ON wp_ngg_pictures.galleryid=wp_ngg_gallery.gid WHERE pid=%d AND exclude=0 ORDER BY sortOrder1, alttext", $pid));
 	}
 	
 	public static function isAuthenticated(){
@@ -405,7 +405,7 @@ class isys_visitor_posts {
 	
 	public static function doAuthenticate(){
 		global $wpdb;
-		$sql = sprintf("SELECT `pid`, `username` FROM `%s11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix, $wpdb->escape(self::postString('author_username')), md5(self::postString('author_password')));
+		$sql = sprintf("SELECT `pid`, `username` FROM `%sngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->prefix, $wpdb->escape(self::postString('author_username')), md5(self::postString('author_password')));
 		$user = $wpdb->get_results($sql);
 		if(is_array($user) && count($user)){
 			self::writeSession('isys', array('company' => $user[0]->pid, 'username' => $user[0]->username));
