@@ -69,10 +69,14 @@ class isys_visitor_posts {
 				self:: doGetMaxSize();
 				break;
 			case 'upload-pdf':
-				self::doFileUpload();
+				json_encode(self::doFileUpload());
+				die();
 				break;
 			case 'post-vote':
 				self::doPostVote();
+				break;
+			case 'iframe-upload-pdf':
+				self::doIframeFileUpload();
 				break;
 			default:
 				break;
@@ -135,7 +139,12 @@ class isys_visitor_posts {
 			));
 			$attachments[] = array('ID' => $ID, 'name' => $upload['name']);
 		}
-		print json_encode($attachments);
+		return $attachments;
+	}
+	
+	private function doIframeFileUpload(){
+		$isys_uploads = self::doFileUpload();
+		require('uploader.php');
 		die();
 	}
 
