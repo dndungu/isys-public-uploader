@@ -202,7 +202,7 @@ var isys_public_uploader = {
 		var width = 0;
 		var progressIndicator = jQuery('#progress_indicator');
 		var totalWidth = progressIndicator.parent().width();
-		setInterval(function(){
+		this.poorProgressInterval.setInterval(function(){
 			width += 10;
 			if(width > totalWidth) {
 				width = 10;
@@ -210,7 +210,8 @@ var isys_public_uploader = {
 			var percentageWidth = Math.floor((width / totalWidth) * 100);
 			progressIndicator.width(width).html(percentageWidth + '%');
 		}, 250);		
-	}
+	},
+	poorProgressInterval: false
 };
 
 jQuery(document).ready(function(){
