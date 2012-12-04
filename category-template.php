@@ -74,7 +74,7 @@ get_header();
 									<?php }?>
 								</span>
 								<br/>
-								<?php setlocale(LC_ALL, 'it_IT');?>
+								<?php setlocale(LC_ALL, 'da_DK');?>
 								<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
 								<br/>
 								<span style="font-size:12px;">
