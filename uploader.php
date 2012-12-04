@@ -44,6 +44,7 @@
 					clearInterval(checkFiles);
 					setTimeout(function(){
 						uploadForm.submit();
+						console.info('blur');
 						subject.blur();
 					}, 500);
 				}, 500);
