@@ -1,5 +1,4 @@
 <?php
-<?php
 
 header("Content-Type: text/plain");
 
@@ -55,4 +54,5 @@ function randomString($size = 8){
 }
 
 print_r(dbFetch(dbQuery(sprintf("SELECT * FROM `wp_11_ngg_pictures`"))));
+
 ?>
