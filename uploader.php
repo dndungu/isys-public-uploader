@@ -22,7 +22,7 @@
 	<script type="text/javascript">
 		window.parent.isys_public_uploader.onLoadEnd();
 		var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
-		var attachments = jQuery('.attachments .field', parent.document);
+		var attachments = jQuery('.attachments .field', window.parent.document);
 		for(i in isys_uploads){
 			var attachment = isys_uploads[i];
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
