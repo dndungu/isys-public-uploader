@@ -198,7 +198,7 @@ var isys_public_uploader = {
 				isys_public_uploader.uploadElement.val('');
 			}
 			progressIndicator.width(width).html(percentageWidth + '%');
-		}, 250);		
+		}, 100);		
 	},
 	poorProgressInterval: false
 };
