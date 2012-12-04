@@ -57,10 +57,10 @@ var isys_public_uploader = {
 		});
 	},
 	initPostSubmit: function(){
-		var subject = this;
 		jQuery('#isys_visitor_post_form').submit(function(event){
 			event.preventDefault();
-			switch(subject.settings.uploader){
+			tinyMCE.triggerSave();
+			switch(isys_public_uploader.settings.uploader){
 				case 'ajax':
 					isys_public_uploader.ajaxUpload();
 					break;
@@ -68,7 +68,6 @@ var isys_public_uploader = {
 					isys_public_uploader.postArticle();
 					break;
 			}
-			tinyMCE.triggerSave();
 		});
 		jQuery('#isys_visitor_comment_form').submit(function(event){
 			event.preventDefault();
