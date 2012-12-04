@@ -18,7 +18,7 @@
 		<input type="hidden" name="do" value="iframe-upload-pdf"/>
 		<input type="file" name="file_upload" id="attachmentFiles" onchange="javascript:document.getElementById('iframe_uploader').submit()"/>
 	</form>
-	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2"></script>
+	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2" type="text/javascript"></script>
 	<script type="text/javascript">
 		window.parent.isys_public_uploader.onLoadEnd();
 		var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
