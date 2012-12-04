@@ -53,7 +53,10 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<?php }?>
 									<br/>
 									<?php setlocale(LC_ALL, 'da_DK');?>
-									<span style="text-transform:lowercase;font-size:12px;"><?php print date_i18n('%A %e. %B %Y', get_the_time('U'))?></span>
+									<span style="text-transform:lowercase;font-size:12px;">
+										<?php //print strftime('%A %e. %B %Y', get_the_time('U'))?>
+										<?php print date_i18n('l j. F Y', get_the_time('U'))?>
+									</span>
 									<br/>
 									<span style="font-size:12px;">
 										kategori: <a href="<?php print get_term_link($categories[0])?>" style="text-transform:uppercase;"><?php print $categories[0]->name?></a>
