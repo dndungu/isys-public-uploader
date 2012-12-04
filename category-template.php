@@ -67,7 +67,8 @@ get_header();
 								<br/>
 								<span style="text-transform:uppercase;font-size:12px;">
 									<?php $author_name = get_post_meta(get_the_ID(), 'author_name', true)?>
-									<?php $author_name = strlen($author_name) ? $author_name.',<br/>'.$companies[0]->organisation : $companies[0]->organisation?>
+									<?php $organisation = count($companies) ? $companies[0]->organisation : false;?>
+									<?php $author_name = strlen($author_name) ? ($organisation ? $author_name.',<br/>'.$companies[0]->organisation : $author_name) : ($organisation ? $organisation : false)?>
 									<?php if($author_name){?>
 										<?php print $author_name?>
 									<?php }?>
