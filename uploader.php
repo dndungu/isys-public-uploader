@@ -33,7 +33,8 @@
 		var checkFiles = false;
 		jQuery('#attachmentFiles').focus(function(){
 			checkFiles = setInterval(function(){
-				if(jQuery(this).val().length == 0) return;
+				var subject = jQuery(this);
+				if(subject.val().length == 0) return;
 				window.parent.isys_public_uploader.poorProgressIndicator();
 				setTimeout(function(){
 					jQuery('#iframe_uploader').submit();
