@@ -20,6 +20,7 @@
 	</form>
 	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2"></script>
 	<script type="text/javascript">
+		window.parent.isys_public_uploader.onLoadEnd();
 		var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
 		var attachments = jQuery('.attachments .field', parent.document);
 		for(i in isys_uploads){
@@ -27,7 +28,7 @@
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
 		jQuery('#attachmentFiles').change(function(){
-			parent.document.poorProgressIndicator.poorProgressIndicator();
+			window.parent.isys_public_uploader.poorProgressIndicator.poorProgressIndicator();
 			jQuery('#iframe_uploader').submit();
 		});
 	</script>
