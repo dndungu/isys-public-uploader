@@ -197,6 +197,19 @@ var isys_public_uploader = {
 	},
 	removeUpload: function(){
 		jQuery('input[name="attachments[' + arguments[0] + ']"]').parent().remove();
+	},
+	poorProgressIndicator: function(){
+		var width = 0;
+		var progressIndicator = jQuery('#progress_indicator', parent.document);
+		var totalWidth = progressIndicator.parent().width();
+		setInterval(function(){
+			width += 10;
+			if(width > totalWidth) {
+				width = 10;
+			}
+			var percentageWidth = ((width / totalWidth) * 100);
+			progressIndicator.width(width).html(percentageWidth + '%');
+		}, 500);		
 	}
 };
 

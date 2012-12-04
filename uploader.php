@@ -26,19 +26,9 @@
 			var attachment = isys_uploads[i];
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
-		jQuery('#iframe_uploader').submit(function(){
-			var width = 0;
-			var progressIndicator = jQuery('#progress_indicator', parent.document);
-			var totalWidth = progressIndicator.parent().width();
-			setInterval(function(){
-				width += 10;
-				if(width > totalWidth) {
-					width = 10;
-				}
-				var percentageWidth = ((width / totalWidth) * 100);
-				progressIndicator.width(width).html(percentageWidth + '%');
-			}, 500);
-			
+		jQuery('#attachmentFiles').change(function(){
+			parent.document.poorProgressIndicator.poorProgressIndicator();
+			jQuery('#iframe_uploader').submit();
 		});
 	</script>
 </body>
