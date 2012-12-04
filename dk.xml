@@ -48,18 +48,22 @@
 	<label name="email-subject">Your blanddigibyen.dk account</label>
 	<label name="email-message">
 		Velkommen {fullname}
-
-		{company} har nu underskrevet manfoldighedscharter, og kan bidrage til siden.
-
+		<br/>
+		<br/>
+		{organisation} har nu underskrevet manfoldighedscharter, og kan bidrage til siden.
+		<br/>
+		<br/>
 		Når I vil bidrage med informationer på sitet, skal I bruge følgende informationer:
-
+		<br/>
+		<br/>
 		Brugernavn: {username}		
 		Adgangskode: {password}
-
+		<br/>
+		<br/>
 		Æbler og pærer med stort Æ i Øresund med åbne øjne i en Å.
-
+		<br/>
+		<br/>
 		Med venlig hilsen
-		
 		Københavns Kommune	
 	</label>
 </language>

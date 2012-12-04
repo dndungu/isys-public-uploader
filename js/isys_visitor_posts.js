@@ -82,6 +82,7 @@ var isys_public_uploader = {
 			if(typeof response.error == 'string'){
 				isys_public_uploader.showInvalidCredentials(response.error);
 			}else {
+				tinyMCE.execCommand('mceRemoveControl',false, tinymce.editors[0].id);
 				subject.html(isys_visitor_posts_locale['post-thanks'] + '<a href="javascript:history.back();">'+jQuery('#category_name').val()+'</a>');
 			}
 		});		
