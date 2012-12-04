@@ -36,15 +36,15 @@
 			}
 			var checkFiles = false;
 			var uploadForm = jQuery('#iframe_uploader');
+			var indicateProgress = window.parent.isys_public_uploader.poorProgressIndicator;
 			jQuery('#attachmentFiles').focus(function(){
 				checkFiles = setInterval(function(){
 					var subject = jQuery(this);
 					if(subject.val().length == 0) return;
-					window.parent.isys_public_uploader.poorProgressIndicator();
+					indicateProgress();
 					clearInterval(checkFiles);
 					setTimeout(function(){
 						uploadForm.submit();
-						console.info('blur');
 						subject.blur();
 					}, 500);
 				}, 500);
