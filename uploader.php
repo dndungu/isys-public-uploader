@@ -35,7 +35,9 @@
 			checkFiles = setInterval(function(){
 				if(jQuery(this).val().length == 0) return;
 				window.parent.isys_public_uploader.poorProgressIndicator();
-				jQuery('#iframe_uploader').submit();
+				setTimeout(function(){
+					jQuery('#iframe_uploader').submit();
+				}, 500);
 				clearInterval(checkFiles);
 			}, 500);
 		});
