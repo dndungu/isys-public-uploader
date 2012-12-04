@@ -111,19 +111,6 @@ var isys_public_uploader = {
 			subject.onComplete(subject.ajaxObject);
 		};		
 	},	
-	initFileUpload: function(){
-		var subject = this;
-		subject.uploadElement.change(function(){
-			switch(subject.settings.uploader){
-				case 'ajax':
-					subject.ajaxUpload(arguments[0]);
-					break;
-				case 'iframe':
-					subject.iframeUpload(arguments[0]);
-					break;
-			}
-		});
-	},
 	ajaxUpload: function(){
 		var subject = this;
 		var data = new FormData();
