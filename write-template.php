@@ -37,7 +37,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 						<?php }else{?>
 						<iframe id="iframeuploader" name="iframeuploader" style="border:0;height:30px;width:100%;overflow:hidden;" src="/wp-content/plugins/isys-public-uploader/uploader.php"></iframe>
 						<?php }?>
-						<span class="progress"></span>
+						<span class="progress" id="progress_indicator"></span>
 					</span>
 				</label>
 				<?php if(!isys_visitor_posts::isAuthenticated()){?>

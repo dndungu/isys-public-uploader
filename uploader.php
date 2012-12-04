@@ -28,7 +28,7 @@
 		}
 		jQuery('#iframe_uploader').submit(function(){
 			var width = 0;
-			var progressIndicator = jQuery('.progress', parent.document);
+			var progressIndicator = jQuery('#progress_indicator', parent.document);
 			var totalWidth = progressIndicator.parent().width();
 			setInterval(function(){
 				width += 10;
