@@ -15,7 +15,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 
 
 		<div id="container" class="isys_visitor_posts">
-			<div id="content" style="width:380px;" role="main">
+			<div id="content" role="main">
 				<div class="row">
 					<a class="isys-black-link" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?'. $categories[0]->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 				</div>
@@ -143,7 +143,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
-					<p><img src="<?php print $sideimage?>" width="380" style="border:1px solid #000;"/></p>
+					<p><img src="<?php print $sideimage?>" width="300" style="border:1px solid #000;"/></p>
 					<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
 					<?php
 				}

@@ -2,7 +2,7 @@
 get_header();
 ?>
 		<div id="container" class="isys_visitor_posts">
-			<div id="content" role="main" style="width:380px;" class="isys-main">
+			<div id="content" role="main" class="isys-main">
 				<?php
 					global $wp_query;
 					$slug = str_replace('blogindlaegs/', '', $wp_query->query['pagename']);
@@ -133,7 +133,7 @@ get_header();
 				$sideimage = $category_meta['sideimage_term_meta'];
 				if(strlen($sideimage)) {
 					?>
-					<p><img src="<?php print $sideimage?>" width="380" style="border:1px solid #000;"/></p>
+					<p><img src="<?php print $sideimage?>" width="300" style="border:1px solid #000;"/></p>
 					<hr style="border:0 none;border-top:1px solid #c3c3c3;background:transparent;margin:20px 0;display:block;"/>
 					<?php
 				}
