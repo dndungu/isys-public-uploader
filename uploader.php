@@ -36,12 +36,12 @@
 			checkFiles = setInterval(function(){
 				var subject = jQuery(this);
 				if(subject.val().length == 0) return;
-				subject.blur();
 				window.parent.isys_public_uploader.poorProgressIndicator();
+				clearInterval(checkFiles);
 				setTimeout(function(){
 					uploadForm.submit();
+					subject.blur();
 				}, 500);
-				clearInterval(checkFiles);
 			}, 500);
 		});
 	</script>
