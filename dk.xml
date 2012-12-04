@@ -43,7 +43,7 @@
 	<label name="username">Username</label>
 	<label name="enter-username">BRUGERNAVN...</label>
 	<label name="password">ADGANGSKODE...</label>
-	<label name="enter-password">Enter password</label>
+	<label name="enter-password">ADGANGSKODE...</label>
 	<label name="invalid-credentials">You have entered invalid credentials.</label>
 	<label name="email-from">support@blanddigibyen.dk</label>
 	<label name="email-subject">Your blanddigibyen.dk account</label>
