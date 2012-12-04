@@ -31,6 +31,7 @@
 	<label name="like">LIKE</label>
 	<label name="name">Navn</label>
 	<label name="comment">SKRIV KOMMENTAR...</label>
+	<label name="enter-comment">SKRIV KOMMENTAR...</label>
 	<label name="add-comment">Tilføj en kommentar</label>
 	<label name="switch-words">Skift kode</label>
 	<label name="post-thanks">Tak for dit input. Klik her for at komme tilbage til oversigten for </label>
