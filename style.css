@@ -277,7 +277,7 @@
 
 #isys_visitor_comment_form input[type="text"], #isys_visitor_comment_form input[type="password"],#isys_visitor_comment_form textarea, #isys_visitor_post_form input[type="text"], #isys_visitor_post_form input[type="password"], #isys_visitor_post_form textarea {
 	background-color:#e1e1e1;
-	border:1px solid #e1e1e1;
+	border:1px solid #ccc;
 	color:#000;
 }
 
@@ -313,4 +313,9 @@
 	font-size: 1em;
 	line-height: 18px;
 	border: 1px solid #ccc;
+}
+
+.isys_visitor_posts .wp_themeSkin iframe {
+	background-color:#e1e1e1;
+	color:#000;
 }
