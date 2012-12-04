@@ -65,7 +65,13 @@ get_header();
 								INDLÆG AF
 								</span>
 								<br/>
-								<span style="text-transform:uppercase;font-size:12px;"><?php $author_email = get_post_meta(get_the_ID(), 'author_email')?> <a href="mailto:<?php print $author_email[0]?>"><?php print $author_email[0]?></a></span>
+								<span style="text-transform:uppercase;font-size:12px;">
+									<?php $author_name = get_post_meta(get_the_ID(), 'author_name', true)?>
+									<?php $author_name = strlen($author_name) ? $author_name : (count($companies) ? $companies[0]->organisation : false)?>
+									<?php if($author_name){?>
+										<?php print $author_name?>
+									<?php }?>
+								</span>
 								<br/>
 								<?php setlocale(LC_TIME, 'da_DK');?>
 								<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
