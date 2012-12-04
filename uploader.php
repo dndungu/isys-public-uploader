@@ -35,7 +35,8 @@
 				if(width > totalWidth) {
 					width = 10;
 				}
-				progressIndicator.width(width).html((((width / totalWidth) * 100) + '%'));
+				var percentageWidth = ((width / totalWidth) * 100);
+				progressIndicator.width(width).html(percentageWidth + '%');
 			}, 500);
 			
 		});
