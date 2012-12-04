@@ -193,7 +193,8 @@ var isys_public_uploader = {
 			width += 10;
 			if(width > totalWidth) {
 				clearInterval(isys_public_uploader.poorProgressInterval);
-				isys_public_uploader.onLoadEnd();
+				progressIndicator.html('').width(0);
+				isys_public_uploader.uploadElement.val('');
 			}
 			var percentageWidth = Math.floor((width / totalWidth) * 100);
 			progressIndicator.width(width).html(percentageWidth + '%');
