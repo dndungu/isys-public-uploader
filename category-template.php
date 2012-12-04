@@ -2,7 +2,7 @@
 get_header();
 ?>
 		<div id="container" class="isys_visitor_posts">
-			<div id="content" role="main" class="isys-main">
+			<div id="content" role="main" style="width:380px;" class="isys-main">
 				<?php
 					global $wp_query;
 					$slug = str_replace('blogindlaegs/', '', $wp_query->query['pagename']);

@@ -15,7 +15,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 
 
 		<div id="container" class="isys_visitor_posts">
-			<div id="content" role="main">
+			<div id="content" style="width:380px;" role="main">
 				<div class="row">
 					<a class="isys-black-link" href="<?php echo get_bloginfo('url') . '/' . isys_visitor_posts::$form_page_slug . '/?'. $categories[0]->term_id?>"><?php echo __('OPRET NYT INDLÆG')?></a>
 				</div>
