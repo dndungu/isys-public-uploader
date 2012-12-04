@@ -49,6 +49,7 @@
 				}, 500);
 			});
 			uploadForm.submit(function(){
+				alert('ding');
 				window.parent.isys_public_uploader.poorProgressIndicator();
 			});
 		});
