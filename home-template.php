@@ -13,7 +13,7 @@ get_header();
 			<div class="sixoften"><h1 style="color:#000;"><?php echo __('VÆKST & MANGFOLDIGHED')?></h1></div>
 			<div class="fouroften">
 				<form class="search-form" method="GET" action="<?php echo site_url()?>">
-						<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...') 			{this.value = '';}"/>
+						<input type="text" value="HVAD LEDER DU EFTER..." name="s" id="s" onblur="if (this.value == '') { this.value = 'HVAD LEDER DU EFTER...';}" onfocus="if (this.value == 'HVAD LEDER DU EFTER...'){this.value = '';}"/>
 						<input type="hidden" id="searchsubmit"/>
 						<input type="hidden" name="post_type" value="blogindlæg">
 				</form>
