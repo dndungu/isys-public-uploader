@@ -24,10 +24,6 @@
 	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2" type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			if(window.parent.isys_public_uploader.poorProgressInterval){
-				clearInterval(window.parent.isys_public_uploader.poorProgressInterval);
-				window.parent.isys_public_uploader.onLoadEnd();
-			}		
 			var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
 			var attachments = jQuery('.attachments .field', window.parent.document);
 			for(i in isys_uploads){

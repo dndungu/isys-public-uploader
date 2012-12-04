@@ -202,10 +202,12 @@ var isys_public_uploader = {
 		var width = 0;
 		var progressIndicator = jQuery('#progress_indicator');
 		var totalWidth = progressIndicator.parent().width();
-		this.poorProgressInterval = setInterval(function(){
+		var subject = this;
+		subject.poorProgressInterval = setInterval(function(){
 			width += 10;
 			if(width > totalWidth) {
-				width = 10;
+				clearInterval(subject.poorProgressInterval);
+				subject.onLoadEnd();
 			}
 			var percentageWidth = Math.floor((width / totalWidth) * 100);
 			progressIndicator.width(width).html(percentageWidth + '%');
