@@ -57,9 +57,17 @@ var isys_public_uploader = {
 		});
 	},
 	initPostSubmit: function(){
+		var subject = this;
 		jQuery('#isys_visitor_post_form').submit(function(event){
 			event.preventDefault();
-			isys_public_uploader.ajaxUpload();
+			switch(subject.settings.uploader){
+				case 'ajax':
+					isys_public_uploader.ajaxUpload();
+					break;
+				case 'iframe':
+					isys_public_uploader.postArticle();
+					break;
+			}
 			tinyMCE.triggerSave();
 		});
 		jQuery('#isys_visitor_comment_form').submit(function(event){
@@ -147,7 +155,7 @@ var isys_public_uploader = {
 		subject.ajaxObject.send(data);
 	},
 	iframeUpload: function(){
-		
+		isys_public_uploader.postArticle();
 	},
 	writeError: function(){
 		this.writeBox(jQuery('.errorBox'), arguments[0]);
