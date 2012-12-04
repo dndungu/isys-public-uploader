@@ -116,7 +116,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									<input type="text" name="author_username" id="author_username" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('enter-username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('enter-username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
 								</label>
 								<label>
-									<input type="password" name="author_password" id="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?>" autocomplete="off"/>
+									<input type="password" name="author_password" id="author_password" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('enter-username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('enter-password')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('enter-password')?>" autocomplete="off"/>
 								</label>
 								<?php }?>								
 								<div class="label">
