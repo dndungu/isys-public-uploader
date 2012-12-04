@@ -32,6 +32,9 @@
 			var totalWidth = progressIndicator.parent().width();
 			setInterval(function(){
 				width += 10;
+				if(width > totalWidth) {
+					width = 10;
+				}
 				progressIndicator.width(width).html((((width / totalWidth) * 100) + '%'));
 			}, 500);
 			
