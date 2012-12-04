@@ -20,29 +20,31 @@
 	</form>
 	<script src="/wp-includes/js/jquery/jquery.js?ver=1.7.2" type="text/javascript"></script>
 	<script type="text/javascript">
-		if(window.parent.isys_public_uploader.poorProgressInterval){
-			clearInterval(window.parent.isys_public_uploader.poorProgressInterval);
-			window.parent.isys_public_uploader.onLoadEnd();
-		}		
-		var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
-		var attachments = jQuery('.attachments .field', window.parent.document);
-		for(i in isys_uploads){
-			var attachment = isys_uploads[i];
-			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
-		}
-		var checkFiles = false;
-		var uploadForm = jQuery('#iframe_uploader');
-		jQuery('#attachmentFiles').focus(function(){
-			checkFiles = setInterval(function(){
-				var subject = jQuery(this);
-				if(subject.val().length == 0) return;
-				window.parent.isys_public_uploader.poorProgressIndicator();
-				clearInterval(checkFiles);
-				setTimeout(function(){
-					uploadForm.submit();
-					subject.blur();
+		jQuery(document).ready(function(){
+			if(window.parent.isys_public_uploader.poorProgressInterval){
+				clearInterval(window.parent.isys_public_uploader.poorProgressInterval);
+				window.parent.isys_public_uploader.onLoadEnd();
+			}		
+			var isys_uploads = <?php print isset($isys_uploads) ? json_encode($isys_uploads) : '{}'?>;
+			var attachments = jQuery('.attachments .field', window.parent.document);
+			for(i in isys_uploads){
+				var attachment = isys_uploads[i];
+				attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
+			}
+			var checkFiles = false;
+			var uploadForm = jQuery('#iframe_uploader');
+			jQuery('#attachmentFiles').focus(function(){
+				checkFiles = setInterval(function(){
+					var subject = jQuery(this);
+					if(subject.val().length == 0) return;
+					window.parent.isys_public_uploader.poorProgressIndicator();
+					clearInterval(checkFiles);
+					setTimeout(function(){
+						uploadForm.submit();
+						subject.blur();
+					}, 500);
 				}, 500);
-			}, 500);
+			});
 		});
 	</script>
 </body>
