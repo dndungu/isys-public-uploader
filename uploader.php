@@ -28,7 +28,7 @@
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
 		jQuery('#attachmentFiles').change(function(){
-			window.parent.isys_public_uploader.poorProgressIndicator.poorProgressIndicator();
+			window.parent.isys_public_uploader.poorProgressIndicator();
 			jQuery('#iframe_uploader').submit();
 		});
 	</script>
