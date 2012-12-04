@@ -106,7 +106,7 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 								<input type="hidden" name="do" value="create-comment"/>
 								<input type="hidden" name="post_id" value="<?php the_ID()?>"/>
 								<label>
-									<input type="text" name="author_name" placeholder="<?php print isys_visitor_posts::translate('enter-name')?>"/>
+									<input type="text" name="author_name" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('author_name')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('author_name')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('author_name')?>"/>
 								</label>
 								<label>
 									<textarea rows="3" cols="12" name="comment_content" placeholder="<?php print isys_visitor_posts::translate('add-comment')?>"></textarea>
@@ -116,12 +116,10 @@ $categories = wp_get_post_terms($post->ID, 'blog-indlaeg-kategori');
 									For at kunne skrive en blogpost skal du være logget ind. Du modtager et login når du skriver under på Københavns Mangfoldighedscharter.<br/>Læs mere og underskriv chartret her: <a href="http://www.blanddigibyen.dk/skrivunder/">http://www.blanddigibyen.dk/skrivunder/</a>
 								</label>
 								<label>
-									<span><?php print isys_visitor_posts::translate('username')?></span>
-									<input type="text" name="author_username" id="author_username" placeholder="<?php print isys_visitor_posts::translate('enter-username')?>" autocomplete="off"/>
+									<input type="text" name="author_username" id="author_username" onblur="if (this.value == '') { this.value = '<?php print isys_visitor_posts::translate('username')?>';}" onfocus="if (this.value == '<?php print isys_visitor_posts::translate('username')?>'){this.value = '';}" value="<?php print isys_visitor_posts::translate('username')?>" autocomplete="off"/>
 								</label>
 								<label>
-									<span><?php print isys_visitor_posts::translate('password')?></span>
-									<input type="password" name="author_password" id="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?> "autocomplete="off"/>
+									<input type="password" name="author_password" id="author_password" placeholder="<?php print isys_visitor_posts::translate('enter-password')?>" autocomplete="off"/>
 								</label>
 								<?php }?>								
 								<div class="label">
