@@ -209,7 +209,7 @@ var isys_public_uploader = {
 			}
 			var percentageWidth = Math.floor((width / totalWidth) * 100);
 			progressIndicator.width(width).html(percentageWidth + '%');
-		}, 500);		
+		}, 250);		
 	}
 };
 
