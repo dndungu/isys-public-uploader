@@ -47,23 +47,28 @@
 	<label name="email-from">support@blanddigibyen.dk</label>
 	<label name="email-subject">Your blanddigibyen.dk account</label>
 	<label name="email-message">
-		Velkommen {fullname}
+		Kære {fullname}, {organisation},
 		<br/>
+		Velkommen i klubben af 500+ virksomheder og organisationer, der har valgt at tilslutte sig Københavns Mangfoldighedscharter.
 		<br/>
-		{organisation} har nu underskrevet manfoldighedscharter, og kan bidrage til siden.
+		Københavns Mangfoldighedscharter er en del af Bland dig i byen, som arbejder for at gøre det nemmere for virksomheder og organisationer i København at arbejde med mangfoldighed i praksis. Derfor har vi udviklet en online platform, hvor virksomheder og organisationer kan dele gode erfaringer, konkrete politikker, tjeklister, procedurer eller strategier. På den måde kan I lære af eller lade jer inspirere af hinanden.
 		<br/>
+		Hele værktøjskassen kan I finde på www.blanddigibyen.dk/vaekstogmangfoldighed.
 		<br/>
-		Når I vil bidrage med informationer på sitet, skal I bruge følgende informationer:
+		I kan bruge linket og selv kigge rundt på de indlæg, der allerede eksisterer, eller I kan skrive jeres egne blogposter. For at skrive på platformen får hver underskriver et login.
 		<br/>
+		Jeres login er:
 		<br/>
 		Brugernavn: {username}		
 		Adgangskode: {password}
 		<br/>
 		<br/>
-		Æbler og pærer med stort Æ i Øresund med åbne øjne i en Å.
+		I kan dele det i organisationen eller lade en enkelt være ansvarlig for at samle jeres blogposter.
 		<br/>
+		Bland dig i byen  og alle de andre underskrivere, der gerne vil lade sig inspirere vil sætte stor pris på jeres bidrag. Vi håber, I kan lide platformen. Hvis der opstår problemer eller I har spørgsmål, kan I kontakte os på blanddigibyen@bif.kk.dk.
 		<br/>
-		Med venlig hilsen
-		Københavns Kommune	
+		Med mangfoldige hilsener
+		<br/>
+		Bland dig i byen	
 	</label>
 </language>
