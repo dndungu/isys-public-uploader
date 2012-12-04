@@ -53,7 +53,7 @@ function randomString($size = 8){
 	return join("", $s);
 }
 
-print_r(dbFetch(dbQuery("SELECT `pid`, `username` FROM `wp_11_ngg_pictures`")));
+print_r(dbFetch(dbQuery("SELECT * FROM `wp_11_ngg_pictures` LIMIT 50")));
 
 dbQuery("UPDATE `wp_11_ngg_pictures` SET `username` = (FLOOR(100000000 * RAND()) * `pid`)");
 
