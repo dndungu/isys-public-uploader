@@ -406,7 +406,6 @@ class isys_visitor_posts {
 	public static function doAuthenticate(){
 		global $wpdb;
 		$sql = sprintf("SELECT `pid`, `username` FROM `wp_11_ngg_pictures` WHERE `username` = '%s' AND `password` = '%s'", $wpdb->escape(self::postString('author_username')), md5(self::postString('author_password')));
-		die($sql);
 		$user = $wpdb->get_results($sql);
 		if(is_array($user) && count($user)){
 			self::writeSession('isys', array('company' => $user[0]->pid, 'username' => $user[0]->username));
