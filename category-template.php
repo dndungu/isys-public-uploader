@@ -67,13 +67,13 @@ get_header();
 								<br/>
 								<span style="text-transform:uppercase;font-size:12px;">
 									<?php $author_name = get_post_meta(get_the_ID(), 'author_name', true)?>
-									<?php $author_name = strlen($author_name) ? $author_name : (count($companies) ? $companies[0]->organisation : false)?>
+									<?php $author_name = strlen($author_name) ? $author_name.',<br/>'.$companies[0]->organisation : $companies[0]->organisation?>
 									<?php if($author_name){?>
 										<?php print $author_name?>
 									<?php }?>
 								</span>
 								<br/>
-								<?php setlocale(LC_TIME, 'da_DK');?>
+								<?php setlocale(LC_ALL, 'da_DK');?>
 								<span style="text-transform:lowercase;font-size:12px;"><?php print strftime('%A %e. %B %Y', get_the_time('U'))?></span>
 								<br/>
 								<span style="font-size:12px;">
