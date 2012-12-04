@@ -26,6 +26,16 @@
 			var attachment = isys_uploads[i];
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
+		jQuery('#iframe_uploader').submit(function(){
+			var width = 0;
+			var progressIndicator = jQuery('.progress', parent.document);
+			var totalWidth = progressIndicator.parent().width();
+			setInterval(function(){
+				width += 10;
+				progressIndicator.width(width).html((((width / totalWidth) * 100) + '%'));
+			}, 500);
+			
+		});
 	</script>
 </body>
 </html>
