@@ -15,11 +15,11 @@
 	<label name="favourite">Favorit</label>
 	<label name="company">Firma</label>
 	<label name="back-main-page">Til hovedside</label>
-	<label name="title">Overskrift</label>
-	<label name="enter-title">Overskrift</label>
+	<label name="title">OVERSKRIFT...</label>
+	<label name="enter-title">OVERSKRIFT...</label>
 	<label name="enter-name">Navn</label>
 	<label name="enter-name">NAVN...</label>
-	<label name="your-email">E-mail</label>
+	<label name="your-email">E-MAIL</label>
 	<label name="email-sample">mitnavn@mitfirma.dk</label>
 	<label name="your-workplace">Vælg afsenderfirma</label>
 	<label name="select-company">Vælg</label>
