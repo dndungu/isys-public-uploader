@@ -32,7 +32,7 @@ $category_id = str_replace('?', '', $parts[(count($parts) - 1)]);
 					<span><?php print isys_visitor_posts::translate('added-files')?></span>
 					<span class="field">
 						<span class="errorBox"></span>
-						<?php if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') === true){?>
+						<?php if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') === false){?>
 						<input type="file" name="file_upload" id="attachmentFiles" style="float:left;width:100%;margin:5px 0;" multiple="multiple"/>
 						<?php }else{?>
 						<iframe id="iframeuploader" name="iframeuploader" style="border:0;height:30px;" src="/wp-content/plugins/isys-public-uploader/uploader.php"></iframe>
