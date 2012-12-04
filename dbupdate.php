@@ -53,13 +53,15 @@ function randomString($size = 8){
 	return join("", $s);
 }
 
-dbQuery(sprintf("UPDATE `%sngg_pictures` SET `username` = (FLOOR(100000000 * RAND()) * `pid`)", $table_prefix));
+print_r(dbFetch(dbQuery("SELECT `pid`, `username` FROM `wp_11_ngg_pictures`")));
 
-dbQuery(sprintf("ALTER TABLE  `%sngg_pictures` ADD UNIQUE (`username`)", $table_prefix)) or die(mysqli_error($dbConnection));
+dbQuery("UPDATE `wp_11_ngg_pictures` SET `username` = (FLOOR(100000000 * RAND()) * `pid`)");
 
-dbQuery(sprintf("ALTER TABLE  `%sngg_pictures` ADD  `password` VARCHAR( 32 ) NOT NULL AFTER  `username`", $table_prefix)) or die(mysqli_error($dbConnection));
+dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD UNIQUE (`username`)") or die(mysqli_error($dbConnection));
 
-$companies = dbFetch(dbQuery(sprintf("SELECT `pid`, `organisation`, `fullname`, `email` FROM `%sngg_pictures`", $table_prefix)));
+dbQuery("ALTER TABLE  `wp_11_ngg_pictures` ADD  `password` VARCHAR( 32 ) NOT NULL AFTER  `username`") or die(mysqli_error($dbConnection));
+
+$companies = dbFetch(dbQuery(sprintf("SELECT `pid`, `organisation`, `fullname`, `email` FROM `wp_11_ngg_pictures`")));
 
 if(!is_array($companies)) die('No organisations registered');
 
@@ -71,11 +73,11 @@ foreach($companies as $key => $company){
 	$username = strtolower($username);
 	$password = randomString(8);
 	if(!strlen($username)) continue;
-	dbQuery(sprintf("UPDATE IGNORE `%sngg_pictures` SET `username` = '%s', `password` = '%s' WHERE `pid` = %d", $table_prefix, $username, md5($password), $company['pid']));
+	dbQuery(sprintf("UPDATE IGNORE `wp_11_ngg_pictures` SET `username` = '%s', `password` = '%s' WHERE `pid` = %d", $username, md5($password), $company['pid']));
 	$affectedRows = dbAffectedRows();
 	if(!$affectedRows) {
 		$username = $username.'-'.$company['pid'];
-		dbQuery(sprintf("UPDATE IGNORE `%sngg_pictures` SET `username` = '%s', `password` = '%s' WHERE `pid` = %d", $table_prefix, $username, md5($password), $company['pid']));
+		dbQuery(sprintf("UPDATE IGNORE `wp_11_ngg_pictures` SET `username` = '%s', `password` = '%s' WHERE `pid` = %d", $username, md5($password), $company['pid']));
 		$affectedRows = dbAffectedRows();
 	}
 	$company['password'] = $password;
