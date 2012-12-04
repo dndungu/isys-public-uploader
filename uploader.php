@@ -40,7 +40,6 @@
 				var subject = jQuery(this);
 				checkFiles = setInterval(function(){
 					if(subject.val().length == 0) return;
-					indicateProgress();
 					clearInterval(checkFiles);
 					setTimeout(function(){
 						uploadForm.submit();
