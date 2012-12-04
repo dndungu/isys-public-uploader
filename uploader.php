@@ -31,13 +31,15 @@
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
 		var checkFiles = false;
+		var uploadForm = jQuery('#iframe_uploader');
 		jQuery('#attachmentFiles').focus(function(){
 			checkFiles = setInterval(function(){
 				var subject = jQuery(this);
 				if(subject.val().length == 0) return;
+				subject.blur();
 				window.parent.isys_public_uploader.poorProgressIndicator();
 				setTimeout(function(){
-					jQuery('#iframe_uploader').submit();
+					uploadForm.submit();
 				}, 500);
 				clearInterval(checkFiles);
 			}, 500);
