@@ -37,8 +37,8 @@
 			var checkFiles = false;
 			var uploadForm = jQuery('#iframe_uploader');
 			jQuery('#attachmentFiles').focus(function(){
+				var subject = jQuery(this);
 				checkFiles = setInterval(function(){
-					var subject = jQuery(this);
 					if(subject.val().length == 0) return;
 					indicateProgress();
 					clearInterval(checkFiles);
