@@ -30,10 +30,14 @@
 			var attachment = isys_uploads[i];
 			attachments.prepend('<span style="width:100%;"><input type="hidden" name="attachments['+attachment.ID+']" value="'+attachment.name+'"/>'+attachment.name+' <a href="javascript:isys_public_uploader.removeUpload('+attachment.ID+')">remove</a></span>');
 		}
+		var checkFiles = false;
 		jQuery('#attachmentFiles').focus(function(){
-			if(jQuery(this).val().length == 0) return;
-			window.parent.isys_public_uploader.poorProgressIndicator();
-			jQuery('#iframe_uploader').submit();
+			checkFiles = setInterval(function(){
+				if(jQuery(this).val().length == 0) return;
+				window.parent.isys_public_uploader.poorProgressIndicator();
+				jQuery('#iframe_uploader').submit();
+				clearInterval(checkFiles);
+			}, 500);
 		});
 	</script>
 </body>
