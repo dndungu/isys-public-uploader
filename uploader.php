@@ -10,9 +10,6 @@
 		margin:0;
 		background-color:transparent;
 	}
-	body {
-		height:30px;
-	}
 </style>
 </head>
 <body>
